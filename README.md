@@ -7,10 +7,10 @@ Based on io.js and Electron.
 You will need node and build tools for your OS installed.
 https://github.com/creationix/nvm seems to work well. Once installed, use `nvm install iojs`
 
-`$ npm install`
+# Command line execution
 
-`$ cd ..`
+`$ npm install`
 
 `$ sudo bash`
 
-`# node rt/raw-trace <host>`
+`# node run-trace <host>`
