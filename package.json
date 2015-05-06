@@ -1,0 +1,36 @@
+{
+  "name": "ixnode",
+  "version": "0.0.1",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp run",
+    "launch": "gulp launch",
+    "test": "gulp test",
+    "lint": "gulp lint",
+    "clean": "gulp clean"
+  },
+  "keywords": [],
+  "author": "IXmaps project",
+  "license": "TBD",
+  "dependencies": {
+    "browserify": "^10.1.0",
+    "lodash": "^3.7.0",
+    "raw-socket-ng": "^1.2.2"
+  },
+  "devDependencies": {
+    "babel": "^5.1.11",
+    "babelify": "^6.0.2",
+    "del": "^1.1.1",
+    "electron-prebuilt": "^0.24.0",
+    "gulp": "^3.8.11",
+    "gulp-eslint": "^0.9.0",
+    "gulp-less": "^3.0.3",
+    "gulp-mocha": "^2.0.1",
+    "gulp-shell": "^0.4.1",
+    "gulp-util": "^3.0.4",
+    "less": "^2.5.0",
+    "mocha": "^2.2.4",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}
