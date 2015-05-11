@@ -2,17 +2,16 @@
   "name": "ixnode",
   "productName": "Ixnode",
   "version": "0.0.0",
-  "description": "My stellar app",
+  "description": "IXmaps client",
   "license": "MIT",
   "main": "main.js",
-  "repository": "Vid/ixnode",
+  "repository": "ixmaps/ixnode",
   "author": {
-    "name": "Vid",
-    "email": "vid_github@zooid.org",
+    "name": "ixmaps team",
     "url": "ixmaps.ca"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=2.0.1"
   },
   "scripts": {
     "build": "./node_modules/.bin/electron-rebuild",
