@@ -2,14 +2,24 @@
 
 Based on io.js and Electron.
 
-# raw-sockets-ng install
+## Install packages
 
 You will need node and build tools for your OS installed.
 https://github.com/creationix/nvm seems to work well. Once installed, use `nvm install iojs`
 
-# Command line execution
-
 `$ npm install`
+
+## Build Electron package
+
+`$ npm build`
+
+## Run Electron package
+
+Since you're accessing raw sockets, you must run as root (eg sudo).
+
+`$ npm start`
+
+# Command line execution
 
 `$ sudo bash`
 

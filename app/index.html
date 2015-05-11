@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>IXmaps client</title>
+    <link rel="stylesheet" href="res/index.css">
+  </head>
+  <body>
+    <img src="res/headerimage.jpg" alt="IXmaps header" />
+    <div id="main">
+    </div>
+    <script>
+    const remote = require('remote'), ipc = require('ipc');
+    window.electro = this, window.ipc = ipc;
+    document.addEventListener('keydown', function (e) {
+     if (e.which === 116) {
+        location.reload();
+      }
+    });
+    remote.getCurrentWindow().openDevTools();
+    // the browser app
+    require('./res/main.js');
+ </script>
+  </body>
+  <script src="res/vendors.js"></script>
+</html>

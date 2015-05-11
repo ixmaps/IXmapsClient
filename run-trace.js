@@ -11,7 +11,7 @@ GLOBAL.sim = true;
 
 var dest, dest_ip;
 
-dest = process.argv[2];
+dest = process.argv[2] || 'ixmaps.ca';
 if (!net.isIP(dest)) {
   dns.resolve4(dest, function(err, addresses) {
     if (err) {
