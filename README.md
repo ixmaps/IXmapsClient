@@ -11,7 +11,7 @@ https://github.com/creationix/nvm seems to work well. Once installed, use `nvm i
 
 ## Build Electron package
 
-`$ npm build`
+`$ npm rebuild`
 
 ## Run Electron package
 
