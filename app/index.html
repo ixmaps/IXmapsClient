@@ -15,9 +15,10 @@
     document.addEventListener('keydown', function (e) {
      if (e.which === 116) {
         location.reload();
+      } else if (e.which === 116) {
+        remote.getCurrentWindow().openDevTools();
       }
     });
-    remote.getCurrentWindow().openDevTools();
     // the browser app
     require('./res/main.js');
  </script>

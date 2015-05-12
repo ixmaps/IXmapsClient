@@ -30,11 +30,12 @@
     "electron-prebuilt": "^0.25.3-2",
     "gulp": "^3.8.11",
     "lodash": "^3.7.0",
-    "raw-socket-ng": "^1.2.2",
-    "react": "^0.13.3",
-    "react-bootstrap": "^0.21.2"
+    "raw-socket-ng": "^1.2.2"
   },
   "devDependencies": {
+    "react": "^0.13.3",
+    "react-bootstrap": "^0.21.2",
+    "electron-rebuild": "^0.1.4",
     "babelify": "^6.0.2",
     "bootstrap": "^3.3.4",
     "browserify": "^10.1.3",

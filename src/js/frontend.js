@@ -36,5 +36,5 @@ function start(electro) {
 function submitTrace(options) {
   console.log(options);
 
-//  window.ipc.send('asynchronous-message', 'ping');
+  window.ipc.send('raw-trace', options);
 }

@@ -2,14 +2,14 @@
 
 "use strict";
 
-var dns = require('dns'), net = require('net');
+var dns = require('dns'), net = require('net'), _ = require('lodash');
 var rawTrace = require('./lib/process.js');
 
 var sendTrace = require('./lib/sendTrace.js');
 GLOBAL.debug = true;
 GLOBAL.sim = true;
 
-var dest, dest_ip;
+var dest, dest_ip, options = {timeout: 1000, queries: 4, maxTTL: 30};
 
 dest = process.argv[2] || 'ixmaps.ca';
 if (!net.isIP(dest)) {
@@ -17,9 +17,11 @@ if (!net.isIP(dest)) {
     if (err) {
       rawTrace.finCB('cannot resolve host');
     } else {
-      rawTrace.doTrace(dest, addresses[0]);
+      options = _.extend(options, { address: addresses[0]});
+      rawTrace.doTrace(options);
     }
   });
 } else {
-  rawTrace.doTrace(dest, dest);
+  options = _.extend(options, {address: dest});
+  rawTrace.doTrace(options, dest);
 }

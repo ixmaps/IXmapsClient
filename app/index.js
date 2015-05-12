@@ -30,10 +30,10 @@ app.on('ready', function () {
   mainWindow.webContents.send('ping', 'whoooooooh!');
 });
 
-ipc.on('asynchronous-message', function(event, arg) {
+ipc.on('raw-trace', function(event, arg) {
   console.log(arg);  // prints "ping"
-  event.sender.send('asynchronous-reply', 'pong');
   require('../run-trace.js');
+  event.sender.send('raw-trace-response', 'started');
 });
 
 ipc.on('synchronous-message', function(event, arg) {

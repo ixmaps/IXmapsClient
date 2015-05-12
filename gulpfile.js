@@ -22,6 +22,7 @@ var dependencies = [
   'react' // react is part of this boilerplate
 ];
 
+gulp.task('build', ['setup', 'less', 'browserify']);
 gulp.task('default', ['development', 'setup', 'less', 'watch', 'browserify']);
 
 // set development option
