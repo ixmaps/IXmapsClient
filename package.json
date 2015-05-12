@@ -14,7 +14,7 @@
     "node": ">=2.0.1"
   },
   "scripts": {
-    "rebuild": "./node_modules/.bin/electron-rebuild",
+    "build-electron": "node_modules/.bin/electron-rebuild --version 0.25.2",
     "start": "electron app/",
     "package": "electron-packager app/ $npm_package_productName --prune --asar --ignore=node_modules/electron-prebuilt --ignore=node_modules/electron-packager --ignore=.git"
   },

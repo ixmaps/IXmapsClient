@@ -8,7 +8,7 @@ module.exports = React.createClass({
       <Panel>
         <h1>Trace parameters</h1>
         <form className='form-horizontal'>
-          <Input ref="host" type='text' label='Host' labelClassName='col-xs-2' wrapperClassName='col-xs-7' />
+          <Input ref="dest" type='text' label='Destionation' labelClassName='col-xs-2' wrapperClassName='col-xs-7' />
           <Input ref="postal_code" type='text' label='Postal code' labelClassName='col-xs-2' wrapperClassName='col-xs-2' />
           <Input ref="queries" type='text' label='Queries' defaultValue='4' labelClassName='col-xs-2' wrapperClassName='col-xs-2' />
           <Input ref="timeout" type='text' label='Timeout (milliseconds)' defaultValue='1000' labelClassName='col-xs-2' wrapperClassName='col-xs-2' />
@@ -21,7 +21,7 @@ module.exports = React.createClass({
   },
   submitTrace: function() {
     let options = { include_platform_traceroute: this.refs.include_platform_traceroute.getChecked() };
-    ['host', 'queries', 'timeout', 'postal_code', 'max_hops'].forEach(i => {
+    ['dest', 'queries', 'timeout', 'postal_code', 'max_hops'].forEach(i => {
       options[i] = this.refs[i].getValue();
     });
     this.props.submitTrace(options);

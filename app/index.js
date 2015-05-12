@@ -2,7 +2,7 @@
 
 
 'use strict';
-const app = require('app'), BrowserWindow = require('browser-window'), ipc = require('ipc');
+var app = require('app'), BrowserWindow = require('browser-window'), ipc = require('ipc'), dns = require('dns'), net = require('net'), _ = require('lodash');
 
 // prevent window being GC'd
 let mainWindow = null;
@@ -30,13 +30,9 @@ app.on('ready', function () {
   mainWindow.webContents.send('ping', 'whoooooooh!');
 });
 
-ipc.on('raw-trace', function(event, arg) {
-  console.log(arg);  // prints "ping"
-  require('../run-trace.js');
+ipc.on('raw-trace', function(event, options) {
+  console.log(options);  // prints "ping"
+  var sendTrace = require('../lib/sendTrace.js');
+  sendTrace.runTrace(options.dest, options);
   event.sender.send('raw-trace-response', 'started');
-});
-
-ipc.on('synchronous-message', function(event, arg) {
-  console.log(arg);  // prints "ping"
-  event.returnValue = 'pong';
 });
