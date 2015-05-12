@@ -12,11 +12,12 @@
     <script>
     const remote = require('remote'), ipc = require('ipc');
     window.electro = this, window.ipc = ipc;
+    console.log('press f12 to toggle dev tools');
     document.addEventListener('keydown', function (e) {
      if (e.which === 116) {
         location.reload();
-      } else if (e.which === 116) {
-        remote.getCurrentWindow().openDevTools();
+      } else if (e.which === 123) {
+        remote.getCurrentWindow().toggleDevTools();
       }
     });
     // the browser app

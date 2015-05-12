@@ -11,7 +11,6 @@ function start(electro) {
     console.log(ipc.sendSync('synchronous-message', 'ping')); // prints "pong"
 
     var remote = electro.require('remote');
-    remote.getCurrentWindow().openDevTools();
 
     var Menu = remote.require('menu');
     var MenuItem = remote.require('menu-item');
