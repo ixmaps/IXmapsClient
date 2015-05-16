@@ -5,7 +5,7 @@
 var app = require('app'), BrowserWindow = require('browser-window'), ipc = require('ipc'), dns = require('dns'), net = require('net'), _ = require('lodash');
 
 // prevent window being GC'd
-let mainWindow = null;
+var mainWindow = null;
 
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') {
@@ -31,8 +31,42 @@ app.on('ready', function () {
 });
 
 ipc.on('raw-trace', function(event, options) {
-  console.log(options);  // prints "ping"
-  var sendTrace = require('../lib/sendTrace.js');
-  sendTrace.runTrace(options.dest, options);
+  const sendTrace = require('../lib/sendTrace.js'), send = function(type, message) {
+    console.log(type, message);
+    event.sender.send(type, message);
+  };
+
+  let processor = {
+    hops: [],
+    p: 0,
+
+    error: function(error) {
+      send('error', error);
+    },
+    hop: function(err, res) {
+      let hop = _.extend({pass: this.p}, res);
+      this.hops.push(hop);
+      send('hop', hop);
+    },
+    pass: function(pass) {
+      this.p++;
+      send('pass', this.p);
+    },
+    done: function(err, res) {
+      send('done', err, res);
+      sendTrace.submitTrace(options, this.hops, this.submitted);
+    },
+    submitted: function(err, res, body) {
+      if (!err && res.statusCode == 200) {
+        send('submitted', body);
+      } else {
+        send('submitted-error', err, res, body);
+      }
+    }
+  };
+
+  sendTrace.runTrace(options.dest, options, processor);
   event.sender.send('raw-trace-response', 'started');
+
+
 });
