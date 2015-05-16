@@ -20,8 +20,8 @@ var Interface = React.createClass({
         <Panel className="col-md-12">
           <InputForm submitTrace={submitTrace} />
         </Panel>
-        <input id="textLog" type='checkbox' onChange={this.toggleLog} /> <label htmlFor="textLog">Text log</label>
         <Panel className="col-md-12">
+          <input id="textLog" type='checkbox' onChange={this.toggleLog} /> <label htmlFor="textLog">Text log</label>
           {output}
         </Panel>
       </Row>
