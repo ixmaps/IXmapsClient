@@ -8,7 +8,7 @@ module.exports = React.createClass({
       <div>
         <h1>Trace parameters</h1>
         <form className='form-horizontal'>
-          <Input ref='dest' type='text' label='Destination' defaultValue='floaty.zooid.org' labelClassName='col-md-4' wrapperClassName='col-md-6' />
+          <Input ref='dest' type='text' label='Destination' defaultValue='ixmaps.ca' labelClassName='col-md-4' wrapperClassName='col-md-6' />
           <Input ref='postal_code' type='text' label='Postal code' defaultValue='m1m' labelClassName='col-md-4' wrapperClassName='col-md-2' />
           <Input ref='queries' type='text' label='Queries' defaultValue='4' labelClassName='col-md-4' wrapperClassName='col-md-1' />
           <Input ref='timeout' type='text' label='Timeout (milliseconds)' defaultValue='1000' labelClassName='col-md-4' wrapperClassName='col-md-2' />
