@@ -27,46 +27,87 @@ app.on('ready', function () {
   mainWindow.on('closed', function () {
     mainWindow = null;
   });
-  mainWindow.webContents.send('ping', 'whoooooooh!');
+  GLOBAL.win = mainWindow;
 });
 
-ipc.on('raw-trace', function(event, options) {
+ipc.on('run-trace', function(event, options) {
   const sendTrace = require('../lib/sendTrace.js'), send = function(type, message) {
     console.log(type, message);
     event.sender.send(type, message);
-  };
+  }, platformTraceroute = require('../lib/platform-traceroute.js');
 
-  let processor = {
-    hops: [],
-    p: 0,
 
-    error: function(error) {
-      send('error', error);
-    },
-    hop: function(err, res) {
-      let hop = _.extend({pass: this.p}, res);
-      this.hops.push(hop);
-      send('hop', hop);
-    },
-    pass: function(pass) {
-      this.p++;
-      send('pass', this.p);
-    },
-    done: function(err, res) {
-      send('done', err, res);
-      sendTrace.submitTrace(options, this.hops, this.submitted);
-    },
-    submitted: function(err, res, body) {
-      if (!err && res.statusCode == 200) {
-        send('submitted', body);
-      } else {
-        send('submitted-error', err, res, body);
+  let results = {}, expected = 2,
+    finished = function(platform, result) {
+      results[platform] = result;
+      if (Object.keys(results) < expected) {
+        return;
       }
-    }
-  };
+      sendTrace.submitTrace(options, Object.keys(results).map(function(r) { return results[r]; }), function(err, res, body) {
+        if (!err && res.statusCode == 200) {
+          send('submitted', body);
+        } else {
+          send('submitted-error', err, res, body);
+        }
+      });
+    },
+    rawProcessor = {
+      hops: [],
+      p: 0,
 
-  sendTrace.runTrace(options.dest, options, processor);
+      error: function(error) {
+        send('error', error);
+      },
+      hop: function(err, hop) {
+        this.hops.push(hop);
+        send('hop', hop);
+      },
+      pass: function(pass) {
+        this.p++;
+        send('pass', this.p);
+      },
+      done: function(err, res) {
+        send('done', err, res);
+        finished('ixjs 0.0.1', { protocol: 'icmp', tr_data: this.hops });
+      }
+    }, trProcessor = {
+      data: function(output) {
+        send('output', output);
+      },
+      end: function(output) {
+        send('end', output);
+        finished('platform', { protocol: 'icmp', tr_data: output });
+      },
+      error: function(err) {
+        send('error', err);
+      }
+    }, runTrace = function() {
+      expected = 1;
+      sendTrace.doTrace(options, rawProcessor);
+      if (options.include_platform_traceroute) {
+        expected = 2;
+        platformTraceroute(options, trProcessor);
+      }
+    };
+  console.log('options', JSON.stringify(options, null, 2));
+
+  var net = require('net'), dns = require('dns');
+  if (!net.isIP(options.dest)) {
+    // resolve a symobolic address
+    dns.resolve4(options.dest, function(err, addresses) {
+      if (err) {
+        send('error', 'cannot resolve host');
+      } else {
+        options.dest_ip = addresses[0];
+        runTrace();
+      }
+    });
+  } else {
+    options.dest_ip = options.dest;
+    runTrace();
+  }
+
+  //sendTrace.runTrace(options.dest, options, rawProcessor);
   event.sender.send('raw-trace-response', 'started');
-
 
 });
