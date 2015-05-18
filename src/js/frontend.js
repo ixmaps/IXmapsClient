@@ -1,5 +1,6 @@
-/* jslint node: true, esnext: true */
+/* jslint node: true, esnext: true, browser: true */
 
+"use strict";
 
 var React = require('react'), _ = require('lodash');
 
@@ -14,27 +15,16 @@ function start(electro) {
       messages.push({ type, message});
       render();
     }, render = function() {
-      React.render(<Interface submitTrace={submitTrace} messages={messages} graph={graph} />, document.getElementById('main'));
-    }, graph = { nodes : [], edges : [] }, lastIP;
+      React.render(<Interface submitTrace={submitTrace} messages={messages} />, document.getElementById('main'));
+    };
   window.ipc.on('error', function(message) {
     send('Error', message);
   });
   window.ipc.on('hop', function(hop) {
-    if (!_.findWhere(graph.nodes, {id: hop.ip})) {
-      graph.nodes.push({id: hop.ip, label: hop.ip});
-    }
-    if (lastIP) {
-      if (!_.findWhere(graph.edges, {from: lastIP, to: hop.ip})) {
-        graph.edges.push({from: lastIP, to: hop.ip});
-      }
-    }
-    lastIP = hop.ip;
-    send('tried', JSON.stringify({hop, graph}));
     send('Hop', hop);
   });
   window.ipc.on('pass', function(message) {
     send('Pass', message);
-    lastIP = null;
   });
   window.ipc.on('done', function(message) {
     send('Done', message);

@@ -1,8 +1,16 @@
 /* jslint node: true, esnext: true */
 
+"use strict";
 
-'use strict';
 var app = require('app'), BrowserWindow = require('browser-window'), ipc = require('ipc'), dns = require('dns'), net = require('net'), _ = require('lodash');
+
+var crashReporter = require('crash-reporter');
+crashReporter.start({
+  productName: 'ixnode',
+  companyName: 'ixmaps',
+  submitUrl: 'https://zooid.org/post.php',
+  autoSubmit: true
+});
 
 // prevent window being GC'd
 var mainWindow = null;
@@ -106,8 +114,5 @@ ipc.on('run-trace', function(event, options) {
     options.dest_ip = options.dest;
     runTrace();
   }
-
-  //sendTrace.runTrace(options.dest, options, rawProcessor);
-  event.sender.send('raw-trace-response', 'started');
 
 });
