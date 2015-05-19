@@ -6,6 +6,7 @@ var dns = require('dns'), net = require('net'), _ = require('lodash');
 var processor = require('./lib/processor.js');
 
 var options = {
+  client: 'ixnode cli',
   include_platform_traceroute: false,
   queries: 4,
   timeout: 1000,
