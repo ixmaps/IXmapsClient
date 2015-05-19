@@ -9,29 +9,25 @@ var options = {
   include_platform_traceroute: false,
   queries: 4,
   timeout: 1000,
-  postal_code: "m1m",
-  maxhops: 30
+  postal_code: 'm1m',
+  maxhops: 30,
+  dest: 'ixmaps.ca',
+  nosubmit: false
 };
 
-var p = process.argv.slice(2), dest = 'ixmaps.ca';
+var p = process.argv.slice(2);
 
-for (let i = 0; i < p.length; i++) {
-  let a = p[i];
-  if (a.indexOf('-') === 0) {
-    if (a === '-p') {
-      options.include_platform_traceroute = true;
-    } else {
-      console.error('usage:', process.argv[1], '[-p (include platform trace)]', 'dest');
-      process.exit();
-    }
+while (p.length) {
+  let a = p.shift();
+  if (a === '-p') {
+    options.include_platform_traceroute = true;
+  } else if (options[a.substr(1)] !== undefined && p.length) {
+    options[a.substr(1)] = p.shift();
   } else {
-    dest = a;
+    console.error.apply(null, ['usage:', process.argv[1], '-p (include platform trace)'].concat(Object.keys(options).map(function(k) { return '-' + k + ' value'; })));
+    process.exit();
   }
 }
-
-options.dest = dest;
-
-console.log(options);
 
 processor.doTrace(options, function(type, message) {
   console.log(type, message);

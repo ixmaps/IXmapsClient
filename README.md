@@ -27,4 +27,6 @@ Since you're accessing raw sockets, you must run as root (eg sudo). Make sure yo
 
 ### Command line execution
 
-`# node run-trace <host>`
+`# node run-trace`
+
+use -h for help.
