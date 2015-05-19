@@ -2,7 +2,7 @@
 
 "use strict";
 
-var React = require('react'), _ = require('lodash');
+var React = require('react');
 
 var remote = window.electro.require('remote'), processor = remote.require('../lib/processor.js');
 
