@@ -24,6 +24,7 @@ module.exports = React.createClass({
     ['dest', 'queries', 'timeout', 'postal_code', 'maxhops'].forEach(i => {
       options[i] = this.refs[i].getValue();
     });
+    console.log('totaly submitting');
     this.props.submitTrace(options);
   }
 });

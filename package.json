@@ -16,6 +16,7 @@
   "scripts": {
     "build-electron": "node_modules/.bin/electron-rebuild",
     "start": "electron app/",
+    "debug": "electron --debug=5858 app/",
     "package": "electron-packager app/ $npm_package_productName --prune --asar --ignore=node_modules/electron-prebuilt --ignore=node_modules/electron-packager --ignore=.git"
   },
   "files": [

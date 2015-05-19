@@ -6,10 +6,12 @@ var React = require('react'), _ = require('lodash');
 
 var Interface = require('./Interface.jsx');
 
+var remote = window.electro.require('remote'), processor = remote.require('../lib/processor.js');
+
 start(window.electro);
 
 function start(electro) {
-  var remote = electro.require('remote'), messages = [],
+  var messages = [],
     send = function(type, message) {
       console.log(type, message);
       messages.push({ type, message});
@@ -38,8 +40,12 @@ function start(electro) {
   render();
 }
 
+function send(type, message) {
+  console.log(type, message);
+}
 function submitTrace(options) {
-  console.log(options);
+  console.log('submitTrace', options, send);
+  processor.doTrace(options, send);
 
-  window.ipc.send('run-trace', options);
+//  window.ipc.send('run-trace', options);
 }
