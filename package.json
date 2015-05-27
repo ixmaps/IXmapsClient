@@ -19,7 +19,7 @@
     "debug": "electron --debug=5858 .",
     "package-linux": "electron-packager . ixnode --out dist/linux --ignore=node_modules/electron-prebuilt --ignore=node_modules/electron-packager --ignore=.git --platform=linux --arch=x64 --version=0.26.1 #--asar",
     "package-darwin": "electron-packager . ixnode --out dist/darwin --ignore=node_modules/electron-prebuilt --ignore=node_modules/electron-packager --ignore=.git --platform=darwin --arch=x64 --version=0.26.1 #--asar",
-    "package-win32": "electron-packager . ixnode --out dist/darwin --ignore=node_modules/electron-prebuilt --ignore=node_modules/electron-packager --ignore=.git --platform=win32 --arch=x64 --version=0.26.1 #--asar"
+    "package-win32": "electron-packager . ixnode --out dist/win32 --ignore=node_modules/electron-prebuilt --ignore=node_modules/electron-packager --ignore=.git --platform=win32 --arch=x64 --version=0.26.1 #--asar"
   },
   "files": [
     "main.js",
@@ -30,15 +30,16 @@
     "electron-app"
   ],
   "dependencies": {
-    "electron-prebuilt": "^0.26.0",
-    "gulp": "^3.8.11",
     "lodash": "^3.7.0",
     "raw-socket2": "^1.2.5",
-    "babel": "^5.4.7",
+    "react": "^0.13.3",
+    "bootstrap": "^3.3.4",
+    "react-bootstrap": "^0.22.3",
     "request": "^2.55.0"
   },
   "devDependencies": {
-    "bootstrap": "^3.3.4",
+    "electron-prebuilt": "^0.26.0",
+    "gulp": "^3.8.11",
     "electron-packager": "^4.0.2",
     "electron-rebuild": "^0.1.4",
     "fs": "0.0.2",
@@ -49,8 +50,6 @@
     "gulp-uglify": "^1.2.0",
     "gulp-util": "^3.0.4",
     "mkdirp": "^0.5.0",
-    "react": "^0.13.3",
-    "react-bootstrap": "^0.23.0",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.2.1"
   }
