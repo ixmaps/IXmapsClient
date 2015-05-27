@@ -13,7 +13,7 @@ Then:
 
 ## Executing
 
-Before executing the Electron app, you iwll need to build the modules for Electron. 
+Before executing the Electron app, you will need to build the modules for Electron's version of the Javascript engine.
 
 `$ npm run-script build-electron`
 
