@@ -29,7 +29,7 @@ The generated Electron package will be under dist and should be run as root.
 
 ### Command line execution
 
-`# node run-trace`
+`# node trace-raw`
 
 Note you should not run `npm run-script build-electron` before using the command line version (the compiled raw-socket2 is for a different version). If required, remove node_modules and re-run `npm install` before using run-trace.
 
