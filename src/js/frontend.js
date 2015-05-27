@@ -4,16 +4,14 @@
 
 var React = require('react');
 
-var remote = window.electro.require('remote'), processor = remote.require('../lib/processor.js');
+var remote = window.electro.require('remote'), processor = remote.require('./lib/processor.js');
 
 var Interface = require('./Interface.jsx');
 var messages = [];
 
-start(window.electro);
-
-function start(electro) {
+module.exports = function() {
   render();
-}
+};
 
 function render() {
   React.render(<Interface submitTrace={submitTrace} messages={messages} />, document.getElementById('main'));

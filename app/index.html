@@ -21,8 +21,8 @@
       }
     });
     // the browser app
-    require('./res/main.js');
+    require("babel/register")
+    require('../src/js/frontend.js')();
  </script>
   </body>
-  <script src="res/vendors.js"></script>
 </html>

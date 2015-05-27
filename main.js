@@ -30,7 +30,7 @@ app.on('ready', function () {
     resizable: true
   });
 
-  mainWindow.loadUrl(`file://${__dirname}/index.html`);
+  mainWindow.loadUrl(`file://${__dirname}/app/index.html`);
 
   mainWindow.on('closed', function () {
     mainWindow = null;
