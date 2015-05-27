@@ -30,10 +30,11 @@
     "electron-app"
   ],
   "dependencies": {
+    "babel": "^5.4.7",
+    "bootstrap": "^3.3.4",
     "lodash": "^3.7.0",
     "raw-socket2": "^1.2.5",
     "react": "^0.13.3",
-    "bootstrap": "^3.3.4",
     "react-bootstrap": "^0.22.3",
     "request": "^2.55.0"
   },
