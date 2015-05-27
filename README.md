@@ -9,11 +9,17 @@ https://github.com/creationix/nvm seems to work well. Once installed, use `nvm i
 
 Then:
 
-`$ npm install -g gulp && npm install && gulp build && npm run-script build-electron`
-
-More information: https://github.com/atom/electron/blob/master/docs/tutorial/using-native-node-modules.md
+`$ npm install -g gulp && npm install && gulp build`
 
 ## Executing
+
+Before executing the Electron app, you iwll need to build the modules for Electron. 
+
+`$ npm run-script build-electron`
+
+Note this means you will need to re-install the modules for your node version if using command line execution (see below).
+
+More information: https://github.com/atom/electron/blob/master/docs/tutorial/using-native-node-modules.md
 
 ### Run Electron
 
@@ -31,6 +37,6 @@ The generated Electron package will be under dist and should be run as root.
 
 `# node trace-raw`
 
-Note you should not run `npm run-script build-electron` before using the command line version (the compiled raw-socket2 is for a different version). If required, remove node_modules and re-run `npm install` before using run-trace.
-
 use -h for help.
+
+Note you should **not** run `npm run-script build-electron` before using the command line version (the compiled raw-socket2 is for a different version). If required, remove node_modules and re-run `npm install` before using run-trace.
