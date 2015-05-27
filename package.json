@@ -34,6 +34,7 @@
     "gulp": "^3.8.11",
     "lodash": "^3.7.0",
     "raw-socket2": "^1.2.5",
+    "babel": "^5.4.7",
     "request": "^2.55.0"
   },
   "devDependencies": {
