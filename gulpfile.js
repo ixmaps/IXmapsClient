@@ -2,12 +2,11 @@
 var gulp = require('gulp'),
   watchify = require('watchify'),
   less = require('gulp-less'),
-  cssmin = require('gulp-cssmin'),
   fs = require('fs'),
   shell = require('gulp-shell'),
   mkdirp = require('mkdirp');
 
-gulp.task('build', ['setup', 'less', 'browserify']);
+gulp.task('build', ['setup', 'less']);
 gulp.task('default', ['setup', 'less', 'watch']);
 
 // watch other files
