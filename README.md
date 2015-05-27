@@ -15,7 +15,7 @@ More information: https://github.com/atom/electron/blob/master/docs/tutorial/usi
 
 ## Executing
 
-### Run Electron package
+### Run Electron
 
 Since you're accessing raw sockets, you must run as root (eg sudo). Make sure your root user has node available.
 
@@ -24,6 +24,8 @@ Since you're accessing raw sockets, you must run as root (eg sudo). Make sure yo
 ## Packaging
 
 Run `$ npm run-script package-[linux|darwin|win32]` as required.
+
+The generated Electron package will be under dist and should be run as root.
 
 ### Command line execution
 
