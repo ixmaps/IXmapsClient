@@ -4,7 +4,7 @@ Based on io.js and Electron.
 
 ## Install and build packages
 
-You will need node and build tools for your OS installed.
+You will need the iojs version of node and build tools for your OS installed. For node installation,
 https://github.com/creationix/nvm seems to work well. Once installed, use `nvm install iojs`
 
 Then:
