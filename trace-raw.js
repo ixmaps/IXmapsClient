@@ -10,6 +10,7 @@ var options = {
   include_platform_traceroute: false,
   queries: 4,
   timeout: 1000,
+  submitter: 'trace-raw',
   postal_code: 'm1m',
   maxhops: 30,
   dest: 'ixmaps.ca',
