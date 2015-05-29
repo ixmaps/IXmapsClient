@@ -1,4 +1,4 @@
-# IXclient
+# IXnode
 
 Based on io.js and Electron.
 
