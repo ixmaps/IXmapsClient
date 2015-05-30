@@ -30,6 +30,7 @@
     "electron-app"
   ],
   "dependencies": {
+    "async": "^1.0.0",
     "babel": "^5.4.7",
     "bootstrap": "^3.3.4",
     "lodash": "^3.7.0",
