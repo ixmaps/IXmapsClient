@@ -18,7 +18,7 @@ function render() {
 }
 
 function send(type, message) {
-  console.log(type, message);
+  console.log(type + ': ' + message);
   messages.push({ type, message});
   render();
 }
