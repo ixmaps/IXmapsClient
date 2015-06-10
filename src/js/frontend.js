@@ -38,7 +38,7 @@ function send(type, message) {
 
 function submitTrace(options) {
   send('info', JSON.stringify(options));
-  processor.doTrace(options, send);
+  processor.submitTraceOptions(options, send);
 }
 
 function toggleDebug(e) {

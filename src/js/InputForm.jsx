@@ -15,6 +15,7 @@ module.exports = React.createClass({
       let tropts = trsets.map(t => <option key={t}>{t}</option>);
       seltr = (
         <Input type="select" defaultValue="" ref="trset" label='TR Set' labelClassName='col-md-4' wrapperClassName='col-md-6' help="Use a predefined set of destinations">
+          <option value="">Enter below</option>
           {tropts}
         </Input>
       );
@@ -49,7 +50,7 @@ module.exports = React.createClass({
   },
   submitTrace: function() {
     let options = { include_platform_traceroute: this.refs.include_platform_traceroute.getChecked() };
-    ['dest', 'queries', 'timeout', 'submitter', 'postal_code', 'maxhops', 'raw_protocol', 'platform_protocol'].forEach(i => {
+    ['trset', 'dest', 'queries', 'timeout', 'submitter', 'postal_code', 'maxhops', 'raw_protocol', 'platform_protocol'].forEach(i => {
       options[i] = this.refs[i].getValue();
     });
     this.props.caller.submitTrace(options);

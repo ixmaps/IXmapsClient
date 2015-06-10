@@ -17,7 +17,6 @@ test('retrieve trsets', function(t) {
 
 test('retrieve trsets', function(t) {
   trset.getTrset(testset, function(err, items) {
-    console.log('contents', items);
     t.equals(null, err, 'no error');
     t.equals(true, items.length > 0, 'retrieve trset');
     t.end();
