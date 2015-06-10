@@ -14,7 +14,7 @@
     "node": ">=2.0.1"
   },
   "scripts": {
-    "build-electron": "node_modules/.bin/electron-rebuild",
+    "build-electron": "node_modules/.bin/electron-rebuild -f",
     "start": "electron .",
     "debug": "electron --debug=5858 .",
     "package-linux": "electron-packager . ixnode --out dist/linux --ignore=node_modules/electron-prebuilt --ignore=node_modules/electron-packager --ignore=.git --platform=linux --arch=x64 --version=0.27.1 #--asar",
@@ -43,7 +43,7 @@
   },
   "devDependencies": {
     "electron-packager": "^4.0.2",
-    "electron-prebuilt": "^0.27.2",
+    "electron-prebuilt": "^0.26.1",
     "electron-rebuild": "^0.2.2",
     "fs": "0.0.2",
     "gulp": "^3.8.11",
