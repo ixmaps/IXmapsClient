@@ -7,10 +7,16 @@ var React = require('react');
 var remote = window.electro.require('remote'), processor = remote.require('./lib/processor.js');
 
 var Interface = require('./Interface.jsx');
-var messages = [], debug = false;
+var trsets, messages = [], debug = false;
+
+console.log('## frontend');
 
 module.exports = function() {
   render();
+  remote.require('./lib/trset.js').getTrsets((err, res) => {
+    trsets = res;
+    render();
+  });
 };
 
 function render() {
@@ -21,7 +27,7 @@ function render() {
       sendMessages.push(m);
     }
   }
-  React.render(<Interface caller={{submitTrace, toggleDebug}} messages={sendMessages} />, document.getElementById('main'));
+  React.render(<Interface caller={{submitTrace, toggleDebug}} trsets={trsets} messages={sendMessages} />, document.getElementById('main'));
 }
 
 function send(type, message) {

@@ -5,12 +5,6 @@
 var app = require('app'), BrowserWindow = require('browser-window');
 
 var crashReporter = require('crash-reporter');
-crashReporter.start({
-  productName: 'ixnode',
-  companyName: 'ixmaps',
-  submitUrl: 'https://zooid.org/post.php',
-  autoSubmit: true
-});
 
 // prevent window being GC'd
 var mainWindow = null;
@@ -22,6 +16,7 @@ app.on('window-all-closed', function () {
 });
 
 app.on('ready', function () {
+  console.log('ready');
   mainWindow = new BrowserWindow({
     x: 0,
     y: 0,
@@ -29,6 +24,7 @@ app.on('ready', function () {
     height: 900,
     resizable: true
   });
+  console.log('loading');
 
   mainWindow.loadUrl(`file://${__dirname}/app/index.html`);
 

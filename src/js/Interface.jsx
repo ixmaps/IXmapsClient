@@ -7,11 +7,11 @@ var InputForm = require('./InputForm.jsx');
 
 var Interface = React.createClass({
   render: function() {
-    let {caller, messages} = this.props;
+    let {caller, messages, trsets} = this.props;
     return (
       <Row>
         <Panel className="col-md-12">
-          <InputForm caller={caller} />
+          <InputForm caller={caller} trsets={trsets} />
         </Panel>
         <Panel className="col-md-12">
           <h1>Output</h1>

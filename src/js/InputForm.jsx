@@ -4,19 +4,27 @@ var React = require('react'), {Input, Button, Panel, Row} = require('react-boots
 
 module.exports = React.createClass({
   render: function() {
-    var protocols = [
-      <option>ICMP</option>,
-      <option>UDP</option>,
-      <option>TCP</option>
-    ];
+    let {trsets} = this.props,
+      protocols = [
+        <option key="ICMP">ICMP</option>,
+        <option key="UDP">UDP</option>,
+        <option key="TCP">TCP</option>
+      ], seltr;
 
+    if (trsets) {
+      let tropts = trsets.map(t => <option key={t}>{t}</option>);
+      seltr = (
+        <Input type="select" defaultValue="" ref="trset" label='TR Set' labelClassName='col-md-4' wrapperClassName='col-md-6' help="Use a predefined set of destinations">
+          {tropts}
+        </Input>
+      );
+    }
     return (
       <div>
         <h1>Trace parameters</h1>
         <form className='form-horizontal'>
           <Panel>
-            <Input type="select" defaultValue="" ref="trset" label='TR Set' labelClassName='col-md-4' wrapperClassName='col-md-6' help="Use a predefined set of destinations">
-            </Input>
+            {seltr}
             <Input ref='dest' type='text' label='Destination' defaultValue='ixmaps.ca' labelClassName='col-md-4' wrapperClassName='col-md-6' />
             <Input ref='submitter' type='text' label='Your name' defaultValue='' labelClassName='col-md-4' wrapperClassName='col-md-2' />
             <Input ref='postal_code' type='text' label='Postal code' defaultValue='m1m' labelClassName='col-md-4' wrapperClassName='col-md-2' />
