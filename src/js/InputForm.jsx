@@ -42,6 +42,7 @@ module.exports = React.createClass({
               <option>Default</option>
               {protocols}
             </Input>
+            <Input ref='platform_limit_ms' type='text' label='Platform overall timeout (seconds)' defaultValue='120' labelClassName='col-md-4' wrapperClassName='col-md-1' />
           </Panel>
           <Button className="pull-right" onClick={this.submitTrace}>Submit Trace</Button>
         </form>
@@ -50,9 +51,10 @@ module.exports = React.createClass({
   },
   submitTrace: function() {
     let options = { include_platform_traceroute: this.refs.include_platform_traceroute.getChecked() };
-    ['trset', 'dest', 'queries', 'timeout', 'submitter', 'postal_code', 'maxhops', 'raw_protocol', 'platform_protocol'].forEach(i => {
+    ['trset', 'dest', 'queries', 'timeout', 'submitter', 'postal_code', 'maxhops', 'raw_protocol', 'platform_protocol', 'platform_limit_ms'].forEach(i => {
       options[i] = this.refs[i].getValue();
     });
+    options.platform_limit_ms = options.platform_limit_ms * 1000;
     this.props.caller.submitTrace(options);
   }
 });
