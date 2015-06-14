@@ -14,7 +14,8 @@ var options = {
   postal_code: 'm1m',
   maxhops: 30,
   dest: 'ixmaps.ca',
-  nosubmit: false
+  nosubmit: false,
+  raw_protocol: 'ICMP'
 };
 
 var p = process.argv.slice(2);
@@ -31,6 +32,6 @@ while (p.length) {
   }
 }
 
-processor.doTrace(options, function(type, message) {
+processor.submitTraceOptions(options, function(type, message) {
   console.log(type, message);
 });
