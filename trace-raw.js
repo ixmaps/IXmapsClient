@@ -15,7 +15,8 @@ var options = {
   maxhops: 30,
   dest: 'ixmaps.ca',
   nosubmit: false,
-  raw_protocol: 'ICMP'
+  raw_protocol: 'ICMP',
+  trset: null
 };
 
 var p = process.argv.slice(2);
