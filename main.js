@@ -21,7 +21,7 @@ app.on('ready', function () {
     x: 0,
     y: 0,
     width: 1000,
-    height: 900,
+    height: 750,
     resizable: true
   });
   console.log('loading');
