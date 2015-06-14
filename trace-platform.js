@@ -2,10 +2,12 @@
 
 "use strict";
 
+var _ = require('lodash');
+
 var traceroute = require('./lib/platform-traceroute.js');
 
-var dest, dest_ip, options = {timeout: 1000, queries: 4, maxhops: 30, maxttl: 30};
+var options = require('./lib/cli.js')('platform');
 
-options.dest_ip = process.argv[2] || '142.150.149.197';
+options = _.assign(options, {dest_ip: options.dest, platform_protocol: 'Default'});
 
-traceroute(options, { data: console.log, end: console.log, error: console.error});
+traceroute(options, console.log, console.log);
