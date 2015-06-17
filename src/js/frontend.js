@@ -9,8 +9,6 @@ var remote = window.electro.require('remote'), processor = remote.require('./lib
 var Interface = require('./Interface.jsx');
 var trsets, messages = [], debug = false;
 
-console.log('## frontend');
-
 module.exports = function() {
   render();
   remote.require('./lib/trset.js').getTrsets((err, res) => {
