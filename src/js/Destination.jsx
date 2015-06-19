@@ -6,7 +6,6 @@ module.exports = React.createClass({
   render: function() {
     let {caller, trsets} = this.props, seltr;
 
-console.log('C ' + this.state.canTrace);
     if (trsets) {
       let tropts = trsets.map(t => <option key={t}>{t}</option>);
       seltr = (
