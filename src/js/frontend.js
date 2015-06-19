@@ -6,7 +6,7 @@ var React = require('react');
 
 var remote = window.electro.require('remote'), processor = remote.require('./lib/processor.js');
 
-var Interface = require('./Interface.jsx');
+var InputForm = require('./InputForm.jsx');
 var trsets, messages = [], debug = false;
 
 module.exports = function() {
@@ -25,7 +25,7 @@ function render() {
       sendMessages.push(m);
     }
   }
-  React.render(<Interface caller={{submitTrace, toggleDebug}} trsets={trsets} messages={sendMessages} />, document.getElementById('main'));
+  React.render(<InputForm caller={{submitTrace, toggleDebug}} trsets={trsets} messages={sendMessages} />, document.getElementById('main'));
 }
 
 function send(type, message) {
