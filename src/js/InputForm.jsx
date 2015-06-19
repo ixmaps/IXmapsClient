@@ -20,7 +20,7 @@ var defaultOptions = {
 
 module.exports = React.createClass({
   render: function() {
-    let {trsets, messages} = this.props, step;
+    let {trsets, messages, caller} = this.props, step;
 
     switch(this.state.step) {
       case 'Destination':
@@ -30,7 +30,7 @@ module.exports = React.createClass({
         step = <Options options={this.state.options} defaultOptions={defaultOptions} caller={this} />;
         break;
       case 'Trace':
-        step = <Trace messages={messages} caller={this} />;
+        step = <Trace currentStatus={this.props.currentStatus} messages={messages} caller={this} cancelTrace={caller.cancelTrace} toggleDebug={caller.toggleDebug} />;
         break;
       default:
         step = <Submitter options={this.state.options} caller={this} />;
@@ -46,25 +46,14 @@ module.exports = React.createClass({
     </div>
     );
   },
-  submitTrace: function() {
-    this.setState({step: 'Trace'});
-    /*
-    let options = { include_platform_traceroute: this.refs.include_platform_traceroute.getChecked() };
-    ['trset', 'dest', 'queries', 'timeout', 'submitter', 'postal_code', 'maxhops', 'raw_protocol', 'platform_protocol', 'platform_limit_ms'].forEach(i => {
-      options[i] = this.refs[i].getValue();
-    });
-    options.platform_limit_ms = options.platform_limit_ms * 1000;
-    this.props.caller.submitTrace(options);
-    */
-  },
   stepCall: function(to, opts) {
     if (opts) {
       this.state.options = _.assign(this.state.options, opts);
     }
     this.setState({step: to});
-  },
-  cancelTrace: function() {
-    this.setState({step: 'Destination'});
+    if (to === 'Trace') {
+      this.props.caller.submitTrace(this.state.options);
+    }
   },
   getInitialState: function() {
     return {
