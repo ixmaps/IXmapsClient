@@ -2,9 +2,7 @@
 
 "use strict";
 
-var app = require('app'), BrowserWindow = require('browser-window'), Menu = require('menu');
-
-var crashReporter = require('crash-reporter');
+var app = require('app'), BrowserWindow = require('browser-window');
 
 // prevent window being GC'd
 var mainWindow = null;
@@ -16,6 +14,7 @@ app.on('window-all-closed', function () {
 });
 
 app.on('ready', function () {
+  var Menu = require('menu')
   console.log('ready');
   // main.js
 
