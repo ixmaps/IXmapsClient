@@ -17,9 +17,9 @@
     "build-electron": "node_modules/.bin/electron-rebuild -f",
     "start": "electron .",
     "debug": "electron --debug=5858 .",
-    "package-linux": "electron-packager . ixnode --out dist/linux --ignore=node_modules/electron-prebuilt --ignore=node_modules/electron-packager --ignore=.git --platform=linux --arch=x64 --version=0.26.1 #--asar",
-    "package-darwin": "electron-packager . ixnode --out dist/darwin --ignore=node_modules/electron-prebuilt --ignore=node_modules/electron-packager --ignore=.git --platform=darwin --arch=x64 --version=0.26.1 #--asar",
-    "package-win32": "electron-packager . ixnode --out dist/win32 --ignore=node_modules/electron-prebuilt --ignore=node_modules/electron-packager --ignore=.git --platform=win32 --arch=x64 --version=0.26.1 #--asar",
+    "package-linux": "electron-packager . ixnode --out dist/linux --ignore=node_modules/electron-prebuilt --ignore=node_modules/electron-packager --ignore=.git --platform=linux --arch=x64 --version=0.28.2 #--asar",
+    "package-darwin": "electron-packager . ixnode --out dist/darwin --ignore=node_modules/electron-prebuilt --ignore=node_modules/electron-packager --ignore=.git --platform=darwin --arch=x64 --version=0.28.2 #--asar",
+    "package-win32": "electron-packager . ixnode --out dist/win32 --ignore=node_modules/electron-prebuilt --ignore=node_modules/electron-packager --ignore=.git --platform=win32 --arch=x64 --version=0.28.2 #--asar",
     "test": "node test/*/*"
   },
   "files": [
@@ -43,7 +43,7 @@
   },
   "devDependencies": {
     "electron-packager": "^4.0.2",
-    "electron-prebuilt": "^0.26.1",
+    "electron-prebuilt": "^0.28.2",
     "electron-rebuild": "^0.2.2",
     "fs": "0.0.2",
     "gulp": "^3.8.11",
