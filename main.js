@@ -14,7 +14,7 @@ app.on('window-all-closed', function () {
 });
 
 app.on('ready', function () {
-  var Menu = require('menu')
+  var Menu = require('menu');
   console.log('ready');
   // main.js
 

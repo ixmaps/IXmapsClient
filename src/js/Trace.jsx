@@ -5,7 +5,6 @@ var React = require('react'), {ProgressBar, Button, Panel, Input} = require('rea
 module.exports = React.createClass({
   render: function() {
     var {caller, messages, currentStatus, cancelTrace, toggleDebug} = this.props, progress, label = 'Close', action = _.partial(caller.stepCall.bind(this, 'Destination'));
-    console.log('CC ' + currentStatus);
     if (currentStatus && currentStatus !== 'finished') {
       label = 'Cancel after current host';
       progress = <ProgressBar active now={100} label={currentStatus} />;

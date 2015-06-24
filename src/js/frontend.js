@@ -21,7 +21,7 @@ function render() {
   let sendMessages = [];
   for (let i = 0; i < messages.length; i++) {
     var m = messages[i];
-    if (debug || i == messages.length - 1) {
+    if (debug || m.type === 'submitted' || i == messages.length - 1) {
       sendMessages.push(m);
     }
   }
