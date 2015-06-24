@@ -48,7 +48,7 @@ module.exports = React.createClass({
   },
   stepCall: function(to, opts) {
     if (opts) {
-      this.state.options = _.assign(this.state.options, opts);
+      Object.keys(this.state.options).forEach(i => {if (opts[i]) this.state.options[i] = opts[i];});
     }
     this.setState({step: to});
     if (to === 'Trace') {
