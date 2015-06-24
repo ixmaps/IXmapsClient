@@ -10,10 +10,10 @@ var defaultOptions = {
   dest: '',
   trset: '',
   queries: 4,
-  timeout: 1000,
-  maxhops: 30,
+  timeout: 750,
+  maxhops: 24,
   raw_protocol: 'ICMP',
-  include_platform_traceroute: true,
+  include_platform_traceroute: false,
   platform_protocol: 'Default',
   platform_limit_ms: 60000
 };
