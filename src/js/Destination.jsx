@@ -5,14 +5,20 @@ var React = require('react'), {Input, Button, Panel, Row} = require('react-boots
 module.exports = React.createClass({
   render: function() {
     let {caller, trsets} = this.props, seltr;
+    var canTrace = !!(this.state.dest || this.state.trset);
 
     if (trsets) {
       let tropts = trsets.map(t => <option key={t}>{t}</option>);
       seltr = (
-        <Input onChange={this.changeDest} type="select" defaultValue={this.props.options.trset} ref="trset" label='TR Set' labelClassName='col-md-4' wrapperClassName='col-md-6' help="Use a predefined set of destinations">
-          <option value="">Enter below</option>
-          {tropts}
-        </Input>
+        <div>
+          <p>Select a batch of hostnames to target from among those listed here:</p>
+
+          <Input onChange={this.changeDest} type="select" defaultValue={this.props.options.trset} ref="trset" label='TR Set' labelClassName='col-md-4' wrapperClassName='col-md-6' help="Use a predefined set of destinations">
+            <option value="">Enter below</option>
+            {tropts}
+          </Input>
+          <div style={{'textAlign': 'center', padding: '1em' }}><i>Or</i></div>
+        </div>
       );
     }
 
@@ -21,10 +27,10 @@ module.exports = React.createClass({
         <h1>Destination</h1>
         <Panel disabled>
           {seltr}
-          <div style={{'text-align': 'center', padding: '1em' }}><i>Or</i></div>
+          <p>Enter a hostname of your own to target</p>
           <Input onChange={this.changeDest} ref='dest' type='text' label='Destination' defaultValue={this.props.options.dest} labelClassName='col-md-4' wrapperClassName='col-md-6' />
         </Panel>
-        <Button disabled={!this.state.canTrace} className="pull-right" onClick={this.use.bind(this, 'Trace')}>Submit Trace</Button>
+        <Button disabled={!canTrace} className="pull-right" onClick={this.use.bind(this, 'Trace')}>Submit Trace</Button>
         <Button className="pull-right" onClick={this.use.bind(this, 'Options')}>Options</Button>
         <Button className="pull-right" onClick={this.cancel}>Go back</Button>
       </div>
@@ -32,7 +38,8 @@ module.exports = React.createClass({
   },
   changeDest: function() {
     this.setState({
-      canTrace : !!(this.refs.dest.getValue() || this.refs.trset.getValue())
+      dest: this.refs.dest.getValue(),
+      trset: this.refs.trset.getValue()
     });
   },
   use: function(next) {
@@ -48,7 +55,8 @@ module.exports = React.createClass({
   },
   getInitialState: function() {
     return {
-      canTrace: !!(this.props.dest || this.props.trset)
+      trset: this.props.options.trset,
+      dest: this.props.options.dest
     };
   }
 });
