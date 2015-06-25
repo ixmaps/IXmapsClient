@@ -34,6 +34,8 @@ After downloading the built package, extract it. Go to the extracted directory, 
 
 ## Developing IXnode
 
+Since IXnode is an open source project, anyone can download its sources, inspect them, and make pull requests which can be integrated into the main project for fixes and improvements.
+
 ### Install and build packages
 
 You will need the iojs version of node. iojs is currently version 2.0.1. For installation, https://github.com/creationix/nvm seems to work well. Once installed, use `nvm install iojs`
