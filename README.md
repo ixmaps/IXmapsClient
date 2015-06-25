@@ -12,7 +12,7 @@ IXnode uses raw sockets so requires your system's administrator (root) access.
 
 ### Running on Linux
 
-After downloading the built package, extract it. Go to your system's command line / terminal (in most graphical environments, press Control-Alt-T), and change to the extracted directory. Run this command:
+After downloading the built package, extract it. Go to your system's command line / terminal (in many graphical environments, press Control-Alt-t), and change to the extracted directory. Run this command:
 
 `$ sudo ./ixnode`
 
