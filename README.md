@@ -30,7 +30,7 @@ You'll be prompted for your administrator password, then the IXnode interface wi
 
 ### Running on Windows
 
-After downloading the built package, extract it. Go to the extracted directory, right-click on ixnode.exe and choose Run as Administrator.
+After downloading the built package, extract it. Go to the extracted directory, right-click on ixnode.exe and choose "Run as Administrator."
 
 ## Developing IXnode
 
