@@ -28,13 +28,13 @@ function render() {
   React.render(<InputForm currentStatus={currentStatus} caller={{submitTrace, toggleDebug, cancelTrace}} trsets={trsets} messages={sendMessages} />, document.getElementById('main'));
 }
 
-function send(type, message) {
+function send(type, message, content) {
   console.log(type + ': ' + message.toString());
   if (type === 'STATUS') {
     currentStatus = message;
   } else {
     let date = new Date();
-    messages.push({ date, type, message});
+    messages.push({ date, type, message, content});
   }
   render();
 }

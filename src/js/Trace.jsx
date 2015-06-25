@@ -10,6 +10,17 @@ module.exports = React.createClass({
       progress = <ProgressBar active now={100} label={currentStatus} />;
       action = cancelTrace;
     }
+    let i = 0, output = [];
+    messages.forEach(m => {
+      if (true) {
+        output.unshift(<p key={i++}>{'[' + m.type + '@' + m.date + ']: ' + m.message}</p>);
+      } else if (m.content.err) {
+        output.unshift(<p style={{fontColor: 'red'}} key={i++}>{m.content.options.dest} ({m.content.options.dest_ip}) had an error: {m.content.err}</p>);
+      } else {
+        output.unshift(<a href={'https://www.ixmaps.ca/explore.php?trid=' + m.content.trid} key={i++}>{m.message}</a>);
+        //output.unshift(<p key={i++}>{'[' + m.type + '@' + m.date + ']: ' + m.message}</p>);
+      }
+    });
     return (
       <div>
         <h1>Executing traces</h1>
@@ -20,9 +31,15 @@ module.exports = React.createClass({
 
         <Panel>
           <h2>Ouput</h2>
-          {messages.reverse().map(m => <p>{'[' + m.type + '@' + m.date + ']: ' + m.message}</p>)}
+          {output}
         </Panel>
       </div>
     );
+  },
+  visit: function(e) {
+    e.preventDefault();
+    if (e.target.tagName == 'A')
+    require('shell').openExternal(e.target.href);
+    return false;
   }
 });
