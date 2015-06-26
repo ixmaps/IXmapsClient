@@ -20,11 +20,11 @@ You'll be prompted for your administrator password, then the IXnode interface wi
 
 After downloading the built package, extract it. In the Finder, navigate to /Applications/Utilities and double click on terminal. You'll be on the command line. In it, type these commands:
 
-`$ cd <directory you extracted IXnode to>`
+`$ cd <extracted directory>`
 
 `$ sudo Contents/MacOS/Electron`
 
-If IXnode has been installed as a system wide application, use `/Applications/ixnode.app/Contents/MacOS/Electron`
+Where <extracted directory> is the folder where you extracted IXnode. If IXnode has been installed as a system wide application, use `/Applications/ixnode.app/Contents/MacOS/Electron`
 
 You'll be prompted for your administrator password, then the IXnode interface will appear.
 
