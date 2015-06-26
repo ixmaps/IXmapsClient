@@ -1,8 +1,6 @@
 # IXnode
 
-Based on io.js and Electron.
-
-IXnode is open source software used to execute network traces used to determine the physical location of packets going to different sites. It can be installed and executed from a built release on the [IXmaps web site](https://www.ixmaps.ca/) or by [downloading and setting up the development version](https://github.com/ixmaps/ixnode/). Either way, we welcome your comments and participation.
+IXnode is open source software (based on io.js and Electron) that generates traceroute data used to determine the paths packets take to different sites. It can be installed and executed from a built release on the [Contribute page of the IXmaps web site](https://www.ixmaps.ca/contribute.php) or by [downloading and setting up the development version](https://github.com/ixmaps/ixnode/). Either way, we welcome your comments and participation.
 
 ## Downloading and running IXnode
 
