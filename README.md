@@ -1,8 +1,6 @@
 # IXnode
 
-Based on io.js and Electron.
-
-IXnode is open source software used to execute network traces used to determine the physical location of packets going to different sites. It can be installed and executed from a built release on the [IXmaps web site](https://www.ixmaps.ca/) or by [downloading and setting up the development version](https://github.com/ixmaps/ixnode/). Either way, we welcome your comments and participation.
+IXnode is open source software (based on io.js and Electron) that generates traceroute data used to determine the paths packets take to different sites. It can be installed and executed from a built release on the [Contribute page of the IXmaps web site](https://www.ixmaps.ca/contribute.php) or by [downloading and setting up the development version](https://github.com/ixmaps/ixnode/). Either way, we welcome your comments and participation.
 
 ## Downloading and running IXnode
 
@@ -22,9 +20,11 @@ You'll be prompted for your administrator password, then the IXnode interface wi
 
 After downloading the built package, extract it. In the Finder, navigate to /Applications/Utilities and double click on terminal. You'll be on the command line. In it, type these commands:
 
-`$ cd <directory you extracted IXnode to>`
+`$ cd <extracted directory>`
 
 `$ sudo Contents/MacOS/Electron`
+
+Where <extracted directory> is the folder where you extracted IXnode. If IXnode has been installed as a system wide application, use `/Applications/ixnode.app/Contents/MacOS/Electron`
 
 You'll be prompted for your administrator password, then the IXnode interface will appear.
 
