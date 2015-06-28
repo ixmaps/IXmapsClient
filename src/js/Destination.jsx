@@ -13,7 +13,7 @@ module.exports = React.createClass({
         <div>
           <p>Select a batch of hostnames to target from among those listed here:</p>
 
-          <Input onChange={this.changeDest} type="select" defaultValue={this.props.options.trset} ref="trset" label='TR Set' labelClassName='col-md-4' wrapperClassName='col-md-6' help="Use a predefined set of destinations">
+          <Input disabled={!!this.state.dest} onChange={this.changeDest} type="select" defaultValue={this.props.options.trset} ref="trset" label='TR Set' labelClassName='col-md-4' wrapperClassName='col-md-6' help="Use a predefined set of destinations">
             <option value="">Enter below</option>
             {tropts}
           </Input>
@@ -28,7 +28,7 @@ module.exports = React.createClass({
         <Panel disabled>
           {seltr}
           <p>Enter a hostname of your own to target</p>
-          <Input onChange={this.changeDest} ref='dest' type='text' label='Destination' defaultValue={this.props.options.dest} labelClassName='col-md-4' wrapperClassName='col-md-6' />
+          <Input disabled={!!this.state.trset} onChange={this.changeDest} ref='dest' type='text' label='Destination' defaultValue={this.props.options.dest} labelClassName='col-md-4' wrapperClassName='col-md-6' />
         </Panel>
         <Button disabled={!canTrace} className="pull-right" onClick={this.use.bind(this, 'Trace')}>Submit Trace</Button>
         <Button className="pull-right" onClick={this.use.bind(this, 'Options')}>Options</Button>
