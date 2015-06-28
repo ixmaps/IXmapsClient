@@ -49,7 +49,7 @@ module.exports = React.createClass({
   },
   stepCall: function(to, opts) {
     if (opts) {
-      Object.keys(this.state.options).forEach(i => {if (opts[i]) this.state.options[i] = opts[i];});
+      Object.keys(this.state.options).forEach(i => {if (opts[i] !== undefined) this.state.options[i] = opts[i];});
     }
     this.setState({step: to});
     if (to === 'Trace') {
