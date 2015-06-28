@@ -27,7 +27,7 @@ module.exports = React.createClass({
         {progress}
 
         <Button className="pull-right" onClick={action}>{label}</Button>
-        <Input className="pull-right" id="debug" type="checkbox" onChange={toggleDebug} label="Full output" />
+        <Input className="pull-right" id="debug" type="checkbox" onChange={toggleDebug} label="Detailed output" />
 
         <Panel>
           <h2>Ouput</h2>
