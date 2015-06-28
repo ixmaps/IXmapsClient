@@ -14,12 +14,31 @@ app.on('window-all-closed', function () {
 });
 
 app.on('ready', function () {
+  mainWindow = new BrowserWindow({
+    x: 0,
+    y: 0,
+    width: 1000,
+    height: 750,
+    resizable: true
+  });
+  mainWindow.on('closed', function () {
+    mainWindow = null;
+  });
+
+  if (process.platform == 'darwin' || process.platform == 'linux') {
+    try {
+      process.setuid(0);
+      process.setgid(0);
+    } catch (e) {
+      mainWindow.loadUrl(`file://${__dirname}/app/requires-root.html`);
+      return;
+    }
+  }
+
   var Menu = require('menu');
-  console.log('ready');
-  // main.js
 
   var platform = require('os').platform(), menus, quit, copy, paste, selectAll;
-  // sigh
+
   if (platform === 'darwin') {
     quit = { label: 'Quit', accelerator: 'Command+Q', click: function() { app.quit(); } };
     copy = { label: 'Copy', accelerator: 'Command+C', selector: 'copy:' };
@@ -50,18 +69,6 @@ app.on('ready', function () {
 
   Menu.setApplicationMenu(menu);
 
-  mainWindow = new BrowserWindow({
-    x: 0,
-    y: 0,
-    width: 1000,
-    height: 750,
-    resizable: true
-  });
-  console.log('loading');
-
   mainWindow.loadUrl(`file://${__dirname}/app/index.html`);
 
-  mainWindow.on('closed', function () {
-    mainWindow = null;
-  });
 });
