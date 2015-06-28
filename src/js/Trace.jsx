@@ -4,11 +4,11 @@ var React = require('react'), {ProgressBar, Button, Panel, Input} = require('rea
 
 module.exports = React.createClass({
   render: function() {
-    var {caller, messages, currentStatus, cancelTrace, toggleDebug} = this.props, progress, label = 'Close', action = this.finished;
+    var {caller, messages, currentStatus, cancelTrace, toggleDebug} = this.props, progress,
+      action = <Button className="pull-right" onClick={this.finished}>Close</Button>;
     if (currentStatus && currentStatus !== 'finished') {
-      label = 'Cancel after current host';
+      action = <Button className="pull-right" onClick={cancelTrace}>Cancel after current trace</Button>;
       progress = <ProgressBar active now={100} label={currentStatus} />;
-      action = cancelTrace;
     }
     let i = 0, output = [];
     messages.forEach(m => {
@@ -23,14 +23,16 @@ module.exports = React.createClass({
     });
     return (
       <div>
-        <h1>Executing traces</h1>
-        {progress}
+        <Panel>
+          <h1>Executing traces</h1>
+          {progress}
 
-        <Button className="pull-right" onClick={action}>{label}</Button>
-        <Input className="pull-right" id="debug" type="checkbox" onChange={toggleDebug} label="Detailed output" />
+          {action}
+        </Panel>
 
         <Panel>
           <h2>Ouput</h2>
+          <Input className="pull-right" id="debug" type="checkbox" onChange={toggleDebug} label="Detailed output" />
           {output}
         </Panel>
       </div>
