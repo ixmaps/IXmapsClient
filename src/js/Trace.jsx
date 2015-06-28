@@ -4,7 +4,7 @@ var React = require('react'), {ProgressBar, Button, Panel, Input} = require('rea
 
 module.exports = React.createClass({
   render: function() {
-    var {caller, messages, currentStatus, cancelTrace, toggleDebug} = this.props, progress, label = 'Close', action = _.partial(caller.stepCall.bind(this, 'Destination'));
+    var {caller, messages, currentStatus, cancelTrace, toggleDebug} = this.props, progress, label = 'Close', action = this.finished;
     if (currentStatus && currentStatus !== 'finished') {
       label = 'Cancel after current host';
       progress = <ProgressBar active now={100} label={currentStatus} />;
@@ -41,5 +41,8 @@ module.exports = React.createClass({
     if (e.target.tagName == 'A')
     require('shell').openExternal(e.target.href);
     return false;
+  },
+  finished: function() {
+    this.props.caller.stepCall('Destination');
   }
 });
