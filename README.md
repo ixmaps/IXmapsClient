@@ -1,5 +1,7 @@
 # IXnode
 
+We've found Electron creates too many cross platform installation issues and are switching to a local server implementation.
+
 IXnode is open source software (based on io.js and Electron) that generates traceroute data used to determine the paths packets take to different sites. It can be installed and executed from a built release on the [Contribute page of the IXmaps web site](https://www.ixmaps.ca/contribute.php) or by [downloading and setting up the development version](https://github.com/ixmaps/ixnode/). Either way, we welcome your comments and participation.
 
 ## Downloading and running IXnode
