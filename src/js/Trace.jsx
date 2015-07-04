@@ -4,14 +4,21 @@ var React = require('react'), {ProgressBar, Button, Panel, Input} = require('rea
 
 module.exports = React.createClass({
   render: function() {
-    var {caller, messages, currentStatus, cancelTrace, toggleDebug} = this.props, progress,
+    let {caller, messages, currentStatus} = this.props, progress, sendMessages = [],
       action = <Button className="pull-right" onClick={this.finished}>Close</Button>;
     if (currentStatus && currentStatus !== 'finished') {
-      action = <Button className="pull-right" onClick={cancelTrace}>Cancel after current trace</Button>;
+      action = <Button className="pull-right" onClick={caller.cancelTrace}>Cancel after current trace</Button>;
       progress = <ProgressBar active now={100} label={currentStatus} />;
     }
+    for (let i = 0; i < messages.length; i++) {
+      var m = messages[i];
+      if (this.state.debug || m.type === 'submitted' || i == messages.length - 1) {
+        sendMessages.push(m);
+      }
+    }
+
     let i = 0, output = [];
-    messages.forEach(m => {
+    sendMessages.forEach(m => {
       if (true) {
         output.unshift(<p key={i++}>{'[' + m.type + '@' + m.date + ']: ' + m.message}</p>);
       } else if (m.content.err) {
@@ -32,17 +39,19 @@ module.exports = React.createClass({
 
         <Panel>
           <h2>Ouput</h2>
-          <Input className="pull-right" id="debug" type="checkbox" onChange={toggleDebug} label="Detailed output" />
+          <Input className="pull-right" id="debug" type="checkbox" onChange={this.toggleDebug} label="Detailed output" />
           {output}
         </Panel>
       </div>
     );
   },
-  visit: function(e) {
-    e.preventDefault();
-    if (e.target.tagName == 'A')
-    require('shell').openExternal(e.target.href);
-    return false;
+  getInitialState: function() {
+    return {
+      debug: false
+    };
+  },
+  toggleDebug: function(e) {
+    this.setState({debug: e.target.checked});
   },
   finished: function() {
     this.props.caller.stepCall('Destination');
