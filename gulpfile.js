@@ -34,7 +34,7 @@ gulp.task('lint', function() {
 
 gulp.task('setup', function(done) {
   if (!fs.existsSync('build') ){
-    mkdirp('app/res', done);
+    mkdirp('web/assets', done);
   }
 });
 
@@ -47,6 +47,6 @@ function error(err) {
 var lessTask = function() {
   gulp.src(['./src/less/*.less'])
   .pipe(less())
-  .pipe(gulp.dest('./app/res/'))
+  .pipe(gulp.dest('./web/assets/'))
   .on('error', error);
 };

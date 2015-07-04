@@ -39,13 +39,13 @@ module.exports = React.createClass({
   changeDest: function() {
     this.setState({
       dest: this.refs.dest.getValue(),
-      trset: this.refs.trset.getValue()
+      trset: this.refs.trset? this.refs.trset.getValue() : null
     });
   },
   use: function(next) {
     let options = {};
     ['trset', 'dest'].forEach(i => {
-      options[i] = this.refs[i].getValue();
+      options[i] = this.refs[i] ? this.refs[i].getValue() : null;
     });
 
     this.props.caller.stepCall(next || 'Trace', options);
