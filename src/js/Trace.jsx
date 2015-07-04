@@ -17,16 +17,18 @@ module.exports = React.createClass({
       }
     }
 
-    let i = 0, output = [];
+    let i = 0, output = [], display, info;
     sendMessages.forEach(m => {
-      if (true) {
-        output.unshift(<p key={i++}>{'[' + m.type + '@' + m.date + ']: ' + m.message}</p>);
-      } else if (m.content.err) {
-        output.unshift(<p style={{fontColor: 'red'}} key={i++}>{m.content.options.dest} ({m.content.options.dest_ip}) had an error: {m.content.err}</p>);
+      info = `[${m.type}@${m.date}]`;
+      if (m.type === 'submitted') {
+        display = <a target="trid" href={'https://www.ixmaps.ca/explore.php?trid=' + m.content.trid}>{m.message}</a>;
+      } else if (m.content && m.content.err) {
+        display = <span style={{color: 'red'}}>{m.message}</span>;
       } else {
-        output.unshift(<a href={'https://www.ixmaps.ca/explore.php?trid=' + m.content.trid} key={i++}>{m.message}</a>);
-        //output.unshift(<p key={i++}>{'[' + m.type + '@' + m.date + ']: ' + m.message}</p>);
+        display = m.message;
       }
+
+      output.unshift(<p key={i++}>{info} {display}</p>);
     });
     return (
       <div>
@@ -38,7 +40,7 @@ module.exports = React.createClass({
         </Panel>
 
         <Panel>
-          <h2>Ouput</h2>
+          <h2>Output</h2>
           <Input className="pull-right" id="debug" type="checkbox" onChange={this.toggleDebug} label="Detailed output" />
           {output}
         </Panel>
