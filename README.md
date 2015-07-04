@@ -18,13 +18,13 @@ Since IXnode is an open source project, anyone can download its sources, inspect
 
 ### Install and build packages
 
-You will need the iojs version of node. For installation, https://github.com/creationix/nvm seems to work well. Once installed, use `nvm install iojs`
+This version of TRgen is based on node.js. For installation, https://github.com/creationix/nvm seems to work well. Once installed, use `nvm install iojs`
 
 You will also need appropriate build tools for your OS installed (eg build-essentials, or on Mac OS, the basic XCode).
 
 Then:
 
-`$ npm install -g gulp && npm install && gulp build`
+`$ npm install -g gulp && npm install && gulp build && npm run-script webpack-production`
 
 ### Executing
 
@@ -34,13 +34,12 @@ Since you're accessing raw sockets, you must run as root (eg sudo). Make sure yo
 
 `# npm start`
 
-### Packaging
+This should also launch your web browser pointing to the local TRgen interface.
 
+### Packaging
 
 #### Command line execution
 
 `# node trace-raw`
 
 use -h for help.
-
-Note you should **not** run `npm run-script build-electron` before using the command line version (the compiled raw-socket2 is for a different version). If required, remove node_modules and re-run `npm install` before using run-trace.
