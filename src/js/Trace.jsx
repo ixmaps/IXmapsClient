@@ -1,6 +1,6 @@
 /* jslint node: true, esnext: true */
 
-var React = require('react'), {ProgressBar, Button, Panel, Input} = require('react-bootstrap'), _ = require('lodash');
+var React = require('react'), {ProgressBar, Button, Panel, Input, Glyphicon} = require('react-bootstrap'), _ = require('lodash');
 
 module.exports = React.createClass({
   render: function() {
@@ -21,7 +21,7 @@ module.exports = React.createClass({
     sendMessages.forEach(m => {
       info = `[${m.type}@${m.date}]`;
       if (m.type === 'submitted') {
-        display = <a target="trid" href={'https://www.ixmaps.ca/explore.php?trid=' + m.content.trid}>{m.message}</a>;
+        display = <a target="trid" href={'https://www.ixmaps.ca/explore.php?trid=' + m.content.trid}><Glyphicon glyph='link' /> {m.message}</a>;
       } else if (m.content && m.content.err) {
         display = <span style={{color: 'red'}}>{m.message}</span>;
       } else {

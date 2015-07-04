@@ -13,6 +13,7 @@ var development = process.env.NODE_ENV === 'development', trsets = require('./li
 var processor = require('./lib/processor.js');
 
 app.use(express.static(path.join(__dirname, 'web')));
+app.use('/fonts/', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/fonts')));
 
 // proxy webpack for frontend script
 if (development) {
