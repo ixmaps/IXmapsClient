@@ -51,7 +51,7 @@ app.get('/', function(req, res) {
 server.listen(2040, 'localhost');
 
 server.on('listening', function() {
-  console.log('Express server started on port %s at %s. Development: %s', server.address().port, server.address().address, development);
+  console.log('\n\nIXnode server started at http://%s:%s\nDevelopment mode: %s', server.address().address, server.address().port, development);
 });
 
 function start() {

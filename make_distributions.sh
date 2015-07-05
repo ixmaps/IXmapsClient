@@ -3,7 +3,7 @@
 # make distributions for IXnode
 
 MODS="async cheerio express open raw-socket2 request socket.io"
-BASE="lib README.md server.js trace-platform.js trace-raw.js web"
+BASE="start.sh lib README.md server.js trace-platform.js trace-raw.js web"
 
 if [ ! -d dist ]; then mkdir dist; fi
 for i in linux darwin win32 win64 ; do
