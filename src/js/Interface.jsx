@@ -1,6 +1,6 @@
-/* jslint node: true, esnext: true */
+/* jslint node: true, esnext: true, browser: true */
 
-var React = require('react'), { Row } = require('react-bootstrap'), _ = require('lodash'), io = require('socket.io-client');
+var React = require('react'), { Row, Alert } = require('react-bootstrap'), _ = require('lodash'), io = require('socket.io-client');
 
 var Submitter = require('./Submitter.jsx'),
   Destination = require('./Destination.jsx'),
@@ -27,6 +27,14 @@ var socket = io();
 module.exports = React.createClass({
   connected: function() {
     console.log('connected');
+  },
+  ack: function() {
+    this.state.ack = true;
+  },
+  stale: function(g) {
+    this.setState({stale: true});
+    clearInterval(this.state.ackInterval);
+    window.close();
   },
   trsets: function(t) {
     this.setState(_.assign({}, this.state, {
@@ -58,7 +66,12 @@ module.exports = React.createClass({
     socket.on('update', this.update);
     socket.on('trsets', this.trsets);
     socket.on('connect', this.connected);
+    socket.on('ack', this.ack);
+    socket.on('stale', this.stale);
     socket.on('disconnect', this.disconnected);
+
+    let gen = new Date().getTime();
+    this.state.ackInterval = setInterval(() => socket.emit('pong', gen, this.state.ack), 500);
   },
   getInitialState: function() {
     return {
@@ -70,6 +83,14 @@ module.exports = React.createClass({
     };
   },
   render: function() {
+    if (this.state.stale) {
+      return (
+        <Alert bsStyle='danger'>
+          <h1>Stale client</h1>
+          <p>This window should be closed since an active window is open. Check your other browser windows or refresh this window.</p>
+       </Alert>
+      );
+    }
     let sendMessages = [], step;
 
     switch (this.state.step) {

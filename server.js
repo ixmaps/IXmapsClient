@@ -28,7 +28,7 @@ if (development) {
   });
 }
 
-var hasRoot = false;
+var lastResponse, hasRoot = false, gen, pingCheck;
 
 try {
   process.setuid(0);
@@ -76,6 +76,27 @@ function start() {
     });
     socket.on('submitTrace', submitTrace);
     socket.on('cancelTrace', cancelTrace);
+    // initiate client version and presence check
+    socket.on('pong', function(g, ack) {
+      lastResponse = new Date();
+      if (!gen && !ack) {
+        gen = g;
+        socket.emit('ack', gen);
+      // start ping check to keep alive while client is open
+        pingCheck = setInterval(function() {
+          var passed = new Date().getTime() - lastResponse.getTime();
+          if (passed > 1000) {
+            console.log('passed', passed);
+          }
+          if (passed > 3000) {
+            console.log('exiting due to no client response');
+            process.exit(0);
+          }
+        }, 500);
+      } else if (gen !== g) {
+        socket.emit('stale', gen);
+      }
+    });
 
     // send messages to the client, with logging
     function send(type, message, content) {
