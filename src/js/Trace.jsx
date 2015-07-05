@@ -1,6 +1,6 @@
 /* jslint node: true, esnext: true */
 
-var React = require('react'), {ProgressBar, Button, Panel, Input, Glyphicon} = require('react-bootstrap'), _ = require('lodash');
+var React = require('react'), {ProgressBar, Button, Panel, Input, Glyphicon} = require('react-bootstrap');
 
 module.exports = React.createClass({
   render: function() {

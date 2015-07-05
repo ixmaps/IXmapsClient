@@ -1,26 +1,13 @@
 /* jslint node: true, esnext: true, browser: true */
 
-var React = require('react'), { Row, Alert } = require('react-bootstrap'), _ = require('lodash'), io = require('socket.io-client');
+var React = require('react'), { Row, Alert } = require('react-bootstrap'), io = require('socket.io-client');
+require('babel/polyfill');
 
 var Submitter = require('./Submitter.jsx'),
   Destination = require('./Destination.jsx'),
   Options = require('./Options.jsx'),
-  Trace = require('./Trace.jsx');
-
-var defaultOptions = {
-  submitter: '',
-  postal_code: '',
-  dest: '',
-  trset: '',
-  queries: 4,
-  timeout: 750,
-  maxhops: 24,
-  raw_protocol: 'ICMP',
-  max_sequential_errors: 3,
-  include_platform_traceroute: false,
-  platform_protocol: 'Default',
-  platform_limit_ms: 60000
-};
+  Trace = require('./Trace.jsx'),
+  DefaultOptions = require('../../lib/default-options.js');
 
 var socket = io();
 
@@ -36,23 +23,21 @@ module.exports = React.createClass({
     clearInterval(this.state.ackInterval);
     window.close();
   },
-  trsets: function(t) {
-    this.setState(_.assign({}, this.state, {
-      trsets: t
-    }));
+  trsets: function(trsets) {
+    this.setState(...this.state, {trsets});
   },
   disconnected: function() {
     console.log('disconnect');
   },
   update: function(incoming) {
-    let { type, message, content } = incoming, messages = _.clone(this.state.messages);
+    let { type, message, content } = incoming, messages = [...this.state.messages];
     console.log('update', incoming);
     if (type === 'STATUS') {
       this.state.currentStatus = message;
     } else {
       messages.push({ date: new Date(), type, message, content });
     }
-    this.setState(_.assign({}, this.state, {messages}));
+    this.setState(...this.state, {messages});
   },
   submitTrace: function(options) {
     this.state.currentStatus = null;
@@ -75,8 +60,8 @@ module.exports = React.createClass({
   },
   getInitialState: function() {
     return {
+      options: DefaultOptions(),
       messages: [],
-      options: _.clone(defaultOptions),
       step: 'Submitter',
       currentStatus: null,
       trsets: null
@@ -98,7 +83,7 @@ module.exports = React.createClass({
       step = <Destination caller={this} options={this.state.options} trsets={this.state.trsets}/>;
       break;
     case 'Options':
-      step = <Options caller={this} defaultOptions={defaultOptions} options={this.state.options}/>;
+      step = <Options caller={this} defaultOptions={DefaultOptions()} options={this.state.options}/>;
       break;
     case 'Trace':
       step = <Trace caller={this} currentStatus={this.state.currentStatus} messages={this.state.messages} />;

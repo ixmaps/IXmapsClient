@@ -8,6 +8,6 @@ var traceroute = require('./lib/platform-traceroute.js');
 
 var options = require('./lib/cli.js')('platform');
 
-options = _.assign(options, {dest_ip: options.dest});
+options = _.assign({}, options, {dest_ip: options.dest});
 
 traceroute(options, console.log, console.log);
