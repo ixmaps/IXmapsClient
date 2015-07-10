@@ -2,6 +2,9 @@
 
 'use strict';
 
+// only accept local connections. default: true.
+var localOnly = true;
+
 var path = require('path');
 var express = require('express'), app = express();
 var server = require('http').Server(app);
@@ -48,10 +51,18 @@ app.get('/', function(req, res) {
   res.sendFile(__dirname + '/web/index.html');
 });
 
-server.listen(2040, 'localhost');
+if (localOnly) {
+  server.listen(2040, 'localhost');
+} else {
+  server.listen(2040);
+}
+
 
 server.on('listening', function() {
   console.log('\n\nIXnode server started at http://%s:%s\nDevelopment mode: %s', server.address().address, server.address().port, development);
+  if (!localOnly) {
+    console.error('WARNING: not running in localOnly mode. Will accept any connection.');
+  }
 });
 
 function start() {
@@ -83,17 +94,19 @@ function start() {
         gen = g;
         socket.emit('ack', gen);
       // start ping check to keep alive while client is open
-        pingCheck = setInterval(function() {
-          var passed = new Date().getTime() - lastResponse.getTime();
-          if (passed > 1000) {
-            console.log('passed', passed);
-          }
-          if (passed > 3000) {
-            console.log('exiting due to no client response');
-            process.exit(0);
-          }
-        }, 500);
-      } else if (gen !== g) {
+        if (localOnly) {
+          pingCheck = setInterval(function() {
+            var passed = new Date().getTime() - lastResponse.getTime();
+            if (passed > 1000) {
+              console.log('passed', passed);
+            }
+            if (passed > 3000) {
+              console.log('exiting due to no client response');
+              process.exit(0);
+            }
+          }, 500);
+        }
+      } else if (gen !== g && localOnly) {
         socket.emit('stale', gen);
       }
     });
