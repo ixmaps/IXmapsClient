@@ -3,7 +3,6 @@
 'use strict';
 
 // only accept local connections. default: true.
-var localOnly = process.env.NODE_ENV !== 'public';
 
 var path = require('path');
 var express = require('express'), app = express();
@@ -11,7 +10,10 @@ var server = require('http').Server(app);
 var io = require('socket.io')(server);
 var open = require('open');
 
-var development = process.env.NODE_ENV === 'development', trsets = require('./lib/trset.js');
+var mode = process.env.NODE_ENV,
+  isWin = /^win/.test(process.platform),
+  isPublic = mode === 'public' || mode === 'publicdev',
+  development = mode === 'development' || mode === 'publicdev', trsets = require('./lib/trset.js');
 
 var processor = require('./lib/processor.js');
 
@@ -51,7 +53,7 @@ app.get('/', function(req, res) {
   res.sendFile(__dirname + '/web/index.html');
 });
 
-if (localOnly) {
+if (!isPublic) {
   server.listen(2040, 'localhost');
 } else {
   server.listen(2040);
@@ -60,19 +62,21 @@ if (localOnly) {
 
 server.on('listening', function() {
   console.log('\n\nIXnode server started at http://%s:%s\nDevelopment mode: %s', server.address().address, server.address().port, development);
-  if (!localOnly) {
-    console.error('WARNING: not running in localOnly mode. Will accept any connection.');
+  if (isPublic) {
+    console.error('WARNING: running in public mode. Will accept any connection.');
   }
 });
 
 function start() {
   // open the user's preferred browser to the interface
-  try {
-    process.setuid(process.env.USER);
-    open('http://localhost:2040');
-    process.setuid(0);
-  } catch (e) {
-    console.log('\nUnable to open a browser window to this application automatically. Please access it at http://localhost:2040. Thanks.\n');
+  if (!isPublic) {
+    try {
+      process.setuid(process.env.USER);
+      open('http://localhost:2040');
+      process.setuid(0);
+    } catch (e) {
+      console.log('\nUnable to open a browser window to this application automatically. Please access it at http://localhost:2040. Thanks.\n');
+    }
   }
 
   io.on('connection', function(socket) {
@@ -94,7 +98,7 @@ function start() {
         gen = g;
         socket.emit('ack', gen);
       // start ping check to keep alive while client is open
-        if (localOnly) {
+        if (!isPublic) {
           pingCheck = setInterval(function() {
             var passed = new Date().getTime() - lastResponse.getTime();
             if (passed > 1000) {
@@ -106,7 +110,7 @@ function start() {
             }
           }, 500);
         }
-      } else if (gen !== g && localOnly) {
+      } else if (gen !== g && !isPublic) {
         socket.emit('stale', gen);
       }
     });
@@ -125,6 +129,7 @@ function start() {
       send('info', JSON.stringify(options));
       processor.submitTraceOptions(options, send);
     }
+
 
     function cancelTrace() {
       send('STATUS', 'Cancelling after current host');

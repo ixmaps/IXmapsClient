@@ -18,6 +18,7 @@
     "webpack": "webpack-dev-server --progress --colors --config dev.config.js --port 2050",
     "dev": "NODE_ENV=development node server.js",
     "public": "NODE_ENV=public node server.js",
+    "publicdev": "NODE_ENV=publicdev node server.js",
     "start": "node server.js",
     "test": "node test/*/*"
   },
