@@ -90,6 +90,7 @@ function start() {
       socket.emit('trsets', sets);
     });
     socket.on('submitTrace', submitTrace);
+    socket.on('savePreferences', savePreferences);
     socket.on('cancelTrace', cancelTrace);
     // initiate client version and presence check
     socket.on('pong', function(g, ack) {
@@ -99,6 +100,13 @@ function start() {
         socket.emit('ack', gen);
       // start ping check to keep alive while client is open
         if (!isPublic) {
+          try {
+            var prefs = require(process.cwd() + '/IXmaps.preferences.json');
+            console.log('sending prefs', prefs);
+            socket.emit('preferences', prefs);
+          } catch (e) {
+            console.log('no IXmaps.preferences.json found', e);
+          }
           pingCheck = setInterval(function() {
             var passed = new Date().getTime() - lastResponse.getTime();
             if (passed > 1000) {
@@ -130,6 +138,13 @@ function start() {
       processor.submitTraceOptions(options, send);
     }
 
+    function savePreferences(prefs) {
+      try {
+        require('fs').writeFileSync(process.cwd() + '/IXmaps.preferences.json', JSON.stringify(prefs));
+      } catch (e) {
+        console.error('could not save preferences', e);
+      }
+    }
 
     function cancelTrace() {
       send('STATUS', 'Cancelling after current host');

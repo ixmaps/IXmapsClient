@@ -1,6 +1,6 @@
 /* jslint node: true, esnext: true, browser: true */
 
-var React = require('react'), { Row, Alert } = require('react-bootstrap'), io = require('socket.io-client');
+var React = require('react'), { Row, Alert } = require('react-bootstrap'), io = require('socket.io-client'), _ = require('lodash');
 require('babel/polyfill');
 
 var Submitter = require('./Submitter.jsx'),
@@ -23,6 +23,10 @@ module.exports = React.createClass({
     clearInterval(this.state.ackInterval);
     window.close();
   },
+  preferences: function(prefs) {
+    let options = _.assign({}, this.state.options, {submitter: prefs.submitter, postal_code: prefs.postal_code});
+    this.setState({options});
+  },
   trsets: function(trsets) {
     this.setState(...this.state, {trsets});
   },
@@ -41,7 +45,6 @@ module.exports = React.createClass({
   },
   submitTrace: function(options) {
     this.state.currentStatus = null;
-    window.s = socket;
     socket.emit('submitTrace', options);
   },
   cancelTrace: function() {
@@ -54,6 +57,7 @@ module.exports = React.createClass({
     socket.on('ack', this.ack);
     socket.on('stale', this.stale);
     socket.on('disconnect', this.disconnected);
+    socket.on('preferences', this.preferences);
 
     let gen = new Date().getTime();
     this.state.ackInterval = setInterval(() => socket.emit('pong', gen, this.state.ack), 500);
@@ -115,5 +119,9 @@ module.exports = React.createClass({
     if (to === 'Trace') {
       this.submitTrace(this.state.options);
     }
+  },
+  savePrefs: function(prefs) {
+    console.log('savePrefs', prefs);
+    socket.emit('savePreferences', prefs);
   }
 });
