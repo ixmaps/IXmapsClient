@@ -34,6 +34,8 @@ Since you're accessing raw sockets, you must run as root (eg sudo). Make sure yo
 
 This should also launch your web browser pointing to the local TRgen interface. If the interface can't be opened, you can manually go to http://localhost:2040
 
+IXnode can also be run as a public service, which should be used with caution. `npm run-script public`.
+
 ### Packaging
 
 #### Command line execution

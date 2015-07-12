@@ -3,7 +3,7 @@
 'use strict';
 
 // only accept local connections. default: true.
-var localOnly = true;
+var localOnly = process.env.NODE_ENV !== 'public';
 
 var path = require('path');
 var express = require('express'), app = express();
