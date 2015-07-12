@@ -93,12 +93,10 @@ function start() {
     socket.on('savePreferences', savePreferences);
     socket.on('cancelTrace', cancelTrace);
     // initiate client version and presence check
-    socket.on('pong', function(g, ack) {
+    socket.on('ping', function(g, ack) {
       lastResponse = new Date();
       if (!gen && !ack) {
         gen = g;
-        socket.emit('ack', gen);
-      // start ping check to keep alive while client is open
         if (!isPublic) {
           try {
             var prefs = require(process.cwd() + '/IXmaps.preferences.json');
@@ -120,7 +118,10 @@ function start() {
         }
       } else if (gen !== g && !isPublic) {
         socket.emit('stale', gen);
+        return;
       }
+      socket.emit('pong', gen);
+    // start ping check to keep alive while client is open
     });
 
     // send messages to the client, with logging

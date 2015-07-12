@@ -16,12 +16,11 @@ module.exports = React.createClass({
     console.log('connected');
   },
   ack: function() {
-    this.state.ack = true;
+    this.state.ack = new Date().getTime();
   },
   stale: function(g) {
     this.setState({stale: true});
     clearInterval(this.state.ackInterval);
-    window.close();
   },
   preferences: function(prefs) {
     let options = _.assign({}, this.state.options, {submitter: prefs.submitter, postal_code: prefs.postal_code});
@@ -54,13 +53,21 @@ module.exports = React.createClass({
     socket.on('update', this.update);
     socket.on('trsets', this.trsets);
     socket.on('connect', this.connected);
-    socket.on('ack', this.ack);
+    socket.on('pong', this.ack);
     socket.on('stale', this.stale);
     socket.on('disconnect', this.disconnected);
     socket.on('preferences', this.preferences);
 
     let gen = new Date().getTime();
-    this.state.ackInterval = setInterval(() => socket.emit('pong', gen, this.state.ack), 500);
+    this.state.ackInterval = setInterval(() => {
+      if (this.state.ack) {
+        console.log('ack', new Date().getTime() - this.state.ack);
+        if (new Date().getTime() - this.state.ack > 3000) {
+          this.setState({disconnected: true});
+        }
+      }
+      socket.emit('ping', gen, this.state.ack > 0);
+    }, 500);
   },
   getInitialState: function() {
     return {
@@ -68,15 +75,24 @@ module.exports = React.createClass({
       messages: [],
       step: 'Submitter',
       currentStatus: null,
-      trsets: null
+      trsets: null,
+      ack: 0
     };
   },
   render: function() {
+    let message;
     if (this.state.stale) {
-      return (
+      message = (
         <Alert bsStyle='danger'>
           <h1>Stale client</h1>
           <p>This window should be closed since an active window is open. Check your other browser windows or refresh this window.</p>
+       </Alert>
+      );
+    } else if (this.state.disconnected) {
+      message = (
+        <Alert bsStyle='danger'>
+          <h1>Server disconnected</h1>
+          <p>The server is not responding to ping requests. It may be neccessary to restart it.</p>
        </Alert>
       );
     }
@@ -98,6 +114,7 @@ module.exports = React.createClass({
 
     return (
       <div className="container">
+        {message}
         <Row className="col-md-12">
           <form className='form-horizontal'>
             {step}
