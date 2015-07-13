@@ -61,7 +61,6 @@ module.exports = React.createClass({
     let gen = new Date().getTime();
     this.state.ackInterval = setInterval(() => {
       if (this.state.ack) {
-        console.log('ack', new Date().getTime() - this.state.ack);
         if (new Date().getTime() - this.state.ack > 3000) {
           this.setState({disconnected: true});
         }
