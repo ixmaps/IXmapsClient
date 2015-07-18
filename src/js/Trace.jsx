@@ -19,7 +19,6 @@ module.exports = React.createClass({
         current = (progress.current / progress.total) * 100;
         count = `${progress.current} / ${progress.total}`;
       }
-      console.log('progress', current, progress);
       readout = <ProgressBar bsStyle={currentStatus === 'stopping' ? 'warning' : 'success'} className='trace-progress' active now={current} />;
     }
     for (let i = 0; i < messages.length; i++) {
@@ -32,7 +31,12 @@ module.exports = React.createClass({
     let i = 0, output = [], display, ltype, date;
     sendMessages.forEach(m => {
       if (m.type === 'submitted') {
-        display = <a target="trid" href={'https://www.ixmaps.ca/explore.php?trid=' + m.content.trid}><Glyphicon glyph='link' /> {m.message}</a>;
+        display = (
+          <div>
+            <div className='col-md-8'>{m.content.dest}<br /><span className='message-dest_ip'>{m.content.dest_ip}</span></div>
+            <div className='col-md-4'><a target="trid" href={'https://www.ixmaps.ca/explore.php?trid=' + m.content.trid}>{m.content.trid}</a></div>
+          </div>
+        );
         ltype = 'success';
       } else if (m.type === 'error') {
         display = <span style={{color: 'red'}}>{m.message}</span>;
@@ -46,10 +50,10 @@ module.exports = React.createClass({
       output.unshift(
         <Row className='message-row' key={i++}>
           <div className='col-md-1' style={{textAlign: 'right'}}>{i}</div>
-          <div className='col-md-1'><Label className='pull-right' bsStyle={ltype}>{m.type}</Label></div>
+          <div className='col-md-1'><Label bsSize='large' className='pull-right' bsStyle={ltype}>{m.type}</Label></div>
           <div className='col-md-2' style={{textAlign: 'center'}}>{date}</div>
           <div className='col-md-4'>{display}</div>
-          <div className='col-md-4'>{m.content}</div>
+          <div className='col-md-4'>{m.content ? m.content.submissionMessage : ''}</div>
         </Row>);
     });
     return (
