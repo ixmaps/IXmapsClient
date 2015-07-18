@@ -1,12 +1,17 @@
 /* jslint node: true, esnext: true */
 
-var React = require('react'), {ProgressBar, Button, Panel, Input, Glyphicon, Label, Table} = require('react-bootstrap'),
+var React = require('react'), {ProgressBar, Button, ButtonGroup, Panel, Input, Glyphicon, Label, Table} = require('react-bootstrap'),
   moment = require('moment');
 
 module.exports = React.createClass({
   render: function() {
     let {caller, messages, currentStatus} = this.props, progress, sendMessages = [],
-      action = <Button className="pull-right" onClick={this.finished}>Close</Button>;
+      action = (
+        <ButtonGroup className='pull-right'>
+          <Button onClick={this.finished}>Finished</Button>
+          <Button onClick={this.goback}>Go back</Button>
+        </ButtonGroup>
+      );
     if (currentStatus && currentStatus !== 'finished') {
       action = <Button className="pull-right" onClick={caller.cancelTrace}>Cancel after current trace</Button>;
       progress = <ProgressBar active now={100} label={currentStatus} />;
@@ -68,7 +73,10 @@ module.exports = React.createClass({
   toggleDebug: function(e) {
     this.setState({debug: e.target.checked});
   },
-  finished: function() {
+  goback: function() {
     this.props.caller.stepCall('Destination');
+  },
+  finished: function() {
+    this.props.caller.stepCall('Finished');
   }
 });

@@ -10,6 +10,8 @@ var server = require('http').Server(app);
 var io = require('socket.io')(server);
 var open = require('open');
 
+var mygeoip = require('./lib/mygeoip.js');
+
 var mode = process.env.NODE_ENV,
   isWin = /^win/.test(process.platform),
   isPublic = mode === 'public' || mode === 'publicdev',
@@ -95,16 +97,24 @@ function start() {
     // initiate client version and presence check
     socket.on('ping', function(g, ack) {
       lastResponse = new Date();
-      if (!gen && !ack) {
+      if (!gen || !ack) {
         gen = g;
+        try {
+          var prefs = require(process.cwd() + '/IXmaps.preferences.json');
+          console.log('sending prefs', prefs);
+          socket.emit('preferences', prefs);
+        } catch (err) {
+          console.log('no IXmaps.preferences.json found', err);
+        }
+        try {
+          mygeoip.get(function(err, geoip) {
+            console.log('sending geoip', geoip);
+            socket.emit('geoip', geoip);
+          });
+        } catch(err) {
+          console.error('could not get geoip', err);
+        }
         if (!isPublic) {
-          try {
-            var prefs = require(process.cwd() + '/IXmaps.preferences.json');
-            console.log('sending prefs', prefs);
-            socket.emit('preferences', prefs);
-          } catch (e) {
-            console.log('no IXmaps.preferences.json found', e);
-          }
           pingCheck = setInterval(function() {
             var passed = new Date().getTime() - lastResponse.getTime();
             if (passed > 1000) {

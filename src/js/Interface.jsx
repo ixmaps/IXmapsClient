@@ -1,4 +1,5 @@
 /* jslint node: true, esnext: true, browser: true */
+'use strict';
 
 var React = require('react'), { Row, Alert } = require('react-bootstrap'), io = require('socket.io-client'), _ = require('lodash');
 require('babel/polyfill');
@@ -7,6 +8,7 @@ var Submitter = require('./Submitter.jsx'),
   Destination = require('./Destination.jsx'),
   Options = require('./Options.jsx'),
   Trace = require('./Trace.jsx'),
+  Finished = require('./Finished.jsx'),
   DefaultOptions = require('../../lib/default-options.js');
 
 var socket = io();
@@ -14,9 +16,13 @@ var socket = io();
 module.exports = React.createClass({
   connected: function() {
     console.log('connected');
+    this.setState({disconnected: false});
   },
   ack: function() {
     this.state.ack = new Date().getTime();
+    if (this.state.disconnected) {
+      this.setState({disconnected: false});
+    }
   },
   stale: function(g) {
     this.setState({stale: true});
@@ -24,6 +30,10 @@ module.exports = React.createClass({
   },
   preferences: function(prefs) {
     let options = _.assign({}, this.state.options, {submitter: prefs.submitter, postal_code: prefs.postal_code});
+    this.setState({options});
+  },
+  geoip: function(geoip) {
+    let options = _.assign({}, this.state.options, {geoip});
     this.setState({options});
   },
   trsets: function(trsets) {
@@ -57,6 +67,7 @@ module.exports = React.createClass({
     socket.on('stale', this.stale);
     socket.on('disconnect', this.disconnected);
     socket.on('preferences', this.preferences);
+    socket.on('geoip', this.geoip);
 
     let gen = new Date().getTime();
     this.state.ackInterval = setInterval(() => {
@@ -75,7 +86,8 @@ module.exports = React.createClass({
       step: 'Submitter',
       currentStatus: null,
       trsets: null,
-      ack: 0
+      ack: 0,
+      lastPage: 'Submitter'
     };
   },
   render: function() {
@@ -107,6 +119,9 @@ module.exports = React.createClass({
     case 'Trace':
       step = <Trace caller={this} currentStatus={this.state.currentStatus} messages={this.state.messages} />;
       break;
+    case 'Finished':
+    step = <Finished caller={this} last={this.state.last} />
+      break;
     default:
       step = <Submitter caller={this} options={this.state.options}/>;
     }
@@ -129,6 +144,9 @@ module.exports = React.createClass({
           this.state.options[i] = opts[i];
       });
     }
+    if (to !== 'Finished') {
+      this.state.lastPage = to;
+    }
     this.setState({
       step: to
     });
@@ -137,7 +155,6 @@ module.exports = React.createClass({
     }
   },
   savePrefs: function(prefs) {
-    console.log('savePrefs', prefs);
     socket.emit('savePreferences', prefs);
   }
 });
