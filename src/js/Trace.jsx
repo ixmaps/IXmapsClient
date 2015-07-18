@@ -5,7 +5,7 @@ var React = require('react'), {ProgressBar, Button, ButtonGroup, Panel, Input, G
 
 module.exports = React.createClass({
   render: function() {
-    let {caller, messages, currentStatus, options} = this.props, progress, sendMessages = [],
+    let {caller, messages, currentStatus, options, progress} = this.props, readout, count, sendMessages = [],
       action = (
         <div className='pull-right'>
           <Button onClick={this.finished}>Finished</Button>
@@ -13,8 +13,14 @@ module.exports = React.createClass({
         </div>
       );
     if (currentStatus && currentStatus !== 'done') {
-      action = <Button className="pull-right" onClick={caller.cancelTrace}>Cancel after current trace</Button>;
-      progress = <ProgressBar className='trace-progress' active now={100} label={currentStatus} />;
+      action = <Button className="pull-right" onClick={caller.cancelTrace}>Stop after current trace</Button>;
+      let current = 100;
+      if (progress && progress.total) {
+        current = (progress.current / progress.total) * 100;
+        count = `${progress.current} / ${progress.total}`;
+      }
+      console.log('progress', current, progress);
+      readout = <ProgressBar className='trace-progress' active now={current} />;
     }
     for (let i = 0; i < messages.length; i++) {
       var m = messages[i];
@@ -54,9 +60,9 @@ module.exports = React.createClass({
             ISP: <b>{options.isp || '[no ISP]'}</b>&nbsp;
             on <b>{moment().format('YYYY-MM-DD HH:m:s')}</b>
           </p>
-          {progress}
-
-          {action}
+          <div className='col-md-4'><strong>{options.trset ? 'TR Set: ' + options.trset : options.dest}</strong><br />{count} {currentStatus}</div>
+          <div className='col-md-4'>{readout}</div>
+          <div className='col-md-4'>{action}</div>
         </Panel>
 
         <Panel>
