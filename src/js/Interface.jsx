@@ -44,7 +44,6 @@ module.exports = React.createClass({
   },
   update: function(incoming) {
     let { type, message, content } = incoming, messages = [...this.state.messages];
-    console.log('update', incoming);
     if (type === 'STATUS') {
       this.state.currentStatus = message;
     } else {
@@ -120,10 +119,10 @@ module.exports = React.createClass({
       step = <Trace caller={this} currentStatus={this.state.currentStatus} messages={this.state.messages} />;
       break;
     case 'Finished':
-    step = <Finished caller={this} last={this.state.last} />
+      step = <Finished caller={this} lastPage={this.state.lastPage} />
       break;
     default:
-      step = <Submitter caller={this} options={this.state.options}/>;
+      step = <Submitter caller={this} options={this.state.options} />;
     }
 
     return (
@@ -147,6 +146,7 @@ module.exports = React.createClass({
     if (to !== 'Finished') {
       this.state.lastPage = to;
     }
+    console.log('lastPage', this.state.lastPage);
     this.setState({
       step: to
     });

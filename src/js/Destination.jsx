@@ -30,8 +30,9 @@ module.exports = React.createClass({
           <p>Enter a hostname of your own to target</p>
           <Input disabled={!!this.state.trset} onChange={this.changeDest} ref='dest' type='text' label='Destination' defaultValue={this.props.options.dest} labelClassName='col-md-4' wrapperClassName='col-md-6' />
         </Panel>
-        <Button disabled={!canTrace} className="pull-right" onClick={this.use.bind(this, 'Trace')}>Submit Trace</Button>
+        <Button bsStyle='primary' disabled={!canTrace} className="pull-right" onClick={this.use.bind(this, 'Trace')}>Submit Trace</Button>
         <Button className="pull-right" onClick={this.use.bind(this, 'Options')}>Options</Button>
+        <Button className='pull-right' onClick={this.cancel}>Cancel</Button>
         <Button className="pull-right" onClick={this.cancel}>Go back</Button>
       </div>
     );
@@ -50,13 +51,13 @@ module.exports = React.createClass({
 
     this.props.caller.stepCall(next || 'Trace', options);
   },
-  cancel: function() {
-    this.props.caller.stepCall('Submitter');
-  },
   getInitialState: function() {
     return {
       trset: this.props.options.trset,
       dest: this.props.options.dest
     };
+  },
+  cancel: function() {
+    this.props.caller.stepCall('Finished');
   }
 });
