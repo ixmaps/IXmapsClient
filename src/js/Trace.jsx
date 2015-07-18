@@ -5,16 +5,16 @@ var React = require('react'), {ProgressBar, Button, ButtonGroup, Panel, Input, G
 
 module.exports = React.createClass({
   render: function() {
-    let {caller, messages, currentStatus} = this.props, progress, sendMessages = [],
+    let {caller, messages, currentStatus, options} = this.props, progress, sendMessages = [],
       action = (
-        <ButtonGroup className='pull-right'>
+        <div className='pull-right'>
           <Button onClick={this.finished}>Finished</Button>
           <Button onClick={this.goback}>Go back</Button>
-        </ButtonGroup>
+        </div>
       );
-    if (currentStatus && currentStatus !== 'finished') {
+    if (currentStatus && currentStatus !== 'done') {
       action = <Button className="pull-right" onClick={caller.cancelTrace}>Cancel after current trace</Button>;
-      progress = <ProgressBar active now={100} label={currentStatus} />;
+      progress = <ProgressBar className='trace-progress' active now={100} label={currentStatus} />;
     }
     for (let i = 0; i < messages.length; i++) {
       var m = messages[i];
@@ -47,7 +47,13 @@ module.exports = React.createClass({
     return (
       <div>
         <Panel>
-          <h1>Executing traces</h1>
+          <h1>Generating Traceroutes</h1>
+          <p>
+            Submitted by <b>{options.submitter || '[noname]'}</b> from <b>{options.city || '[no city]'}</b>,&nbsp;
+            <b>{options.postal_code || '[no postal code]'}</b>&nbsp;
+            ISP: <b>{options.isp || '[no ISP]'}</b>&nbsp;
+            on <b>{moment().format('YYYY-MM-DD HH:m:s')}</b>
+          </p>
           {progress}
 
           {action}
@@ -77,6 +83,6 @@ module.exports = React.createClass({
     this.props.caller.stepCall('Destination');
   },
   finished: function() {
-    this.props.caller.stepCall('Finished');
+    this.props.caller.stepCall('Finished', 'Destination');
   }
 });

@@ -2,7 +2,9 @@
 
 var React = require('react'), {Input, Button, Panel, Row} = require('react-bootstrap');
 
+
 module.exports = React.createClass({
+  fields : ['trset', 'dest'],
   render: function() {
     let {caller, trsets} = this.props, seltr;
     var canTrace = !!(this.state.dest || this.state.trset);
@@ -33,7 +35,7 @@ module.exports = React.createClass({
         <Button bsStyle='primary' disabled={!canTrace} className="pull-right" onClick={this.use.bind(this, 'Trace')}>Submit Trace</Button>
         <Button className="pull-right" onClick={this.use.bind(this, 'Options')}>Options</Button>
         <Button className='pull-right' onClick={this.cancel}>Cancel</Button>
-        <Button className="pull-right" onClick={this.cancel}>Go back</Button>
+        <Button className="pull-right" onClick={this.goback}>Go back</Button>
       </div>
     );
   },
@@ -49,7 +51,7 @@ module.exports = React.createClass({
       options[i] = this.refs[i] ? this.refs[i].getValue() : null;
     });
 
-    this.props.caller.stepCall(next || 'Trace', options);
+    this.props.caller.stepCall(next || 'Trace', options, this.fields);
   },
   getInitialState: function() {
     return {
@@ -58,6 +60,9 @@ module.exports = React.createClass({
     };
   },
   cancel: function() {
-    this.props.caller.stepCall('Finished');
+    this.props.caller.stepCall('Finished', 'Destination');
+  },
+  goback: function() {
+    this.props.caller.stepCall('Submitter');
   }
 });

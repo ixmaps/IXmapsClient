@@ -2,7 +2,9 @@
 
 var React = require('react'), {Input, Button, Panel} = require('react-bootstrap');
 
+
 module.exports = React.createClass({
+  fields : ['submitter', 'city', 'postal_code', 'isp'],
   render: function() {
     var {caller} = this.props, {submitter, city, postal_code, isp, geoip} = this.state;
 
@@ -16,7 +18,7 @@ module.exports = React.createClass({
         <input type='text' placeholder='city' onChange={this.change.bind(null, 'city')} value={city} className='input city' />
         <input type='text' placeholder='postal_code' onChange={this.change.bind(null, 'postal_code')} value={postal_code} className='input postal_code'  /> <br />
         with
-        <input type='text' placeholder='Internet Service Provider' onChange={this.change.bind(null, 'city')} value={isp} className='input isp' />
+        <input type='text' placeholder='Internet Service Provider' onChange={this.change.bind(null, 'isp')} value={isp} className='input isp' />
         as your internet service provider (ISP).</p>
         <p>Please correct these if appropriate. This too is optional, but will assist in more accurately positioning the origin of the traceroutes you contribute.</p>
         <Input ref='savePrefs' className='pull-right' defaultChecked={true} type='checkbox' label='Store this information on your computer' />
@@ -36,7 +38,7 @@ module.exports = React.createClass({
   },
   use: function() {
     let options = {};
-    ['submitter', 'city', 'postal_code', 'isp'].forEach(i => {
+    this.fields.forEach(i => {
       options[i] = this.state[i];
     });
 
@@ -44,10 +46,10 @@ module.exports = React.createClass({
       this.props.caller.savePrefs(options);
     }
 
-    this.props.caller.stepCall('Destination', options);
+    this.props.caller.stepCall('Destination', options, this.fields);
   },
   cancel: function() {
-    this.props.caller.stepCall('Finished');
+    this.props.caller.stepCall('Finished', 'Submitter');
   },
   optionsWithGeoip: function(options) {
     let geoip = options.geoip || {};

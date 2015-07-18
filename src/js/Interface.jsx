@@ -116,7 +116,7 @@ module.exports = React.createClass({
       step = <Options caller={this} defaultOptions={DefaultOptions()} options={this.state.options}/>;
       break;
     case 'Trace':
-      step = <Trace caller={this} currentStatus={this.state.currentStatus} messages={this.state.messages} />;
+      step = <Trace caller={this} currentStatus={this.state.currentStatus} messages={this.state.messages} options={this.state.options} />;
       break;
     case 'Finished':
       step = <Finished caller={this} lastPage={this.state.lastPage} />
@@ -136,17 +136,17 @@ module.exports = React.createClass({
       </div>
     );
   },
-  stepCall: function(to, opts) {
-    if (opts) {
-      Object.keys(this.state.options).forEach(i => {
-        if (opts[i] !== undefined)
-          this.state.options[i] = opts[i];
+  stepCall: function(to, opts, fields) {
+    if (fields) {
+      fields.forEach(i => {
+        this.state.options[i] = opts[i];
       });
+    } else if (to === 'Finished') {
+      this.state.lastPage = opts;
     }
-    if (to !== 'Finished') {
-      this.state.lastPage = to;
-    }
-    console.log('lastPage', this.state.lastPage);
+    // don't default to these anymore
+    delete this.state.options.geoip;
+
     this.setState({
       step: to
     });
