@@ -158,7 +158,7 @@ function start() {
     }
 
     function cancelTrace() {
-      send('STATUS', 'Stopping after current host');
+      send('STATUS', 'Stopping after current host', {status: 'stopping'});
       processor.cancelTrace();
     }
 

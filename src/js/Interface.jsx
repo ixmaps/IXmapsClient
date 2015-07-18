@@ -44,8 +44,9 @@ module.exports = React.createClass({
   },
   update: function(incoming) {
     let { type, message, content } = incoming, messages = [...this.state.messages];
-    if (type === 'STATUS') {
-      this.state.currentStatus = message;
+    if (content && content.status) {
+      this.state.currentStatus = content.status;
+      this.state.statusMessage = message;
       this.state.progress = incoming.content;
     } else {
       messages.push({ date: new Date(), type, message, content });
@@ -85,6 +86,7 @@ module.exports = React.createClass({
       messages: [],
       step: 'Submitter',
       currentStatus: null,
+      statusMessage: null,
       trsets: null,
       ack: 0,
       lastPage: 'Submitter'
@@ -117,7 +119,7 @@ module.exports = React.createClass({
       step = <Options caller={this} defaultOptions={DefaultOptions()} options={this.state.options}/>;
       break;
     case 'Trace':
-      step = <Trace caller={this} currentStatus={this.state.currentStatus} messages={this.state.messages} options={this.state.options} progress={this.state.progress} />;
+      step = <Trace caller={this} currentStatus={this.state.currentStatus} statusMessage={this.state.statusMessage} messages={this.state.messages} options={this.state.options} progress={this.state.progress} />;
       break;
     case 'Finished':
       step = <Finished caller={this} lastPage={this.state.lastPage} />

@@ -1,11 +1,11 @@
 /* jslint node: true, esnext: true */
 
-var React = require('react'), {ProgressBar, Button, ButtonGroup, Panel, Input, Glyphicon, Label, Table} = require('react-bootstrap'),
+var React = require('react'), {Row, ProgressBar, Button, ButtonGroup, Panel, Input, Glyphicon, Label, Table} = require('react-bootstrap'),
   moment = require('moment');
 
 module.exports = React.createClass({
   render: function() {
-    let {caller, messages, currentStatus, options, progress} = this.props, readout, count, sendMessages = [],
+    let {caller, messages, currentStatus, statusMessage, options, progress} = this.props, readout, count, sendMessages = [],
       action = (
         <div className='pull-right'>
           <Button onClick={this.finished}>Finished</Button>
@@ -20,7 +20,7 @@ module.exports = React.createClass({
         count = `${progress.current} / ${progress.total}`;
       }
       console.log('progress', current, progress);
-      readout = <ProgressBar className='trace-progress' active now={current} />;
+      readout = <ProgressBar bsStyle={currentStatus === 'stopping' ? 'warning' : 'success'} className='trace-progress' active now={current} />;
     }
     for (let i = 0; i < messages.length; i++) {
       var m = messages[i];
@@ -41,26 +41,28 @@ module.exports = React.createClass({
         display = m.message;
         ltype = 'info';
       }
-      date = moment(m.date).format('YYYY-MM-DD HH:m:s');
+      date = moment(m.date).format('HH:m:s');
 
       output.unshift(
-        <tr key={i++}>
-          <td><Label className='pull-right' bsStyle={ltype}>{m.type}</Label></td>
-          <td><div style={{textAlign: 'center'}}>{date}</div></td>
-          <td>{display}</td>
-        </tr>);
+        <Row className='message-row' key={i++}>
+          <div className='col-md-1' style={{textAlign: 'right'}}>{i}</div>
+          <div className='col-md-1'><Label className='pull-right' bsStyle={ltype}>{m.type}</Label></div>
+          <div className='col-md-2' style={{textAlign: 'center'}}>{date}</div>
+          <div className='col-md-4'>{display}</div>
+          <div className='col-md-4'>{m.content}</div>
+        </Row>);
     });
     return (
       <div>
         <Panel>
           <h1>Generating Traceroutes</h1>
-          <p>
+          <div className='generating-submitter'>
             Submitted by <b>{options.submitter || '[noname]'}</b> from <b>{options.city || '[no city]'}</b>,&nbsp;
             <b>{options.postal_code || '[no postal code]'}</b>&nbsp;
             ISP: <b>{options.isp || '[no ISP]'}</b>&nbsp;
             on <b>{moment().format('YYYY-MM-DD HH:m:s')}</b>
-          </p>
-          <div className='col-md-4'><strong>{options.trset ? 'TR Set: ' + options.trset : options.dest}</strong><br />{count} {currentStatus}</div>
+          </div>
+          <div className='col-md-4'><strong>{options.trset ? 'TR Set: ' + options.trset : options.dest}</strong><br />{count} {statusMessage}</div>
           <div className='col-md-4'>{readout}</div>
           <div className='col-md-4'>{action}</div>
         </Panel>
@@ -68,11 +70,7 @@ module.exports = React.createClass({
         <Panel>
           <h2>Output</h2>
           <Input className="pull-right" id="debug" type="checkbox" onChange={this.toggleDebug} label="Detailed output" />
-          <Table>
-            <tbody>
-              {output}
-            </tbody>
-          </Table>
+          {output}
         </Panel>
       </div>
     );
