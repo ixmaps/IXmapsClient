@@ -45,12 +45,14 @@ module.exports = React.createClass({
         display = m.message;
         ltype = 'info';
       }
-      date = moment(m.date).format('HH:m:s');
+      date = moment(m.date).format('HH:mm:s');
 
       output.unshift(
         <Row className='message-row' key={i++}>
-          <div className='col-md-1' style={{textAlign: 'right'}}>{i}</div>
-          <div className='col-md-1'><Label bsSize='large' className='pull-right' bsStyle={ltype}>{m.type}</Label></div>
+          <div className='col-md-2'>
+            <div className='col-md-4 text-right'>{i}</div>
+            <div className='col-md-8'><Label block className='pull-right update-type' bsStyle={ltype}>{m.type}</Label></div>
+          </div>
           <div className='col-md-2' style={{textAlign: 'center'}}>{date}</div>
           <div className='col-md-4'>{display}</div>
           <div className='col-md-4'>{m.content ? m.content.submissionMessage : ''}</div>
@@ -64,7 +66,7 @@ module.exports = React.createClass({
             Submitted by <b>{options.submitter || '[noname]'}</b> from <b>{options.city || '[no city]'}</b>,&nbsp;
             <b>{options.postal_code || '[no postal code]'}</b>&nbsp;
             ISP: <b>{options.isp || '[no ISP]'}</b>&nbsp;
-            on <b>{moment().format('YYYY-MM-DD HH:m:s')}</b>
+            on <b>{moment().format('YYYY-MM-DD HH:mm:s')}</b>
           </div>
           <div className='col-md-4'><strong>{options.trset ? 'TR Set: ' + options.trset : options.dest}</strong><br />{count} {statusMessage}</div>
           <div className='col-md-4'>{readout}</div>
@@ -72,8 +74,15 @@ module.exports = React.createClass({
         </Panel>
 
         <Panel>
-          <h2>Output</h2>
-          <Input className="pull-right" id="debug" type="checkbox" onChange={this.toggleDebug} label="Detailed output" />
+          <Row>
+            <div className='col-md-8'>
+              <h2>Output</h2>
+            </div>
+            <div className='col-md-3 text-right'>
+              <br />
+              <Input id="debug" type="checkbox" onChange={this.toggleDebug} label="Detailed output" />
+            </div>
+          </Row>
           {output}
         </Panel>
       </div>

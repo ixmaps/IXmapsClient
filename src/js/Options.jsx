@@ -3,6 +3,7 @@
 var React = require('react'), {Input, Button, Panel, Row} = require('react-bootstrap');
 
 module.exports = React.createClass({
+  fields: ['queries', 'timeout', 'maxhops', 'raw_protocol', 'max_sequential_errors', 'platform_protocol', 'platform_limit_ms'],
   render: function() {
     var {caller} = this.props, protocols = [
         <option key="ICMP">ICMP</option>,
@@ -37,7 +38,7 @@ module.exports = React.createClass({
           <Input ref='platform_limit_ms' type='text' label='Platform overall timeout (seconds)' defaultValue={this.props.options.platform_limit_ms / 1000}
             labelClassName='col-md-4' wrapperClassName='col-md-1' />
         </Panel>
-        <Button className="pull-right" onClick={this.use}>Use these settings</Button>
+        <Button bsStyle='primary' className="pull-right" onClick={this.use}>Use these settings</Button>
         <Button className="pull-right" onClick={this.defaults}>Use defaults</Button>
         <Button className="pull-right" onClick={this.cancel}>Cancel</Button>
         <br />
@@ -48,15 +49,15 @@ module.exports = React.createClass({
     let options = {
       include_platform_traceroute: this.refs.include_platform_traceroute.getChecked()
     };
-    ['queries', 'timeout', 'maxhops', 'raw_protocol', 'max_sequential_errors', 'platform_protocol', 'platform_limit_ms'].forEach(i => {
+    this.fields.forEach(i => {
       options[i] = this.refs[i].getValue();
     });
     options.platform_limit_ms = options.platform_limit_ms * 1000;
 
-    this.props.caller.stepCall('Destination', options);
+    this.props.caller.stepCall('Destination', options, this.fields);
   },
   defaults: function() {
-    this.props.caller.stepCall('Destination', this.props.defaultOptions);
+    this.props.caller.stepCall('Destination', this.props.defaultOptions, this.fields);
   },
   cancel: function() {
     this.props.caller.stepCall('Destination');

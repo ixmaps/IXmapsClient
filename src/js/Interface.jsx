@@ -44,13 +44,18 @@ module.exports = React.createClass({
   },
   update: function(incoming) {
     let { type, message, content } = incoming, messages = [...this.state.messages];
-    if (content && content.status) {
-      this.state.currentStatus = content.status;
-      this.state.statusMessage = message;
-      this.state.progress = incoming.content;
-    } else {
-      messages.push({ date: new Date(), type, message, content });
+    // program information
+    if (content) {
+      if (content.status) {
+        this.state.currentStatus = content.status;
+        this.state.statusMessage = message;
+        this.state.progress = incoming.content;
+      }
+      if (content.submitted) {
+        this.state.submitted = content.submitted;
+      }
     }
+    messages.push({ date: new Date(), type, message, content });
     this.setState(...this.state, {messages});
   },
   submitTrace: function(options) {
@@ -89,7 +94,8 @@ module.exports = React.createClass({
       statusMessage: null,
       trsets: null,
       ack: 0,
-      lastPage: 'Submitter'
+      lastPage: 'Submitter',
+      submitted : 0
     };
   },
   render: function() {
@@ -109,7 +115,7 @@ module.exports = React.createClass({
        </Alert>
       );
     }
-    let sendMessages = [], step;
+    let step;
 
     switch (this.state.step) {
     case 'Destination':
@@ -122,7 +128,7 @@ module.exports = React.createClass({
       step = <Trace caller={this} currentStatus={this.state.currentStatus} statusMessage={this.state.statusMessage} messages={this.state.messages} options={this.state.options} progress={this.state.progress} />;
       break;
     case 'Finished':
-      step = <Finished caller={this} lastPage={this.state.lastPage} />
+      step = <Finished submitted={this.state.submitted} caller={this} lastPage={this.state.lastPage} />
       break;
     default:
       step = <Submitter caller={this} options={this.state.options} />;

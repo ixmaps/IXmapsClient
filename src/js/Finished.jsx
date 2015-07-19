@@ -5,9 +5,12 @@ var React = require('react'), {Button} = require('react-bootstrap');
 
 var Finished = React.createClass({
   render: function() {
-    let {routes} = this.props;
-    let message = routes > 0 ? `Thank you for contributing ${routes} new traceroutes to our database. `
-      : 'Thank you for trying the IXmaps traceroute generator. ';
+    let {submitted} = this.props, message;
+    if (submitted > 0) {
+      message = `Thank you for contributing ${submitted} new traceroute` + (submitted > 1 ? 's' : '') + ' to our database. ';
+    } else {
+        message = 'Thank you for trying the IXmaps traceroute generator. ';
+    }
     return (
         <div>
           <p>{message}
