@@ -24,7 +24,7 @@ var Finished = React.createClass({
 
           <img src='/custom_filters.png' alt='custom filters filter example' />
 
-          <p>Any IP addresses not already in our database will likely will not be located correctly.
+          <p>Any IP addresses not already in our database will likely not be located correctly.
           Currently our location correction runs over night, so check back in 24 hours for a more accurate rendering.
           If you still believe the location is incorrect, please flag it on our Explore page.
           Please continue to contribute more traceroutes, especially if you travel to another location or are using a different ISP.</p>
