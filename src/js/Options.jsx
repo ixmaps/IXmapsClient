@@ -3,7 +3,7 @@
 var React = require('react'), {Input, Button, Panel, Row} = require('react-bootstrap');
 
 module.exports = React.createClass({
-  fields: ['queries', 'timeout', 'maxhops', 'raw_protocol', 'max_sequential_errors', 'platform_protocol', 'platform_limit_ms'],
+  fields: ['queries', 'timeout', 'maxhops', 'raw_protocol', 'max_sequential_errors', 'include_platform_traceroute', 'platform_protocol', 'platform_limit_ms'],
   render: function() {
     var {caller} = this.props, protocols = [
         <option key="ICMP">ICMP</option>,
@@ -46,13 +46,10 @@ module.exports = React.createClass({
     );
   },
   use: function() {
-    let options = {
-      include_platform_traceroute: this.refs.include_platform_traceroute.getChecked()
-    };
-    this.fields.forEach(i => {
-      options[i] = this.refs[i].getValue();
-    });
+    let options = {};
+    this.fields.forEach(i => options[i] = this.refs[i].getValue());
     options.platform_limit_ms = options.platform_limit_ms * 1000;
+    options.include_platform_traceroute = this.refs.include_platform_traceroute.getChecked();
 
     this.props.caller.stepCall('Destination', options, this.fields);
   },
