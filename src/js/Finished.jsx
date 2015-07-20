@@ -18,7 +18,7 @@ var Finished = React.createClass({
 
           <p>To see the last 50 routes contributed, select <b>Quick Links</b>, then <b>Last 50 submitted routes</b>.</p>
 
-          <p>To see all the routes you have contributed, click on Custom Filters, adjust the filter options to look like this example,
+          <p>To see all the routes you have contributed, select Custom Filters, adjust the filter options to look like this example,
           enter your name / pseudonym in the space provided,
           and then <b>Submit</b>:</p>
 
