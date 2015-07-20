@@ -1,49 +1,74 @@
 /* jslint node: true, esnext: true */
+'use strict';
 
 var React = require('react'), {Row, ProgressBar, Button, ButtonGroup, Panel, Input, Glyphicon, Label, Table} = require('react-bootstrap'),
   moment = require('moment');
 
 module.exports = React.createClass({
   render: function() {
-    let {caller, messages, currentStatus, statusMessage, options, progress} = this.props, readout, count, sendMessages = [],
+    let {caller, messages, currentStatus, statusMessage, options, progress} = this.props, runningClass = 'col-md-8', readout, count, sendMessages = [],
       action = (
         <div className='pull-right'>
+          <Button onClick={this.goback}>Go Back</Button>
           <Button onClick={this.finished}>Finished</Button>
-          <Button onClick={this.goback}>Go back</Button>
         </div>
       );
-    if (currentStatus && currentStatus !== 'done') {
+    if (currentStatus && currentStatus !== 'done' && currentStatus !== 'trset-completed') {
       action = <Button className="pull-right" onClick={caller.cancelTrace}>Stop after current trace</Button>;
       let current = 100;
       if (progress && progress.total) {
         current = (progress.current / progress.total) * 100;
         count = `${progress.current} / ${progress.total}`;
       }
-      readout = <ProgressBar bsStyle={currentStatus === 'stopping' ? 'warning' : 'success'} className='trace-progress' active now={current} />;
+      runningClass='col-md-4';
+      readout = (
+        <div className='col-md-4'>
+        <ProgressBar bsStyle={currentStatus === 'stopping' ? 'warning' : 'success'} className='trace-progress' active now={current} />
+        </div>
+      );
     }
     for (let i = 0; i < messages.length; i++) {
       var m = messages[i];
-      if (this.state.debug || m.type === 'submitted' || m.type === 'error' || i == messages.length - 1) {
+      if (this.state.debug || m.type === 'submitted' || m.type === 'trset-completed' || m.type === 'error' || i == messages.length - 1) {
         sendMessages.push(m);
       }
     }
 
-    let i = 0, output = [], display, ltype, date;
+    let i = 0, output = []
     sendMessages.forEach(m => {
-      if (m.type === 'submitted') {
+      let display, ltype, date,
+        type = m.content && m.content.status ? m.content.status : m.type,
+        label = type;
+      if (type === 'submitted') {
+        label = 'submitted';
         display = (
           <div>
-            <div className='col-md-8'>{m.content.dest}<br /><span className='message-dest_ip'>{m.content.dest_ip}</span></div>
-            <div className='col-md-4'><a target="trid" href={'https://www.ixmaps.ca/explore.php?trid=' + m.content.trid}>{m.content.trid}</a></div>
+            <div className='col-md-4'>{m.content.dest}<br /><span className='message-dest_ip'>{m.content.dest_ip}</span></div>
+            <div className='col-md-2'><a target="trid" href={'https://www.ixmaps.ca/explore.php?trid=' + m.content.trid}>{m.content.trid}</a></div>
+            <div className='col-md-6'>{m.content ? m.content.submissionMessage : ''}</div>
           </div>
         );
         ltype = 'success';
-      } else if (m.type === 'error') {
+      } else if (type === 'error') {
         display = <span style={{color: 'red'}}>{m.message}</span>;
         ltype = 'danger';
+      } else if (type === 'trset-completed') {
+        label = 'completed';
+        if (m.content && m.content.trset) {
+          display = <span style={{color: 'green'}}>TR Set <b>{m.content.trset}</b> completed. {m.content.succeeded} of {m.content.total} successfully contributed.</span>;
+        } else {
+          display = <span>m.message</span>;
+        }
+        ltype = 'success';
       } else {
-        display = m.message;
         ltype = 'info';
+        display = (m.message || '').toString().replace(/[\{|}|"]/g, '').replace(/,/g, ', ');
+        if (m.content && m.content.dest) {
+          display = <div>
+            <div className='col-md-4'>{m.content.dest}<br /><span className='message-dest_ip'>{m.content.dest_ip}</span></div>
+            <div className='col-md-8'>{display}</div>
+          </div>
+        }
       }
       date = moment(m.date).format('HH:mm:s');
 
@@ -51,11 +76,10 @@ module.exports = React.createClass({
         <Row className='message-row' key={i++}>
           <div className='col-md-2'>
             <div className='col-md-4 text-right'>{i}</div>
-            <div className='col-md-8'><Label block className='pull-right update-type' bsStyle={ltype}>{m.type}</Label></div>
+            <div className='col-md-8'><Label block className='pull-right update-type' bsStyle={ltype}>{label}</Label></div>
           </div>
           <div className='col-md-2' style={{textAlign: 'center'}}>{date}</div>
-          <div className='col-md-4'>{display}</div>
-          <div className='col-md-4'>{m.content ? m.content.submissionMessage : ''}</div>
+          <div className='col-md-8'>{display}</div>
         </Row>);
     });
     return (
@@ -68,8 +92,8 @@ module.exports = React.createClass({
             ISP: <b>{options.isp || '[no ISP]'}</b>&nbsp;
             on <b>{moment().format('YYYY-MM-DD HH:mm:s')}</b>
           </div>
-          <div className='col-md-4'><strong>{options.trset ? 'TR Set: ' + options.trset : options.dest}</strong><br />{count} {statusMessage}</div>
-          <div className='col-md-4'>{readout}</div>
+          <div className={runningClass}><strong>{options.trset ? 'TR Set: ' + options.trset : options.dest}</strong><br />{count} {statusMessage}</div>
+          {readout}
           <div className='col-md-4'>{action}</div>
         </Panel>
 

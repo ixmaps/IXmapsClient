@@ -1,6 +1,6 @@
 /* jslint node: true, esnext: true */
 
-var React = require('react'), {Input, Button, Panel, Row} = require('react-bootstrap');
+var React = require('react'), {Input, Button, Panel, Alert, Row} = require('react-bootstrap');
 
 module.exports = React.createClass({
   fields: ['queries', 'timeout', 'maxhops', 'raw_protocol', 'max_sequential_errors', 'include_platform_traceroute', 'platform_protocol', 'platform_limit_ms'],
@@ -14,13 +14,20 @@ module.exports = React.createClass({
       <div>
         <h1>Options</h1>
         <Panel>
-          <Input ref='queries' type='text' label='Queries' help="The number of sets of hops" defaultValue={this.props.options.queries}
+          <Alert bsStyle='warning'>
+            <p>
+              These options modify the behaviour of the traceroute generator.
+              It assumes familiarity with <a href='https://www.ixmaps.ca/faq.php#Traceroute' target='trinfo'>traceroute techniques</a>.
+              Increasing any of the values or selecting 'Include platform traceroute' may substantially increase the length of time to complete each traceroute submission.
+            </p>
+          </Alert>
+          <Input ref='queries' type='text' label='Passes' help='The number of times each router on the route to the destination is probed' defaultValue={this.props.options.queries}
             style={{width: '3em'}} labelClassName='col-md-4' wrapperClassName='col-md-8' />
-          <Input ref='timeout' type='text' label='Timeout (milliseconds)' help="Maximum time to live of a hop probe" defaultValue={this.props.options.timeout}
+          <Input ref='timeout' type='text' label='Timeout (milliseconds)' help='The maximum time the traceroute generator will wait for a response from a particular router' defaultValue={this.props.options.timeout}
             style={{width: '5em'}} labelClassName='col-md-4' wrapperClassName='col-md-8' />
-          <Input ref='maxhops' type='text' label='Maximum hops' help="Limit of router hops" defaultValue={this.props.options.maxhops}
+          <Input ref='maxhops' type='text' label='Maximum hops' help='Limit to number of router hops - i.e. maximum time to live (TTL) of a probe' defaultValue={this.props.options.maxhops}
             style={{width: '4em'}} labelClassName='col-md-4' wrapperClassName='col-md-8' />
-          <Input ref='max_sequential_errors' type='text' help="Number of timeouts or errors in a row before stopping query"
+          <Input ref='max_sequential_errors' type='text' help='Number of timeouts or errors in a row (i.e. successive TTLs) before stopping trace'
             style={{width: '4em'}} label='Maximum sequential errors' defaultValue={this.props.options.max_sequential_errors} labelClassName='col-md-4' wrapperClassName='col-md-8' />
           <Input type="select" defaultValue={this.props.options.raw_protocol} ref="raw_protocol" label='Raw protocol'
             labelClassName='col-md-4' wrapperClassName='col-md-2'>

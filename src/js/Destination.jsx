@@ -30,9 +30,9 @@ module.exports = React.createClass({
         <Panel disabled>
           {seltr}
           <p>Enter a hostname of your own to target</p>
-          <Input disabled={!!this.state.trset} onChange={this.changeDest} ref='dest' type='text' label='Destination' defaultValue={this.props.options.dest} labelClassName='col-md-4' wrapperClassName='col-md-6' />
+          <Input disabled={!!this.state.trset} placeholder='Hostname (e.g. cbc.ca) or IP address (e.g. 123.123.123.123)' onChange={this.changeDest} ref='dest' type='text' label='Destination' defaultValue={this.props.options.dest} labelClassName='col-md-4' wrapperClassName='col-md-6' />
         </Panel>
-        <Button bsStyle='primary' disabled={!canTrace} className="pull-right" onClick={this.use.bind(this, 'Trace')}>Submit Trace</Button>
+        <Button bsStyle='primary' disabled={!canTrace} className="pull-right" onClick={this.use.bind(this, 'Trace')}>Generate Traceroute{this.state.trPlural}</Button>
         <Button className="pull-right" onClick={this.use.bind(this, 'Options')}>Options</Button>
         <Button className='pull-right' onClick={this.cancel}>Cancel</Button>
         <Button className="pull-right" onClick={this.goback}>Go back</Button>
@@ -42,7 +42,8 @@ module.exports = React.createClass({
   changeDest: function() {
     this.setState({
       dest: this.refs.dest.getValue(),
-      trset: this.refs.trset? this.refs.trset.getValue() : null
+      trset: this.refs.trset? this.refs.trset.getValue() : null,
+      trPlural: this.refs.trset && this.refs.trset.getValue() ? 's'  : ''
     });
   },
   use: function(next) {
@@ -56,7 +57,8 @@ module.exports = React.createClass({
   getInitialState: function() {
     return {
       trset: this.props.options.trset,
-      dest: this.props.options.dest
+      dest: this.props.options.dest,
+      trPlural :''
     };
   },
   cancel: function() {
