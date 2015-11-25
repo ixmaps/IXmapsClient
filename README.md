@@ -6,7 +6,7 @@ IXmapsClient is open source software (based on node.js) that generates tracerout
 
 ### Running on Linux
 
-Follow the instructions below to install and build then execute the package.
+Download the prepackaged version. Unpack it, go to the shell and run the command `sudo ./node server.js`. The IXmapsClient interface should appear in your browser, or use your browser to go to http://localhost:2040/.
 
 ### Running on MacOS X
 
