@@ -4,7 +4,7 @@ RCol='\e[0m'
 BIYel='\e[1;93m'
 
 echo
-echo -e "${BIYel}IXnode local server"
+echo -e "${BIYel}IXmapsClient local server"
 echo
 echo -e "${RCol}This minimal server requires root access to initiate low-level socket traces. We invite you to inspect the code for safety."
 echo 
@@ -12,7 +12,7 @@ echo "We will now prompt for your password for sudo access, after which the serv
 echo 
 echo "If the browser window doesn't open, please go to http://localhost:2040"
 echo
-echo -e "If you don't see the message ${BIYel}IXnode server started${RCol} something has gone wrong. Please consult the http://www.ixmaps.ca web site."
+echo -e "If you don't see the message ${BIYel}IXmapsClient server started${RCol} something has gone wrong. Please consult the http://www.ixmaps.ca web site."
 echo
 echo "This script is start.sh."
 echo 

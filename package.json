@@ -1,11 +1,11 @@
 {
-  "name": "ixnode",
-  "productName": "IXnode",
+  "name": "IXmapsClient",
+  "productName": "IXmapsClient",
   "version": "0.0.1",
   "description": "IXmaps client",
   "license": "TBD",
   "main": "main.js",
-  "repository": "ixmaps/ixnode",
+  "repository": "ixmaps/IXmapsClient",
   "author": {
     "name": "ixmaps team",
     "url": "ixmaps.ca"
@@ -37,7 +37,7 @@
     "moment": "^2.10.3",
     "node-libs-browser": "^0.5.2",
     "open": "0.0.5",
-    "raw-socket2": "^1.2.5",
+    "raw-socket": "1.4.0",
     "react": "^0.13.3",
     "react-bootstrap": "^0.23.2",
     "request": "^2.55.0",

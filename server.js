@@ -63,7 +63,7 @@ if (!isPublic) {
 
 
 server.on('listening', function() {
-  console.log('\n\nIXnode server started at http://%s:%s\nDevelopment mode: %s', server.address().address, server.address().port, development);
+  console.log('\n\nIXmapsClient server started at http://%s:%s\nDevelopment mode: %s', server.address().address, server.address().port, development);
   if (isPublic) {
     console.error('WARNING: running in public mode. Will accept any connection.');
   }
