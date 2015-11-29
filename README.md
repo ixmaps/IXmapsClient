@@ -57,7 +57,7 @@ This will completely remove the IXmaps Client from your computer
 
 
 ### Linux
-To be added
+Download the prepackaged version. Unpack it, go to the shell and run the command `sudo ./node server.js`. The IXmapsClient interface should appear in your browser, or use your browser to go to [http://localhost:2040/](http://localhost:2040/).
 
 
 ### Installation Note
