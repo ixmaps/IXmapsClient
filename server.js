@@ -114,7 +114,7 @@ function start() {
         } catch(err) {
           console.error('could not get geoip', err);
         }
-        if (!isPublic) {
+        /*if (!isPublic) {
           pingCheck = setInterval(function() {
             var passed = new Date().getTime() - lastResponse.getTime();
             if (passed > 1000) {
@@ -125,7 +125,7 @@ function start() {
               process.exit(0);
             }
           }, 500);
-        }
+        }*/
       } else if (gen !== g && !isPublic) {
         socket.emit('stale', gen);
         return;
