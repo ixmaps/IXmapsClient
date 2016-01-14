@@ -45,3 +45,5 @@ IXmapsClient can also be run as a public service, which should be used with caut
 `# node trace-raw`
 
 use -h for help.
+
+repo renamed to https://github.com/ixmaps/IXmapsClient
