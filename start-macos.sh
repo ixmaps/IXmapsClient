@@ -1,0 +1,32 @@
+#!/bin/sh
+echo
+echo "***************************************************************************"
+echo "* IXmapsClient local server                                               *"
+echo "*                                                                         *"
+echo "* A new browser window should appear momentarily. If the browser window   *"
+echo "* doesn't open, please point your browser to http://localhost:2040        *"
+echo "*                                                                         *"
+echo "* This window will remain open in the background, showing communication   *"
+echo "* between your device and the IXmaps database.                            *"
+echo "*                                                                         *"
+echo "* If you don't see the message -IXmapsClient server started-              *"
+echo "* something has gone wrong. Please visit                                  *"
+echo "* http://www.ixmaps.ca/contribute for assistance                          *"
+echo "*                                                                         *"
+echo "* To terminate IXmapsClient press: control+C, then close this Terminal    *"
+echo "* window and the browser window.                                          *" 
+echo "*                                                                         *"
+echo "* To remove IXmapsClient from your device, delete IXmapsClient.app folder.*"
+echo "*                                                                         *"
+echo "* Please note that this minimal server requires root access to initiate   *"
+echo "* traceroute requests. We invite you to inspect the code to verify its    *"
+echo "* safety and privacy protection.                                          *"
+echo "*                                                                         *"
+echo "* For more information on IXmapsClient, please visit:                     *"
+echo "* http://www.ixmaps.ca                                                    *"
+echo "* https://github.com/ixmaps/IXmapsClient/                                 *"
+echo "*                                                                         *"
+echo "***************************************************************************"
+echo
+DIR=`dirname "$0"`
+sudo ./node server.js
