@@ -1,4 +1,5 @@
 /* jslint node: true */
+/* windows version */
 
 "use strict";
 
