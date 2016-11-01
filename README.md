@@ -1,7 +1,7 @@
 # IXmaps Client
 `v1.0` released December 7, 2015
 
-**IXmapsClient** is an internet mapping tool that allows you to see how your personal data travels across the internet by generating traceroute data to determine the paths packets take. Users' contributions are submitted to the ixmaps.ca server where they are visualized geographically for public display and analysis.
+**IXmapsClient** is an internet mapping tool that allows you to see how your personal data travels across the internet. It works by generating traceroute data to determine the paths your data packets take. These contributions are submitted to the ixmaps.ca server, where they are visualized geographically for public display and analysis.
 
 IXmapsClient is based on node.js and sets up a web server that only answers queries from your host, then opens a browser page to access the interface. IXmapsClient runs on port 2040.
 
