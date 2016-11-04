@@ -27,6 +27,8 @@ You should have received a copy of the GNU General Public License along with thi
 ## Installation and Running
 IXmapsClient_v.1.0 works on **Mac OS X** and **Linux**, if you are interested in a Windows version please contact us.
 
+As of December 7, 2015 IXmaps has moved to using IXmapsClient instead of TRgen to collect routing information. The Mac OS X, Linux, and Windows versions of TRgen are deprecated. 
+
 ### Mac OS X
 This version of the software has been tested and runs on Mac OS X:
 * 10.6
@@ -37,39 +39,65 @@ This version of the software has been tested and runs on Mac OS X:
 
 The current version of the client can be downloaded from [www.ixmaps.ca/contribute](https://www.ixmaps.ca/contribute.php).
 
-1. Double click on the IXmapsClient_v.1.0.dmg to open it
+1. Double click on the **IXmapsClient.1.0.6.macos.dmg** to open it
 2. Drag the IXmapsClient.app application to your Applications folder
-3. Drag the IXmapsClient.command to your Desktop
-4. To launch double click on IXmapsClient.command
+3. To launch double click on IXmapsClient.app
 
 #### Installation Note:
 Depending on your Security & Privacy settings, OS X may disallow installation of the IXmapsClient. This is part of OS X called “[Gatekeeper](https://support.apple.com/en-us/HT202491),” to adjust these settings please open **Apple menu > System Preferences… > Security & Privacy > General tab** and under the header **"Allow applications downloaded from"** select **Anywhere**.
 
-**IXmapsClient** needs to be executed in a terminal with administrator's privileges. For this reason, when double clicking **IXmapsClient.command**, a new terminal window will be opened asking for the administrator's password.
+**IXmapsClient** needs to be executed in a terminal with administrator's privileges. For this reason, when double clicking **IXmapsClient.app**, a new terminal window will be opened asking for the administrator's password.
 
 Type the password and press return. This will open **IXmapsClient** on your default internet browser.
 
 #### Removing IXmapsClient
 1. Move the **IXmapsClient.app** application from your **Applications** folder to the Trash
-2. Move the **IXmapsClient.command** icon from your **Desktop** to the Trash
 
 This will completely remove the IXmaps Client from your computer  
 
 
 ### Linux
-Download the prepackaged version. Unpack it, go to the shell and run the command `sudo ./node server.js`. The IXmapsClient interface should appear in your browser, or use your browser to go to [http://localhost:2040/](http://localhost:2040/).
+This version of the software has been tested and runs on Mac OS X:
+* Ubuntu 14.04.2 LTS
+
+The current version of the client can be downloaded from [www.ixmaps.ca/contribute](https://www.ixmaps.ca/contribute.php).
+
+1. Extract the contents of the file **IXmapsClient.1.0.6.linux.zip** 
+2. Open a Terminal window and go to IXmapsClient directory
+3. To launch type the following command: `sudo ./node server.js`.
+
+**IXmapsClient** needs to be executed in a terminal with administrator's privileges. For this reason, when runing the application you will be asked for the administrator's password.
+
+Type the password and press return. This will open **IXmapsClient** on your default internet browser.
+
+The IXmapsClient interface should appear in your browser, or use your browser to go to [http://localhost:2040/](http://localhost:2040/).
 
 
-### Installation Note
-As of December 7, 2015 IXmaps has moved to using IXmapsClient instead of TRgen to collect routing information.
+### Windows
+This version of the software has been tested and runs on Windows 64 bit architecture::
+* Windows 7
+* Windows 10
 
-The Mac OS X and Linux versions of TRgen are deprecated. To install the **Windows** version of TrGen, download the Windows installer [from here](https://www.ixmaps.ca/TrGen/trgen-0.8.8.msi) and follow the instructions. You will not need administrator privileges to run the software once installed, but you may need to be logged into an administrator account to install it.
+The current version of the client can be downloaded from [www.ixmaps.ca/contribute](https://www.ixmaps.ca/contribute.php).
 
+1. Unzip the file **IXmapsClient_v.1.0.6.win.zip**
+2. Move the directory IXmapsClient to your local drive C:\ (Note that the application should be located in **C:\IXmapsClient**)
+3. Copy the **IXmapsClient-Shortcut** to your Desktop
+4. In order to allow the IXmapsClient to run properlly, you will need to Authorize Windows Firewall to allow raw-sockets. We are currently working on a new installer that will assist you in setting this permissions.
+4. To launch double click on **IXmapsClient-Shortcut**
+
+**IXmapsClient** needs to be executed in a terminal with administrator's privileges. For this reason, when double clicking **IXmapsClient-Shortcut**, a new terminal window will be opened asking permission to run the application as an administrator.
+
+This will open **IXmapsClient** on your default internet browser.
+
+#### Removing IXmapsClient
+1. Delete the **C:\IXmapsClient** directory
+2. Delete the **IXmapsClient-Shortcut** from your **Desktop** 
+
+This will completely remove the IXmaps Client from your computer  
+----------------
 ## Contributors
-Lead Software Developer:
   * David H. Mason
-
-Other Contributors:
   * Andrew Clement
   * Antonio Gamba-Bari
   * Colin McCann
