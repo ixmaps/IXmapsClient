@@ -60,7 +60,7 @@ The current version of the client can be downloaded from [www.ixmaps.ca/contribu
 2. Open a Terminal window and go to IXmapsClient directory
 3. To launch type the following command: `sudo ./node server.js`.
 
-**IXmapsClient** needs to be executed in a terminal with administrator's privileges. For this reason, when runing the application you will be asked for the administrator's password.
+**IXmapsClient** needs to be executed in a terminal with administrator's privileges. For this reason, when running the application you will be asked for the administrator's password.
 
 Type the password and press return. This will open **IXmapsClient** on your default internet browser.
 
@@ -68,7 +68,7 @@ The IXmapsClient interface should appear in your browser, or use your browser to
 
 
 ### Windows
-This version of the software has been tested and runs on Windows 64 bit architecture::
+This version of the software has been tested and runs on Windows 64 bit architecture:
 * Windows 7
 * Windows 10
 
@@ -77,7 +77,7 @@ The current version of the client can be downloaded from [www.ixmaps.ca/contribu
 1. Extract the file **IXmapsClient_v.1.0.6.win64.zip**
 2. Move the directory IXmapsClient to your local drive C:\ (Note that the application should be located in **C:\IXmapsClient**)
 3. Copy the **IXmapsClient-Shortcut** to your Desktop
-4. In order to allow the IXmapsClient to run properlly, you will need to authorize **Windows Firewall** to allow raw-sockets. We are currently working on a new installer that will assist you in setting these permissions.
+4. In order to allow the IXmapsClient to run properly, you will need to authorize **Windows Firewall** to allow raw-sockets. We are currently working on a new installer that will assist you in setting these permissions.
 4. To launch double click on **IXmapsClient-Shortcut**
 
 **IXmapsClient** needs to be executed in a terminal with administrator's privileges. For this reason, when double clicking **IXmapsClient-Shortcut**, a new terminal window will be opened asking permission to run the application as an administrator.
@@ -92,7 +92,7 @@ This will completely remove the IXmaps Client from your computer
   
 
 ## License
-IXmapsClient and this repository [github.com/ixmaps/ixnode](https://github.com/ixmaps/ixnode)
+IXmapsClient and this repository [github.com/ixmaps/IXmapsClient](https://github.com/ixmaps/IXmapsClient)
 is licensed under a GNU AGPL v3.0 license.
 
 Copyright (C) 2015  IXmaps
@@ -125,7 +125,7 @@ Since you're accessing raw sockets, you must run as root (eg sudo). Make sure yo
 
 This should also launch your web browser pointing to the local TRgen interface. If the interface can't be opened, you can manually go to http://localhost:2040
 
-IXnode can also be run as a public service, which should be used with caution. `npm run-script public`.
+IXmapsClient can also be run as a public service, which should be used with caution. `npm run-script public`.
 
 ### Packaging
 
