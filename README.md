@@ -1,15 +1,15 @@
 # IXmaps Client
-`v1.0` released December 7, 2015
+Version 1.0.6 released November 4, 2016
 
 **IXmapsClient** is an internet mapping tool that allows you to see how your personal data travels across the internet. It works by generating traceroute data to determine the paths your data packets take. These contributions are submitted to the ixmaps.ca server, where they are visualized geographically for public display and analysis.
 
 IXmapsClient is based on node.js and sets up a web server that only answers queries from your host, then opens a browser page to access the interface. IXmapsClient runs on port 2040.
 
-The application is available at:
+Pre compiled packages of IXmapsClient are available at:
 [www.ixmaps.ca/contribute](https://www.ixmaps.ca/contribute.php)
 
 Source code is available at:
-[github.com/ixmaps/ixnode](https://github.com/ixmaps/ixnode)
+[github.com/ixmaps/IXmapsClient](https://github.com/ixmaps/IXmapsClient)
 
 ## Contributors
   * David H. Mason
@@ -17,9 +17,9 @@ Source code is available at:
   * Antonio Gamba-Bari
   * Colin McCann
   * Dawn Walker   
-  
+
 ## Installation and Running
-IXmapsClient_v.1.0 works on **Mac OS X** and **Linux**, if you are interested in a Windows version please contact us.
+**IXmapsClient** works on **Mac OS X**, **Linux**, and **Windows**.
 
 As of December 7, 2015 IXmaps has moved to using IXmapsClient instead of TRgen to collect routing information. The Mac OS X, Linux, and Windows versions of TRgen are deprecated. 
 
