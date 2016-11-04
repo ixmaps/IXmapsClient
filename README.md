@@ -74,10 +74,10 @@ This version of the software has been tested and runs on Windows 64 bit architec
 
 The current version of the client can be downloaded from [www.ixmaps.ca/contribute](https://www.ixmaps.ca/contribute.php).
 
-1. Unzip the file **IXmapsClient_v.1.0.6.win.zip**
+1. Extract the file **IXmapsClient_v.1.0.6.win64.zip**
 2. Move the directory IXmapsClient to your local drive C:\ (Note that the application should be located in **C:\IXmapsClient**)
 3. Copy the **IXmapsClient-Shortcut** to your Desktop
-4. In order to allow the IXmapsClient to run properlly, you will need to Authorize Windows Firewall to allow raw-sockets. We are currently working on a new installer that will assist you in setting this permissions.
+4. In order to allow the IXmapsClient to run properlly, you will need to authorize **Windows Firewall** to allow raw-sockets. We are currently working on a new installer that will assist you in setting this permissions.
 4. To launch double click on **IXmapsClient-Shortcut**
 
 **IXmapsClient** needs to be executed in a terminal with administrator's privileges. For this reason, when double clicking **IXmapsClient-Shortcut**, a new terminal window will be opened asking permission to run the application as an administrator.
