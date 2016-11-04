@@ -11,19 +11,13 @@ The application is available at:
 Source code is available at:
 [github.com/ixmaps/ixnode](https://github.com/ixmaps/ixnode)
 
-## License
-IXmapsClient and this repository [github.com/ixmaps/ixnode](https://github.com/ixmaps/ixnode)
-is licensed under a GNU AGPL v3.0 license.
-
-Copyright (C) 2015  IXmaps
-
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
-
-This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License along with this program.  If not, see [gnu.org/licenses](https://gnu.org/licenses/agpl.html) <[https://gnu.org/licenses/agpl.html](https://gnu.org/licenses/agpl.html)>.
-
-
+## Contributors
+  * David H. Mason
+  * Andrew Clement
+  * Antonio Gamba-Bari
+  * Colin McCann
+  * Dawn Walker   
+  
 ## Installation and Running
 IXmapsClient_v.1.0 works on **Mac OS X** and **Linux**, if you are interested in a Windows version please contact us.
 
@@ -95,13 +89,19 @@ This will open **IXmapsClient** on your default internet browser.
 2. Delete the **IXmapsClient-Shortcut** from your **Desktop** 
 
 This will completely remove the IXmaps Client from your computer  
-----------------
-## Contributors
-  * David H. Mason
-  * Andrew Clement
-  * Antonio Gamba-Bari
-  * Colin McCann
-  * Dawn Walker     
+  
+
+## License
+IXmapsClient and this repository [github.com/ixmaps/ixnode](https://github.com/ixmaps/ixnode)
+is licensed under a GNU AGPL v3.0 license.
+
+Copyright (C) 2015  IXmaps
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with this program.  If not, see [gnu.org/licenses](https://gnu.org/licenses/agpl.html) <[https://gnu.org/licenses/agpl.html](https://gnu.org/licenses/agpl.html)>.
 
 ## Development
 Contributions to improve the IXmaps Client are welcome!
