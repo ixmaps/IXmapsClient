@@ -17,6 +17,40 @@ Source code is available at:
 
 As of December 7, 2015 IXmaps has moved to using IXmapsClient instead of TRgen to collect routing information. The Mac OS X, Linux, and Windows versions of TRgen are deprecated. 
 
+### Windows
+This version of the software has been tested and runs on Windows 64 bit architecture:
+* Windows 7
+* Windows 8
+* Windows 10
+
+The current version of the client can be downloaded from [www.ixmaps.ca/contribute](https://www.ixmaps.ca/contribute.php).
+
+1. Download the **IXmapsClient** installer **IXmapsClient.1.0.6.win64.exe**
+2. Double Click on **IXmapsClient.1.0.6.win64.exe** and install the application in the directory **C:\IXmapsClient**. 
+3. Copy the IXmapsClient-Shortcut to your Desktop
+4. In order to allow the **IXmapsClient** to run properly, you will need to authorize **Windows Firewall** to allow inbound connections. For a detailed guide on how to change these settings, see section **Changing Windows Firewall Settings**
+5. To launch double click on **IXmapsClient-Shortcut**
+
+**IXmapsClient** needs to be executed in a terminal with administrator's privileges. For this reason, when double clicking **IXmapsClient-Shortcut**, a new terminal window will be opened asking permission to run the application as an administrator.
+
+The IXmapsClient interface should appear in your browser, or use your browser to go to [http://localhost:2040/](http://localhost:2040/).
+
+#### Changing Windows Firewall Settings
+
+In order to allow the **IXmapsClient** to collect traceroute data, windows users have to change the default configuration of the **Windows Firewall**, which by default prevents the PC from receiving inbound connections. To change these settings follow these steps:
+
+1. Open the **Windows Firewall** and click on **Advance Settings**. 
+2. Click on the tab **Private Profile**. In the section **Inbound Connections**, select the option **Allow** from the dropdown menu. 
+3. Click on the tab **Public Profile**. In the section **Inbound Connections**, select the option **Allow** from the dropdown menu. 
+4. Finally, click the button **Apply** and close the **Windows Firewall**	.
+
+#### Removing IXmapsClient
+1. Delete the **C:\IXmapsClient** directory
+2. Delete the **IXmapsClient-Shortcut** from your **Desktop** 
+
+This will completely remove the IXmaps Client from your computer  
+
+
 ### Mac OS X
 This version of the software has been tested and runs on Mac OS X:
 * 10.6
@@ -59,41 +93,6 @@ The current version of the client can be downloaded from [www.ixmaps.ca/contribu
 Type the password and press return. This will open **IXmapsClient** on your default internet browser.
 
 The IXmapsClient interface should appear in your browser, or use your browser to go to [http://localhost:2040/](http://localhost:2040/).
-
-
-### Windows
-This version of the software has been tested and runs on Windows 64 bit architecture:
-* Windows 7
-* Windows 8
-* Windows 10
-
-The current version of the client can be downloaded from [www.ixmaps.ca/contribute](https://www.ixmaps.ca/contribute.php).
-
-1. Download the **IXmapsClient** installer **IXmapsClient.1.0.6.win64.exe**
-2. Double Click on **IXmapsClient.1.0.6.win64.exe** and install the application in the directory **C:\IXmapsClient**. 
-3. Copy the IXmapsClient-Shortcut to your Desktop
-4. In order to allow the **IXmapsClient** to run properly, you will need to authorize **Windows Firewall** to allow inbound connections. For a detailed guide on how to change these settings, see section **Changing Windows Firewall Settings**
-5. To launch double click on **IXmapsClient-Shortcut**
-
-**IXmapsClient** needs to be executed in a terminal with administrator's privileges. For this reason, when double clicking **IXmapsClient-Shortcut**, a new terminal window will be opened asking permission to run the application as an administrator.
-
-The IXmapsClient interface should appear in your browser, or use your browser to go to [http://localhost:2040/](http://localhost:2040/).
-
-#### Changing Windows Firewall Settings
-
-In order to allow the **IXmapsClient** to collect traceroute data, windows users have to change the default configuration of the **Windows Firewall**, which by default prevents the PC from receiving inbound connections. To change these settings follow these steps:
-
-1. Open the **Windows Firewall** and click on **Advance Settings**. 
-2. Click on the tab **Private Profile**. In the section **Inbound Connections**, select the option **Allow** from the dropdown menu. 
-3. Click on the tab **Public Profile**. In the section **Inbound Connections**, select the option **Allow** from the dropdown menu. 
-4. Finally, click the button **Apply** and close the **Windows Firewall**	.
-
-
-#### Removing IXmapsClient
-1. Delete the **C:\IXmapsClient** directory
-2. Delete the **IXmapsClient-Shortcut** from your **Desktop** 
-
-This will completely remove the IXmaps Client from your computer  
 
 ## Contributors
   * David H. Mason
