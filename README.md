@@ -40,14 +40,15 @@ The IXmapsClient interface should appear in your browser, or use your browser to
 In order to allow the **IXmapsClient** to collect traceroute data, windows users have to change the default configuration of the **Windows Firewall**, which by default prevents the PC from receiving inbound connections. To change these settings follow these steps:
 
 1. Open the **Windows Firewall** and click on **Advance Settings**. 
-2. Click on the tab **Private Profile**. In the section **Inbound Connections**, select the option **Allow** from the dropdown menu. 
-3. Click on the tab **Public Profile**. In the section **Inbound Connections**, select the option **Allow** from the dropdown menu. 
-4. Finally, click the button **Apply** and close the **Windows Firewall**	.
+2. Click on **Windows Firewall Properties**.
+3. Click on the tab **Private Profile** and in the section **Inbound Connections**, select the option **Allow** from the dropdown menu. 
+4. Click on the tab **Public Profile** and in the section **Inbound Connections**, select the option **Allow** from the dropdown menu. 
+5. Finally, click the button **Apply** and close the **Windows Firewall**	.
 
 #### Removing IXmapsClient
 1. Delete the **C:\IXmapsClient** directory
 2. Delete the **IXmapsClient-Shortcut** from your **Desktop** 
-
+		
 This will completely remove the IXmaps Client from your computer  
 
 
@@ -84,8 +85,8 @@ This version of the software has been tested and runs on Mac OS X:
 
 The current version of the client can be downloaded from [www.ixmaps.ca/contribute](https://www.ixmaps.ca/contribute.php).
 
-1. Extract the contents of the file **IXmapsClient.1.0.6.linux.zip** 
-2. Open a Terminal window and go to IXmapsClient directory
+1. Extract the contents of the file **IXmapsClient.1.0.6.linux.tar.gz** 
+2. Open a Terminal window and go to **IXmapsClient** directory
 3. To launch type the following command: `sudo ./node server.js`.
 
 **IXmapsClient** needs to be executed in a terminal with administrator's privileges. For this reason, when running the application you will be asked for the administrator's password.
