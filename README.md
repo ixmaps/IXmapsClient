@@ -25,6 +25,8 @@ This version of the software has been tested and runs on Windows 64 bit architec
 
 The current version of the client can be downloaded from [www.ixmaps.ca/contribute](https://www.ixmaps.ca/contribute.php).
 
+Note: Before installing **IXmapsClient**, close all terminal windows using the program and delete any previous version existing in C:\IXmapsClient**.
+
 1. Download the **IXmapsClient** installer **IXmapsClient.1.0.6.win64.exe**
 2. Double Click on **IXmapsClient.1.0.6.win64.exe** and install the application in the directory **C:\IXmapsClient**. 
 3. Copy the IXmapsClient-Shortcut to your Desktop
@@ -62,16 +64,19 @@ This version of the software has been tested and runs on Mac OS X:
 
 The current version of the client can be downloaded from [www.ixmaps.ca/contribute](https://www.ixmaps.ca/contribute.php).
 
+Note: Before installing **IXmapsClient**, close all terminal windows using the program and delete any previous version existing in you **Applications** folder.
+
 1. Double click on the **IXmapsClient.1.0.6.macos.dmg** to open it
-2. Drag the IXmapsClient.app application to your Applications folder
-3. To launch double click on IXmapsClient.app
+2. Drag the **IXmapsClient.app** application to your Applications folder
+3. To launch double click on **IXmapsClient.app**
 
 #### Installation Note:
-Depending on your Security & Privacy settings, OS X may disallow installation of the IXmapsClient. This is part of OS X called “[Gatekeeper](https://support.apple.com/en-us/HT202491),” to adjust these settings please open **Apple menu > System Preferences… > Security & Privacy > General tab** and under the header **"Allow applications downloaded from"** select **Anywhere**.
+Depending on your Security & Privacy settings, OS X may disallow installation of the **IXmapsClient**. This is part of OS X called “[Gatekeeper](https://support.apple.com/en-us/HT202491),” to adjust these settings please open **Apple menu > System Preferences… > Security & Privacy > General tab** and under the header **"Allow applications downloaded from"** select **Anywhere**.
 
 **IXmapsClient** needs to be executed in a terminal with administrator's privileges. For this reason, when double clicking **IXmapsClient.app**, a new terminal window will be opened asking for the administrator's password.
 
-Type the password and press return. This will open **IXmapsClient** on your default internet browser.
+Type the password and press return. The IXmapsClient interface should appear in your browser, or use your browser to go to [http://localhost:2040/](http://localhost:2040/).
+
 
 #### Removing IXmapsClient
 1. Move the **IXmapsClient.app** application from your **Applications** folder to the Trash
@@ -84,6 +89,8 @@ This version of the software has been tested and runs on Mac OS X:
 * Ubuntu 14.04.2 LTS
 
 The current version of the client can be downloaded from [www.ixmaps.ca/contribute](https://www.ixmaps.ca/contribute.php).
+
+Note: Before installing IXmapsClient, close all terminal windows using the program and delete any previous version.
 
 1. Extract the contents of the file **IXmapsClient.1.0.6.linux.tar.gz** 
 2. Open a Terminal window and go to **IXmapsClient** directory
