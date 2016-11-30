@@ -81,7 +81,7 @@ Depending on your Security & Privacy settings, OS X may disallow installation of
 
 
 #### Removing **IXmapsClient**
-Move the **IXmapsClient.app** application from your **Applications** folder to the Trash. This will completely remove the IXmaps Client from your computer.
+Move the **IXmapsClient.app** application from your **Applications** folder to the Trash. This will completely remove the **IXmapsClient** from your computer.
 
 
 ### Linux
