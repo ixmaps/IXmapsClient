@@ -100,7 +100,7 @@ The current version of the client can be downloaded from [www.ixmaps.ca/contribu
 
 #### Removing IXmapsClient
 Delete the **IXmapsClient** folder. In a Linux terminal window, navigate to the directory where **IXmapsClient** resides, then you run the following command: `rm -r IXmapsClient`
-This will completely remove the IXmaps Client from your computer.
+This will completely remove the **IXmapsClient** from your computer.
 
 
 ## Development
