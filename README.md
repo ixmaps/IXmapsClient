@@ -69,9 +69,10 @@ Note: If you have previously installed a version of the **IXmapsClient**, you mu
 The current version of the client can be downloaded from [www.ixmaps.ca/contribute](https://www.ixmaps.ca/contribute.php).
 
 
-1. Double click on the **IXmapsClient.1.0.6.macos.dmg** to open it
-2. Drag the **IXmapsClient.app** application to your **Applications** folder
-3. Double click on **IXmapsClient.app** to launch
+1. Download the IXmapsClient installer **IXmapsClient_v.1.0.6.macos.dmg**
+2. Double click on the **IXmapsClient.1.0.6.macos.dmg** to open it
+3. Drag the **IXmapsClient.app** application to your **Applications** folder
+4. Double click on **IXmapsClient.app** to launch
 
 #### Installation Note:
 Depending on your Security & Privacy settings, OS X may disallow installation of the **IXmapsClient**. This is part of OS X called “[Gatekeeper](https://support.apple.com/en-us/HT202491),” to adjust these settings please open **Apple menu > System Preferences… > Security & Privacy > General tab** and under the header **"Allow applications downloaded from"** select **Anywhere**.
@@ -91,9 +92,10 @@ Note: If you have previously installed a version of the **IXmapsClient**, you mu
 
 The current version of the client can be downloaded from [www.ixmaps.ca/contribute](https://www.ixmaps.ca/contribute.php).
 
-1. Extract the contents of the file **IXmapsClient.1.0.6.linux.tar.gz**, e.g. by running the following command in a terminal window: `tar xzvf IXmapsClient.1.0.6.linux.tar.gz`
-2. In the terminal window, navigate to the directory where **IXmapsClient** was extracted (for more details, see e.g. [Ubuntu/Using the Terminal](https://help.ubuntu.com/community/UsingTheTerminal))
-3. Type the following command to launch the application: `sudo ./nodeIXmaps server.js`
+1. Download the IXmapsClient installer **IXmapsClient.1.0.6.linux.tar.gz**
+2. Extract the contents of the file **IXmapsClient.1.0.6.linux.tar.gz**, e.g. by running the following command in a terminal window: `tar xzvf IXmapsClient.1.0.6.linux.tar.gz`
+3. In the terminal window, navigate to the directory where **IXmapsClient** was extracted (for more details, see e.g. [Ubuntu/Using the Terminal](https://help.ubuntu.com/community/UsingTheTerminal))
+4. Type the following command to launch the application: `sudo ./nodeIXmaps server.js`
 
 **IXmapsClient** needs to be executed in a terminal with administrator's privileges. For this reason, when running the application you will be asked for the administrator's password; enter your admin password to proceed. The **IXmapsClient** interface should then be shown in a new browser window, or use your browser to go to http://localhost:2040/.
 
