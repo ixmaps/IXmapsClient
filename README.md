@@ -44,7 +44,7 @@ In order to allow the **IXmapsClient** to collect traceroute data, windows users
 4. Click on the tab **Public Profile** and in the section **Inbound Connections**, select the option **Allow** from the dropdown menu
 5. Finally, click the button **Apply** and close the **Windows Firewall**
 
-For more illustrated instructions, see [this pdf](http://www.thewindowsclub.com/how-to-configure-windows-7-firewall)
+For more illustrated instructions, [see here](http://www.thewindowsclub.com/how-to-configure-windows-7-firewall)
 
 Note: We advise that you reset your default firewall settings once you have completed traceroute collection.
 
