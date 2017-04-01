@@ -55,11 +55,25 @@ app.get('/', function(req, res) {
   res.sendFile(__dirname + '/web/index.html');
 });
 
-if (!isPublic) {
-  server.listen(2040, 'localhost');
-} else {
-  server.listen(2040);
-}
+// respond to requests to exit the server
+app.get('/exit', function(req, res) {
+  res.send('exiting');
+  console.info('exiting due to /exit request');
+  process.exit(0);
+});
+
+
+// close any running server
+new Promise((resolve, reject) => {
+  require('http').get('http://localhost:2040/exit', res => setTimeout(resolve, 1000)).on('error', resolve);
+}).then(() => {
+  console.log('mol');
+  if (!isPublic) {
+    server.listen(2040, 'localhost');
+  } else {
+    server.listen(2040);
+  }
+});
 
 
 server.on('listening', function() {
