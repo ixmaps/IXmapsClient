@@ -85,7 +85,7 @@ Move the **IXmapsClient.app** application from your **Applications** folder to t
 
 ### Linux
 This version of the software has been tested and runs on:
-* Ubuntu 14.04.2 LTS
+* Ubuntu 16.04.2 LTS
 
 Note: If you have previously installed a version of the **IXmapsClient**, you must remove it before proceeding (see below for uninstall instructions).
 
@@ -114,7 +114,7 @@ Pre-compiled packages of **IXmapsClient** are available at: www.ixmaps.ca/contri
 As of December 7, 2015 IXmaps began using **IXmapsClient** to generate routing application, replacing the older traceroute generator, TRgen. As of October 2016 the Windows, Mac OS X and Linux versions of TRgen are deprecated, and no longer work.
 
 ### Install and build packages
-**IXmapsClient** is based on node.js. For installation, https://github.com/creationix/nvm seems to work well. Once installed, use `nvm install iojs`.
+**IXmapsClient** is based on node.js version 4. For installation, https://github.com/creationix/nvm seems to work well. Once installed, use `nvm install 4`.
 
 You will also need appropriate build tools for your OS installed (e.g. build-essentials on Linux, XCode on Mac OS, and on Windows Visual Studio 2015, C++ compilers).
 
