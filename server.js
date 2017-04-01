@@ -6,7 +6,8 @@
 
 var path = require('path');
 var express = require('express'), app = express();
-var server = require('http').Server(app);
+var http = require('http');
+var server = http.Server(app);
 var io = require('socket.io')(server);
 var open = require('open');
 
@@ -65,9 +66,8 @@ app.get('/exit', function(req, res) {
 
 // close any running server
 new Promise((resolve, reject) => {
-  require('http').get('http://localhost:2040/exit', res => setTimeout(resolve, 1000)).on('error', resolve);
+  http.get('http://localhost:2040/exit', res => setTimeout(resolve, 1000)).on('error', resolve);
 }).then(() => {
-  console.log('mol');
   if (!isPublic) {
     server.listen(2040, 'localhost');
   } else {
