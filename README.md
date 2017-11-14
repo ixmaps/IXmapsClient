@@ -63,6 +63,7 @@ This version of the software has been tested and runs on Mac OS X:
 * 10.10
 * 10.11
 * 10.12
+* 10.13
 
 Note: If you have previously installed a version of the **IXmapsClient**, you must remove it before proceeding (see below for uninstall instructions).
 
@@ -74,9 +75,13 @@ The current version of the client can be downloaded from [www.ixmaps.ca/contribu
 3. Drag the **IXmapsClient.app** application to your **Applications** folder
 4. Double click on **IXmapsClient.app** to launch
 
-Depending on your Security & Privacy settings, OS X may disallow installation of the **IXmapsClient**. This is part of OS X called “[Gatekeeper](https://support.apple.com/en-us/HT202491),” to adjust these settings please open **Apple menu > System Preferences… > Security & Privacy > General tab** and under the header **"Allow applications downloaded from"** select **Anywhere**.
+IXmapsClient for macOS is not signed with an Apple Developer ID and macOS [Gatekeeper](https://support.apple.com/HT202491) security settings will not allow it to be started. To bypass Gatekeeper one time for IXmapsClient, control-click or right-click on the **IXmapsClient.app** icon and choose **Open** from the context menu. This will display the following dialog: 
 
-**IXmapsClient** needs to be executed in a terminal with administrator's privileges. For this reason, when double clicking **IXmapsClient.app**, a new terminal window will be opened asking for the administrator's password; enter your admin password to proceed. The **IXmapsClient** interface should appear in your browser, or use your browser to go to [http://localhost:2040/](http://localhost:2040/).
+![Gatekeeper dialog](ixmaps_gatekeeper.png "Gatekeeper dialog")
+
+Click the **Open**</strong>** button to run launch the **IXmapsClient.app** application.
+
+**IXmapsClient** needs to be executed in a terminal with administrator's privileges. For this reason, make sure to use an Administrator user account instead of a Standard user account when running **IXmapsClient**. When double clicking **IXmapsClient.app**, a new terminal window will be opened asking for the administrator's password; enter your admin password to proceed. The **IXmapsClient** interface should appear in your browser, or use your browser to go to [http://localhost:2040/](http://localhost:2040/).
 
 
 #### Removing **IXmapsClient**
