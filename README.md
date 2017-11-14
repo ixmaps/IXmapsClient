@@ -79,7 +79,7 @@ IXmapsClient for macOS is not signed with an Apple Developer ID and macOS [Gatek
 
 ![Gatekeeper dialog](ixmaps_gatekeeper.png "Gatekeeper dialog")
 
-Click the **Open**</strong>** button to run launch the **IXmapsClient.app** application.
+Click the **Open** button to run launch the **IXmapsClient.app** application.
 
 **IXmapsClient** needs to be executed in a terminal with administrator's privileges. For this reason, make sure to use an Administrator user account instead of a Standard user account when running **IXmapsClient**. When double clicking **IXmapsClient.app**, a new terminal window will be opened asking for the administrator's password; enter your admin password to proceed. The **IXmapsClient** interface should appear in your browser, or use your browser to go to [http://localhost:2040/](http://localhost:2040/).
 
