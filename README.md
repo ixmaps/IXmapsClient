@@ -13,9 +13,9 @@ Source code is available at:
 
 ## License
 IXmapsClient and this repository [github.com/ixmaps/ixnode](https://github.com/ixmaps/ixnode)
-is licensed under a GNU AGPL v3.0 license.
+are licensed under a GNU AGPL v3.0 license.
 
-Copyright (C) 2015  IXmaps
+Copyright (C) 2018  IXmaps
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
@@ -53,7 +53,7 @@ Type the password and press return. This will open **IXmapsClient** on your defa
 1. Move the **IXmapsClient.app** application from your **Applications** folder to the Trash
 2. Move the **IXmapsClient.command** icon from your **Desktop** to the Trash
 
-This will completely remove the IXmaps Client from your computer  
+This will completely remove the IXmaps Client from your computer
 
 
 ### Linux
@@ -73,7 +73,7 @@ Other Contributors:
   * Andrew Clement
   * Antonio Gamba-Bari
   * Colin McCann
-  * Dawn Walker     
+  * Dawn Walker
 
 ## Development
 Contributions to improve the IXmaps Client are welcome!
