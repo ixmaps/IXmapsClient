@@ -36,7 +36,7 @@
     "lodash": "^3.7.0",
     "moment": "^2.10.3",
     "node-libs-browser": "^0.5.2",
-    "open": "^0.0.5",
+    "open": "^6.0.0",
     "raw-socket": "^1.4.0",
     "react": "^0.13.3",
     "react-bootstrap": "^0.23.2",
