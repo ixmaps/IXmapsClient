@@ -17,7 +17,7 @@ module.exports = React.createClass({
           <Alert bsStyle='warning'>
             <p>
               These options modify the behaviour of the traceroute generator.
-              It assumes familiarity with <a href='https://www.ixmaps.ca/faq.php#Traceroute' target='trinfo'>traceroute techniques</a>.
+              It assumes familiarity with <a href='https://www.ixmaps.ca/learn/faq.php' target='_blank'>traceroute techniques</a>.
               Increasing any of the values or selecting 'Include platform traceroute' may substantially increase the length of time to complete each traceroute submission.
             </p>
           </Alert>

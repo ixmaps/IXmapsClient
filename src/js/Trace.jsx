@@ -44,7 +44,7 @@ module.exports = React.createClass({
         display = (
           <div>
             <div className='col-md-4'>{m.content.dest}<br /><span className='message-dest_ip'>{m.content.dest_ip}</span></div>
-            <div className='col-md-2'><a target="trid" href={'https://www.ixmaps.ca/explore.php?trid=' + m.content.trid}>{m.content.trid}</a></div>
+            <div className='col-md-2'><a target="trid" href={'https://www.ixmaps.ca/map.php?trid=' + m.content.trid}>{m.content.trid}</a></div>
             <div className='col-md-6'>{m.content ? m.content.submissionMessage : ''}</div>
           </div>
         );

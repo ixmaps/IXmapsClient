@@ -9,11 +9,10 @@ var nodeModulesPath = path.resolve('node_modules');
 var buildPath = path.resolve('web/assets');
 
 var config = {
-  // We change to normal source mapping
   devtool: 'eval',
-  //   devtool: 'source-map'
+  
   entry: {
-    frontend : ['./src/js/frontend.js', 'webpack/hot/dev-server']
+    frontend: ['./src/js/frontend.js', 'webpack/hot/dev-server']
   },
   output: {
     path: buildPath,

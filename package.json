@@ -1,9 +1,9 @@
 {
   "name": "IXmapsClient",
   "productName": "IXmapsClient",
-  "version": "0.0.1",
+  "version": "1.7.0",
   "description": "IXmaps client",
-  "license": "TBD",
+  "license": "AGPL-3.0-only",
   "main": "main.js",
   "repository": "ixmaps/IXmapsClient",
   "author": {
@@ -23,7 +23,7 @@
     "test": "node test/*/*"
   },
   "keywords": [
-    "internet mapping tool personal data"
+    "internet mapping tool personal data traceroute surveillance"
   ],
   "dependencies": {
     "async": "^1.0.0",
@@ -36,8 +36,8 @@
     "lodash": "^3.7.0",
     "moment": "^2.10.3",
     "node-libs-browser": "^0.5.2",
-    "open": "0.0.5",
-    "raw-socket": "1.4.0",
+    "open": "^0.0.5",
+    "raw-socket": "^1.4.0",
     "react": "^0.13.3",
     "react-bootstrap": "^0.23.2",
     "request": "^2.55.0",
@@ -46,7 +46,7 @@
     "webpack": "^1.10.1"
   },
   "devDependencies": {
-    "gulp": "^3.8.11",
+    "gulp": "^4.0.0",
     "gulp-less": "^3.0.3",
     "gulp-notify": "^2.2.0",
     "gulp-shell": "^0.4.1",

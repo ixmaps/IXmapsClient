@@ -12,7 +12,7 @@ echo "We will now prompt for your password for sudo access, after which the serv
 echo 
 echo "If the browser window doesn't open, please go to http://localhost:2040"
 echo
-echo -e "If you don't see the message ${BIYel}IXmapsClient server started${RCol} something has gone wrong. Please consult the http://www.ixmaps.ca web site."
+echo -e "If you don't see the message ${BIYel}IXmapsClient server started${RCol} something has gone wrong. Please consult the https://www.ixmaps.ca web site."
 echo
 echo "This script is start.sh."
 echo 

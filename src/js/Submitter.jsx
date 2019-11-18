@@ -10,8 +10,8 @@ module.exports = React.createClass({
 
     return (
       <div>
-        <h2>Welcome to the IXmaps traceroute generator - TRgen</h2>
-        <p>This application will generate internet routings from your location to various web destinations and contribute them to our database for later mapping and analysis. As indicated in our <a href='https://www.ixmaps.ca/privacy.php' target='_new'>privacy policy</a>, we do not store any personal information of contributors. </p>
+        <h2>Welcome to the IXmaps traceroute generator</h2>
+        <p>This application will generate internet routings from your location to various web destinations and contribute them to our database for later mapping and analysis. As indicated in our <a href='https://www.ixmaps.ca/privacy.php' target='_blank'>privacy policy</a>, we do not store any personal information of contributors. </p>
         <p>To get started, please provide your name, or pseudonym if you prefer. This is not required, but will help you find your own traceroutes later:
         <input type='text' placeholder='Name or pseudonym (25 chars max)' onChange={this.change.bind(null, 'submitter')} value={submitter} className='input submitter' /></p>
         <p>You appear to be near

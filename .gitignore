@@ -3,3 +3,5 @@ npm-debug.log
 web/assets
 dist
 IXmaps.preferences.json
+
+.DS_Store

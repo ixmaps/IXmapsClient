@@ -1,7 +1,8 @@
 # IXmaps Client
 Version 1.0.6 released November 4, 2016
+Version 1.0.7 released November 14, 2019
+Updates include:
 
-(README updated on Feb 2, 2018)
 
 **IXmapsClient** is an internet mapping tool that allows you to see how your personal data travels across the internet. It works by generating traceroutes to determine the paths your data packets take. These contributions are submitted to the ixmaps.ca server, where they are visualized geographically for public display and analysis.
 
@@ -26,8 +27,8 @@ Note: If you have previously installed a version of the **IXmapsClient**, you mu
 
 The current version of the client can be downloaded from [www.ixmaps.ca/contribute](https://www.ixmaps.ca/contribute.php).
 
-1. Download the **IXmapsClient** installer **IXmapsClient.1.0.6.win64.exe**
-2. Double click on **IXmapsClient.1.0.6.win64.exe** and install the application in the directory **C:\IXmapsClient**
+1. Download the **IXmapsClient** installer **IXmapsClient.1.0.7.win64.exe**
+2. Double click on **IXmapsClient.1.0.7.win64.exe** and install the application in the directory **C:\IXmapsClient**
 3. Copy the **IXmapsClient-Shortcut** to your Desktop
 4. In order to allow the **IXmapsClient** to run properly, you may need to authorize **Windows Firewall** to allow inbound connections. For a detailed guide on how to change these settings, see section **Changing Windows Firewall Settings**
 5. Double click on **IXmapsClient-Shortcut** to launch
@@ -63,14 +64,15 @@ This version of the software has been tested and runs on Mac OS X:
 * 10.10
 * 10.11
 * 10.12
+* 10.14
 
 Note: If you have previously installed a version of the **IXmapsClient**, you must remove it before proceeding (see below for uninstall instructions).
 
 The current version of the client can be downloaded from [www.ixmaps.ca/contribute](https://www.ixmaps.ca/contribute.php).
 
 
-1. Download the IXmapsClient installer **IXmapsClient_v.1.0.6.macos.dmg**
-2. Double click on the **IXmapsClient.1.0.6.macos.dmg** to open it
+1. Download the IXmapsClient installer **IXmapsClient_v.1.0.7.macos.dmg**
+2. Double click on the **IXmapsClient.1.0.7.macos.dmg** to open it
 3. Drag the **IXmapsClient.app** application to your **Applications** folder
 4. Double click on **IXmapsClient.app** to launch
 
@@ -91,8 +93,8 @@ Note: If you have previously installed a version of the **IXmapsClient**, you mu
 
 The current version of the client can be downloaded from [www.ixmaps.ca/contribute](https://www.ixmaps.ca/contribute.php).
 
-1. Download the IXmapsClient installer **IXmapsClient.1.0.6.linux.tar.gz**
-2. Extract the contents of the file **IXmapsClient.1.0.6.linux.tar.gz**, e.g. by running the following command in a terminal window: `tar xzvf IXmapsClient.1.0.6.linux.tar.gz`
+1. Download the IXmapsClient installer **IXmapsClient.1.0.7.linux.tar.gz**
+2. Extract the contents of the file **IXmapsClient.1.0.7.linux.tar.gz**, e.g. by running the following command in a terminal window: `tar xzvf IXmapsClient.1.0.7.linux.tar.gz`
 3. In the terminal window, navigate to the directory where **IXmapsClient** was extracted (for more details, see e.g. [Ubuntu/Using the Terminal](https://help.ubuntu.com/community/UsingTheTerminal))
 4. Type the following command to launch the application: `sudo ./nodeIXmaps server.js`
 
@@ -107,13 +109,14 @@ This will completely remove the **IXmapsClient** from your computer.
 
 **IXmapsClient** sets up a local web server that only answers queries from your device, then opens a browser page to access the interface. **IXmapsClient** runs on port 2040.
 
-Source code is available at: github.com/ixmaps/IXmapsClient. Contributions to improve the IXmaps Client are welcome!
+Source code is available at: https://www.github.com/ixmaps/IXmapsClient. Contributions to improve the IXmaps Client are welcome!
 
-Pre-compiled packages of **IXmapsClient** are available at: www.ixmaps.ca/contribute
+Pre-compiled packages of **IXmapsClient** are available at: https://www.ixmaps.ca/contribute
 
 As of December 7, 2015 IXmaps began using **IXmapsClient** to generate routing application, replacing the older traceroute generator, TRgen. As of October 2016 the Windows, Mac OS X and Linux versions of TRgen are deprecated, and no longer work.
 
 ### Install and build packages
+CDMTODO - update me (nvm is standard, node v11)
 **IXmapsClient** is based on node.js version 4. For installation, https://github.com/creationix/nvm seems to work well. Once installed, use `nvm install 4`.
 
 You will also need appropriate build tools for your OS installed (e.g. build-essentials on Linux, XCode on Mac OS, and on Windows Visual Studio 2015, C++ compilers).
@@ -126,6 +129,11 @@ Then:
 Since you're accessing raw sockets, you must run as root (i.e. sudo). Make sure your root user has node available:
 `$ npm start`
 This should also launch your web browser pointing to the local **IXmapsClient** interface. If the interface can't be opened, you can manually navigate to http://localhost:2040.
+
+CDMTODO:
+- detail how to do local dev
+
+CDMTODO - explain this
 **IXmapsClient** can also be run as a public service; this should be used with caution:
 `$ npm run-script public`
 

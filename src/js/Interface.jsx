@@ -111,7 +111,7 @@ module.exports = React.createClass({
       message = (
         <Alert bsStyle='danger'>
           <h1>Server disconnected</h1>
-          <p>The server is not responding to ping requests. It may be neccessary to restart it.</p>
+          <p>The server is not responding to ping requests. It may be necessary to restart it.</p>
        </Alert>
       );
     }
