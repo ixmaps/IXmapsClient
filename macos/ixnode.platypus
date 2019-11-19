@@ -12,14 +12,14 @@
 	<string>ixmaps</string>
 	<key>BundledFiles</key>
 	<array>
-		<string>/Users/david/D/IXmapsClient/dist/ixmaps-darwin</string>
+		<string>/Users/colin/Dev/IXmaps/IXmapsClient/dist/ixmaps-darwin</string>
 	</array>
 	<key>Creator</key>
 	<string>Platypus-4.9</string>
 	<key>DeclareService</key>
 	<false/>
 	<key>Destination</key>
-	<string>/Users/david/Desktop/MyPlatypusApp.app</string>
+	<string>/Users/colin/Desktop/MyPlatypusApp.app</string>
 	<key>DestinationOverride</key>
 	<false/>
 	<key>DevelopmentVersion</key>
@@ -31,7 +31,7 @@
 	<key>ExecutablePath</key>
 	<string>/usr/local/share/platypus/ScriptExec</string>
 	<key>IconPath</key>
-	<string>/Users/david/Downloads/Platypus-4.9/Platypus.app/Contents/Resources/PlatypusDefault.icns</string>
+	<string>/Users/colin/Downloads/Platypus-4.9/Platypus.app/Contents/Resources/PlatypusDefault.icns</string>
 	<key>Identifier</key>
 	<string>org.ixmaps.IXmapsClient</string>
 	<key>Interpreter</key>
@@ -55,7 +55,7 @@
 	<key>ScriptArgs</key>
 	<array/>
 	<key>ScriptPath</key>
-	<string>/Users/david/D/IXmapsClient/dist/ixmaps-darwin/start.sh</string>
+	<string>/Users/colin/Dev/IXmaps/IXmapsClient/dist/ixmaps-darwin/start.sh</string>
 	<key>Secure</key>
 	<false/>
 	<key>ShowInDock</key>

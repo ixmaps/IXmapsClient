@@ -17,6 +17,3 @@ echo
 echo "This script is start.sh."
 echo 
 sudo ./node server.js
-
-
-

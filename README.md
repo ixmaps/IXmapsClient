@@ -1,5 +1,4 @@
 # IXmaps Client
-Version 1.0.6 released November 4, 2016
 Version 1.0.7 released November 14, 2019
 Updates include:
 
