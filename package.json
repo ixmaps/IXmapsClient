@@ -33,10 +33,10 @@
     "bootstrap": "^3.3.4",
     "cheerio": "^0.19.0",
     "express": "^4.13.0",
-    "lodash": "^3.7.0",
+    "lodash": "^4.17.13",
     "moment": "^2.10.3",
     "node-libs-browser": "^0.5.2",
-    "open": "^0.0.5",
+    "open": "^6.0.0",
     "raw-socket": "^1.4.0",
     "react": "^0.13.3",
     "react-bootstrap": "^0.23.2",
@@ -53,12 +53,12 @@
     "gulp-streamify": "0.0.5",
     "gulp-uglify": "^1.2.0",
     "gulp-util": "^3.0.4",
-    "http-proxy": "^1.11.1",
+    "http-proxy": "^1.18.0",
     "mkdirp": "^0.5.0",
     "react-hot-loader": "^1.2.7",
     "tape": "^4.0.0",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.2.1",
-    "webpack-dev-server": "^1.10.1"
+    "webpack-dev-server": "^3.1.11"
   }
 }
