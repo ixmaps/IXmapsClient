@@ -34,6 +34,7 @@
     "cheerio": "^0.22.0",
     "express": "^4.17.1",
     "lodash": "^4.17.15",
+    "lodash.template": "^4.5.0",
     "moment": "^2.24.0",
     "node-libs-browser": "^2.2.1",
     "open": "^7.0.0",
