@@ -85,15 +85,15 @@ server.on('listening', function() {
 
 function start() {
   // open the user's preferred browser to the interface
-  if (!isPublic) {
-    try {
-      process.setuid(process.env.USER);
-      open('http://localhost:2040');
-      process.setuid(0);
-    } catch (e) {
-      console.log('\nUnable to open a browser window to this application automatically. Please access it at http://localhost:2040. Thanks.\n');
-    }
-  }
+  // if (!isPublic) {
+  //   try {
+  //     process.setuid(process.env.USER);
+  //     open('http://localhost:2040');
+  //     process.setuid(0);
+  //   } catch (e) {
+  //     console.log('\nUnable to open a browser window to this application automatically. Please access it at http://localhost:2040. Thanks.\n');
+  //   }
+  // }
 
   io.on('connection', function(socket) {
     console.log('Connection');

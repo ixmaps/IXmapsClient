@@ -2,7 +2,7 @@
 'use strict';
 
 var React = require('react'), { Row, Alert } = require('react-bootstrap'), io = require('socket.io-client'), _ = require('lodash');
-require('babel/polyfill');
+import '@babel/polyfill';
 
 var Submitter = require('./Submitter.jsx'),
   Destination = require('./Destination.jsx'),

@@ -26,14 +26,23 @@ var config = {
     inline: true
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /.*\.jsx?$/,
-        loaders: [
-          'react-hot-loader',
-          'babel-loader'
-        ],
-        exclude: /node_modules/
+        exclude: /node_modules/,
+        use: [
+          { loader: 'react-hot-loader/webpack' },
+          { 
+            loader: 'babel-loader',
+            options: {
+              babelrc: false,
+              presets: [
+                '@babel/preset-env',
+                '@babel/preset-react'
+              ]
+            }
+          }
+        ]
       },
 
       { test: /app\/.*\.json$/, loader: 'json-loader' },
@@ -48,11 +57,11 @@ var config = {
     ]
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['.js', '.jsx']
   },
   plugins: [
     new Webpack.HotModuleReplacementPlugin(),
-    new Webpack.NoErrorsPlugin()
+    new Webpack.NoEmitOnErrorsPlugin()
   ]
 };
 

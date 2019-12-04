@@ -12,15 +12,24 @@ var config = {
     frontend : './src/js/frontend.js'
   },
   output: {
-    path: buildPath,
+    path: path.resolve(__dirname+buildPath),
     filename: '[name].js'
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /.*src\/js.*\.jsx?$/,
         loaders: [
-          'babel-loader',
+          { 
+            loader: 'babel-loader',
+            options: {
+              babelrc: false,
+              presets: [
+                '@babel/preset-env',
+                '@babel/preset-react'
+              ]
+            }
+          }
         ],
         exclude: /node_modules/
       },
@@ -45,9 +54,11 @@ var config = {
     ]
   },
   plugins: [
-    new Webpack.optimize.OccurenceOrderPlugin(),
-    new Webpack.optimize.UglifyJsPlugin({ compressor: { warnings: false } })
-  ]
+    new Webpack.optimize.OccurrenceOrderPlugin()
+  ],
+  optimization: {
+    minimize: false //Update this to true or false
+  }
 };
 
 module.exports = config;

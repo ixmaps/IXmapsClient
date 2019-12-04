@@ -20,7 +20,12 @@
     "public": "NODE_ENV=public node server.js",
     "publicdev": "NODE_ENV=publicdev node server.js",
     "start": "node server.js",
-    "test": "node test/*/*"
+    "test": "node test/*/*",
+    "build-macos": "pkg -t node10-macos-x64 server.js -o dist/macos/app --config package.json"
+  },
+  "pkg": {
+    "scripts": "lib/*.js",
+    "assets": "web/**/*"
   },
   "keywords": [
     "internet mapping tool personal data traceroute surveillance"
@@ -30,7 +35,8 @@
     "async": "^3.1.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-loader": "8.0.6",
-    "bootstrap": "^4.3.1",
+    "babel-preset-react": "^6.24.1",
+    "bootstrap": "^4.4.1",
     "cheerio": "^0.22.0",
     "express": "^4.17.1",
     "lodash": "^4.17.15",
@@ -40,13 +46,17 @@
     "open": "^7.0.0",
     "raw-socket": "^1.7.0",
     "react": "^16.12.0",
-    "react-bootstrap": "^0.33.0",
+    "react-bootstrap": "^0.33.1",
+    "react-dom": "^16.12.0",
     "request": "^2.88.0",
     "socket.io": "^2.3.0",
     "socket.io-client": "^2.3.0",
     "webpack": "^4.41.2"
   },
   "devDependencies": {
+    "@babel/polyfill": "^7.7.0",
+    "@babel/preset-env": "^7.7.4",
+    "@babel/preset-react": "^7.0.0",
     "gulp": "^4.0.2",
     "gulp-less": "^4.0.1",
     "gulp-notify": "^3.2.0",
@@ -60,6 +70,7 @@
     "tape": "^4.11.0",
     "vinyl-source-stream": "^2.0.0",
     "watchify": "^3.11.1",
+    "webpack-cli": "^3.3.10",
     "webpack-dev-server": "^3.9.0"
   }
 }
