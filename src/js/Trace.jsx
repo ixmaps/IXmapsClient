@@ -1,10 +1,11 @@
 /* jslint node: true, esnext: true */
 'use strict';
 
-var React = require('react'), {Row, ProgressBar, Button, ButtonGroup, Panel, Input, Glyphicon, Label, Table} = require('react-bootstrap'),
-  moment = require('moment');
+var React = require('react'), {Row, ProgressBar, Button, ButtonGroup, Panel, Input, Glyphicon,Label, Table} = require('react-bootstrap'),
+  moment = require('moment'),
+  createReactClass = require('create-react-class');
 
-module.exports = React.createClass({
+module.exports = createReactClass({
   render: function() {
     let {caller, messages, currentStatus, statusMessage, options, progress} = this.props, runningClass = 'col-md-8', readout, count, sendMessages = [],
       action = (

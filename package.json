@@ -38,6 +38,7 @@
     "babel-preset-react": "^6.24.1",
     "bootstrap": "^4.4.1",
     "cheerio": "^0.22.0",
+    "create-react-class": "^15.6.3",
     "express": "^4.17.1",
     "lodash": "^4.17.15",
     "lodash.template": "^4.5.0",

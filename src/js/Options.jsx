@@ -1,8 +1,9 @@
 /* jslint node: true, esnext: true */
 
-var React = require('react'), {Input, Button, Panel, Alert, Row} = require('react-bootstrap');
+var React = require('react'), {Input, Button, Panel, Alert, Row} = require('react-bootstrap'),
+    createReactClass = require('create-react-class');
 
-module.exports = React.createClass({
+module.exports = createReactClass({
   fields: ['queries', 'timeout', 'maxhops', 'raw_protocol', 'max_sequential_errors', 'include_platform_traceroute', 'platform_protocol', 'platform_limit_ms'],
   render: function() {
     var {caller} = this.props, protocols = [

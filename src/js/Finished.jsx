@@ -1,9 +1,11 @@
 /* jslint node: true, esnext: true, browser: true */
 'use strict';
 
-var React = require('react'), {Panel, Button} = require('react-bootstrap');
+var React = require('react'), {Panel, Button} = require('react-bootstrap'),
+    createReactClass = require('create-react-class');
 
-var Finished = React.createClass({
+// var Finished = createReactClass({
+module.exports = createReactClass({
   render: function() {
     let {submitted} = this.props, message;
     if (submitted > 0) {
@@ -45,4 +47,4 @@ var Finished = React.createClass({
   }
 });
 
-module.exports = Finished;
+// module.exports = Finished;

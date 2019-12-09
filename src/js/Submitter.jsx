@@ -1,9 +1,9 @@
 /* jslint node: true, esnext: true */
 
-var React = require('react'), {Input, Button, Panel} = require('react-bootstrap');
+var React = require('react'), {Input, Button, Panel} = require('react-bootstrap'),
+    createReactClass = require('create-react-class');
 
-
-module.exports = React.createClass({
+module.exports = createReactClass({
   fields : ['submitter', 'city', 'postal_code', 'isp'],
   render: function() {
     var {caller} = this.props, {submitter, city, postal_code, isp, geoip} = this.state;

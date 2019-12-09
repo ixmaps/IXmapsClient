@@ -1,19 +1,19 @@
 /* jslint node: true, esnext: true, browser: true */
 'use strict';
 
-var React = require('react'), { Row, Alert } = require('react-bootstrap'), io = require('socket.io-client'), _ = require('lodash');
-import '@babel/polyfill';
+require('@babel/polyfill');
+var React = require('react'), { Row, Alert } = require('react-bootstrap'), io = require('socket.io-client'), _ = require('lodash'), createReactClass = require('create-react-class');
 
 var Submitter = require('./Submitter.jsx'),
-  Destination = require('./Destination.jsx'),
-  Options = require('./Options.jsx'),
-  Trace = require('./Trace.jsx'),
-  Finished = require('./Finished.jsx'),
-  DefaultOptions = require('../../lib/default-options.js');
+    Destination = require('./Destination.jsx'),
+    Options = require('./Options.jsx'),
+    Trace = require('./Trace.jsx'),
+    Finished = require('./Finished.jsx'),
+    DefaultOptions = require('../../lib/default-options.js');
 
 var socket = io();
 
-module.exports = React.createClass({
+module.exports = createReactClass({
   connected: function() {
     console.log('connected');
     this.setState({disconnected: false});

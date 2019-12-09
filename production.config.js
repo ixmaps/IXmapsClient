@@ -4,7 +4,7 @@
 
 var Webpack = require('webpack'), path = require('path');
 
-var buildPath = './web/assets';
+var buildPath = '/web/assets';
 
 var config = {
   devtool: 'source-map',
