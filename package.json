@@ -31,7 +31,7 @@
     "internet mapping tool personal data traceroute surveillance"
   ],
   "dependencies": {
-    "@babel/core": "^7.7.4",
+    "@babel/core": "^7.7.5",
     "async": "^3.1.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-loader": "8.0.6",
@@ -55,7 +55,7 @@
   },
   "devDependencies": {
     "@babel/polyfill": "^7.7.0",
-    "@babel/preset-env": "^7.7.4",
+    "@babel/preset-env": "^7.7.6",
     "@babel/preset-react": "^7.0.0",
     "gulp": "^4.0.2",
     "gulp-less": "^4.0.1",
