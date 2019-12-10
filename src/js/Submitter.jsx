@@ -1,6 +1,6 @@
 /* jslint node: true, esnext: true */
 
-var React = require('react'), {Input, Button, Panel} = require('react-bootstrap'),
+var React = require('react'), {Checkbox, Button, Panel} = require('react-bootstrap'),
     createReactClass = require('create-react-class');
 
 module.exports = createReactClass({
@@ -21,7 +21,8 @@ module.exports = createReactClass({
         <input type='text' placeholder='Internet Service Provider' onChange={this.change.bind(null, 'isp')} value={isp} className='input isp' />
         as your internet service provider (ISP).</p>
         <p>Please correct these if appropriate. This too is optional, but will assist in more accurately positioning the origin of the traceroutes you contribute.</p>
-        <Input ref='savePrefs' className='text-right' defaultChecked={true} type='checkbox' label='Store this information on your computer' />
+        
+        <Checkbox ref='savePrefs' className='text-right' type='checkbox' defaultChecked inline>Store this information on your computer</Checkbox>
         <Button bsStyle='primary' className='pull-right' onClick={this.use}>Continue</Button>
         <Button className='pull-right' onClick={this.cancel}>Cancel</Button>
       </div>
@@ -42,7 +43,8 @@ module.exports = createReactClass({
       options[i] = this.state[i];
     });
 
-    if (this.refs.savePrefs.getChecked()) {
+    // if (this.refs.savePrefs.getChecked()) {
+    if (this.refs.savePrefs.props.checked) {
       this.props.caller.savePrefs(options);
     }
 

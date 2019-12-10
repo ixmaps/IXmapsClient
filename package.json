@@ -21,7 +21,8 @@
     "publicdev": "NODE_ENV=publicdev node server.js",
     "start": "node server.js",
     "test": "node test/*/*",
-    "build-macos": "pkg -t node10-macos-x64 server.js -o dist/macos/app --config package.json"
+    "build-macos": "pkg -t node10-macos-x64 server.js -o dist/macos/app --config package.json",
+    "build-win": "pkg -t node10-win-x64 server.js -o dist/win/app --config package.json"
   },
   "pkg": {
     "scripts": "lib/*.js",

@@ -37,7 +37,8 @@ module.exports = createReactClass({
     this.setState({options});
   },
   trsets: function(trsets) {
-    this.setState(...this.state, {trsets});
+    // this.setState(...this.state, {trsets});
+    this.setState({trsets: trsets});
   },
   disconnected: function() {
     console.log('disconnect');

@@ -1,7 +1,7 @@
 /* jslint node: true, esnext: true */
 'use strict';
 
-var React = require('react'), {Row, ProgressBar, Button, ButtonGroup, Panel, Input, Glyphicon,Label, Table} = require('react-bootstrap'),
+var React = require('react'), {Row, ProgressBar, Button, ButtonGroup, Panel, Checkbox, Glyphicon, Label, Table} = require('react-bootstrap'),
   moment = require('moment'),
   createReactClass = require('create-react-class');
 
@@ -105,7 +105,7 @@ module.exports = createReactClass({
             </div>
             <div className='col-md-3 text-right'>
               <br />
-              <Input id="debug" type="checkbox" onChange={this.toggleDebug} label="Detailed output" />
+              <Checkbox id="debug" type="checkbox" onChange={this.toggleDebug}>Detailed output</Checkbox>
             </div>
           </Row>
           {output}
