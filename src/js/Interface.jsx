@@ -57,7 +57,8 @@ module.exports = createReactClass({
       }
     }
     messages.push({ date: new Date(), type, message, content });
-    this.setState(...this.state, {messages});
+    // this.setState(...this.state, {messages});
+    this.setState({messages: messages});
   },
   submitTrace: function(options) {
     this.state.currentStatus = null;

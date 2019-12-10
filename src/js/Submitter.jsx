@@ -16,13 +16,13 @@ module.exports = createReactClass({
         <input type='text' placeholder='Name or pseudonym (25 chars max)' onChange={this.change.bind(null, 'submitter')} value={submitter} className='input submitter' /></p>
         <p>You appear to be near
         <input type='text' placeholder='city' onChange={this.change.bind(null, 'city')} value={city} className='input city' />
-        <input type='text' placeholder='postal_code' onChange={this.change.bind(null, 'postal_code')} value={postal_code} className='input postal_code'  /> <br />
+        <input type='text' placeholder='postal_code' onChange={this.change.bind(null, 'postal_code')} value={postal_code} className='input postal_code' /> <br />
         with
         <input type='text' placeholder='Internet Service Provider' onChange={this.change.bind(null, 'isp')} value={isp} className='input isp' />
         as your internet service provider (ISP).</p>
         <p>Please correct these if appropriate. This too is optional, but will assist in more accurately positioning the origin of the traceroutes you contribute.</p>
         
-        <Checkbox ref='savePrefs' className='text-right' type='checkbox' defaultChecked inline>Store this information on your computer</Checkbox>
+        <Checkbox inputRef={(ref) => this.savePrefs = ref} className='text-right' defaultChecked inline>Store this information on your computer</Checkbox>
         <Button bsStyle='primary' className='pull-right' onClick={this.use}>Continue</Button>
         <Button className='pull-right' onClick={this.cancel}>Cancel</Button>
       </div>
@@ -44,7 +44,7 @@ module.exports = createReactClass({
     });
 
     // if (this.refs.savePrefs.getChecked()) {
-    if (this.refs.savePrefs.props.checked) {
+    if (this.savePrefs.checked) {
       this.props.caller.savePrefs(options);
     }
 

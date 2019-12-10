@@ -1,7 +1,7 @@
 {
   "name": "IXmapsClient",
   "productName": "IXmapsClient",
-  "version": "1.7.0",
+  "version": "1.1.0",
   "description": "IXmaps client",
   "license": "AGPL-3.0-only",
   "main": "main.js",
