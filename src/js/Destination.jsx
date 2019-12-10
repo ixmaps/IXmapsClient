@@ -1,6 +1,6 @@
 /* jslint node: true, esnext: true */
 
-var React = require('react'), {Button, Panel, Row} = require('react-bootstrap'),
+var React = require('react'), {Input, Button, Panel, Row} = require('react-bootstrap'),
     createReactClass = require('create-react-class');
 
 module.exports = createReactClass({
