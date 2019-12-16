@@ -1,5 +1,5 @@
 # IXmaps Client
-Version 1.1.0 released Dec 8, 2019
+Version 1.1.1 released Dec 16, 2019
 
 **IXmapsClient** is an internet mapping tool that allows you to see how your personal data travels across the internet. It works by generating traceroutes to determine the paths your data packets take. These contributions are submitted to the ixmaps.ca server, where they are visualized geographically for public display and analysis.
 
@@ -24,8 +24,8 @@ Note: If you have previously installed a version of the **IXmapsClient**, you mu
 
 The current version of the client can be downloaded from [www.ixmaps.ca/contribute](https://www.ixmaps.ca/contribute.php).
 
-1. Download the **IXmapsClient** installer **IXmapsClient.1.1.0.win64.exe**
-2. Double click on **IXmapsClient.1.1.0.win64.exe** and install the application in the directory **C:\IXmapsClient**
+1. Download the **IXmapsClient** installer **IXmapsClient.1.1.1.win64.exe**
+2. Double click on **IXmapsClient.1.1.1.win64.exe** and install the application in the directory **C:\IXmapsClient**
 3. Copy the **IXmapsClient-Shortcut** to your Desktop
 4. In order to allow the **IXmapsClient** to run properly, you may need to authorize **Windows Firewall** to allow inbound connections. For a detailed guide on how to change these settings, see section **Changing Windows Firewall Settings**
 5. Double click on **IXmapsClient-Shortcut** to launch
@@ -69,8 +69,8 @@ Note: If you have previously installed a version of the **IXmapsClient**, you mu
 The current version of the client can be downloaded from [www.ixmaps.ca/contribute](https://www.ixmaps.ca/contribute.php).
 
 
-1. Download the IXmapsClient installer **IXmapsClient_v.1.1.0.macos.dmg**
-2. Double click on the **IXmapsClient.1.1.0.macos.dmg** to open it
+1. Download the IXmapsClient installer **IXmapsClient_v.1.1.1.macos.dmg**
+2. Double click on the **IXmapsClient.1.1.1.macos.dmg** to open it
 3. Drag the **IXmapsClient.app** application to your **Applications** folder
 4. Double click on **IXmapsClient.app** to launch
 
@@ -80,7 +80,7 @@ IXmapsClient for macOS is not signed with an Apple Developer ID and macOS [Gatek
 
 Click the **Open** button to run launch the **IXmapsClient.app** application.
 
-**IXmapsClient** needs to be executed in a terminal with administrator's privileges. For this reason, make sure to use an Administrator user account instead of a Standard user account when running **IXmapsClient**. When double clicking **IXmapsClient.app**, a new terminal window will be opened asking for the administrator's password; enter your admin password to proceed. The **IXmapsClient** interface should appear in your browser, or use your browser to go to [http://localhost:2040/](http://localhost:2040/).
+**IXmapsClient** needs to be executed in a terminal with administrator's privileges. When double clicking **IXmapsClient.app**, a new terminal window will be opened asking for the administrator's password; enter your admin password to proceed. The **IXmapsClient** interface should appear in your browser, or use your browser to go to [http://localhost:2040/](http://localhost:2040/).
 
 
 #### Removing **IXmapsClient**
@@ -95,8 +95,8 @@ Note: If you have previously installed a version of the **IXmapsClient**, you mu
 
 The current version of the client can be downloaded from [www.ixmaps.ca/contribute](https://www.ixmaps.ca/contribute.php).
 
-1. Download the IXmapsClient installer **IXmapsClient.1.1.0.linux.tar.gz**
-2. Extract the contents of the file **IXmapsClient.1.1.0.linux.tar.gz**, e.g. by running the following command in a terminal window: `tar xzvf IXmapsClient.1.1.0.linux.tar.gz`
+1. Download the IXmapsClient installer **IXmapsClient.1.1.1.linux.tar.gz**
+2. Extract the contents of the file **IXmapsClient.1.1.1.linux.tar.gz**, e.g. by running the following command in a terminal window: `tar xzvf IXmapsClient.1.1.1.linux.tar.gz`
 3. In the terminal window, navigate to the directory where **IXmapsClient** was extracted (for more details, see e.g. [Ubuntu/Using the Terminal](https://help.ubuntu.com/community/UsingTheTerminal))
 4. Type the following command to launch the application: `sudo ./nodeIXmaps server.js`
 
@@ -153,7 +153,7 @@ CDMTODO - explain this
 
 
 ## License
-Copyright (C) 2018 IXmaps.
+Copyright (C) 2019 IXmaps.
 **IXmapsClient** and the repository [github.com/ixmaps/IXmapsClient](https://github.com/ixmaps/IXmapsClient) are licensed under a GNU AGPL v3.0 license. This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 3 of the License.
 
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.

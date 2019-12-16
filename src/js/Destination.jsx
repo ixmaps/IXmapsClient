@@ -1,6 +1,6 @@
 /* jslint node: true, esnext: true */
 
-var React = require('react'), {ControlLabel, FormControl, Button, Panel, Row} = require('react-bootstrap'), createReactClass = require('create-react-class');
+var React = require('react'), {ControlLabel, FormControl, Button, Panel, Row, Col} = require('react-bootstrap'), createReactClass = require('create-react-class');
 
 module.exports = createReactClass({
   fields : ['trset', 'dest'],
@@ -12,13 +12,20 @@ module.exports = createReactClass({
       let tropts = trsets.map(t => <option key={t}>{t}</option>);
       seltr = (
         <div>
-          <p>Select a batch of hostnames to target from among those listed here:</p>
-          <ControlLabel>TR Set</ControlLabel>
-          <FormControl componentClass="select" placeholder="Use a predefined set of destinations" disabled={!!this.state.dest} onChange={this.changeDest} defaultValue={this.props.options.trset} inputRef={(ref) => this.trset = ref} label='TR Set' labelClassName='col-md-4' wrapperClassName='col-md-6'>
-            <option value="">Enter below</option>
-            {tropts}
-          </FormControl>
-          <div style={{'textAlign': 'center', padding: '1em' }}><i>Or</i></div>
+          <Row>
+            <p>Select a batch of hostnames to target from among those listed here</p>
+            <Col xsOffset={3} md={1}>
+              <ControlLabel>TR Set</ControlLabel>
+            </Col>
+            <Col md={5}>
+              <FormControl componentClass="select" placeholder="Use a predefined set of destinations" disabled={!!this.state.dest} onChange={this.changeDest} defaultValue={this.props.options.trset} inputRef={(ref) => this.trset = ref} label='TR Set' labelClassName='col-md-4' wrapperClassName='col-md-6'>
+                <option value="">Enter below</option>
+                {tropts}
+              </FormControl>
+              <div class="help-text">Use a predefined set of destinations</div>
+            </Col>
+          </Row>
+          <div style={{ 'textAlign': 'center', padding: '2.5em' }}><i>Or</i></div>
         </div>
       );
     }
@@ -28,12 +35,21 @@ module.exports = createReactClass({
     return (
       <div>
         <h1>Destination</h1>
-        <Panel disabled>
+        <Panel style={{padding: '2em'}} disabled>
+          
           {seltr}
-          <p>Enter a hostname of your own to target</p>
-          <ControlLabel>Destination</ControlLabel>
-          <FormControl disabled={!!this.state.trset} placeholder='Hostname (e.g. cbc.ca) or IP address (e.g. 123.123.123.123)' onChange={this.changeDest} inputRef={(ref) => {this.dest = ref}} type='text' defaultValue={this.props.options.dest} labelClassName='col-md-4' />
+
+          <Row>
+            <p>Enter a hostname of your own to target</p>
+            <Col xsOffset={3} md={1}>
+              <ControlLabel>Destination</ControlLabel>
+            </Col>
+            <Col md={5}>
+              <FormControl disabled={!!this.state.trset} placeholder='Hostname (e.g. cbc.ca) or IP address (e.g. 123.123.123.123)' onChange={this.changeDest} inputRef={(ref) => {this.dest = ref}} type='text' defaultValue={this.props.options.dest} />
+            </Col>
+          </Row>
         </Panel>
+
         <Button bsStyle='primary' disabled={!canTrace} className="pull-right" onClick={this.use.bind(this, 'Trace')}>Generate Traceroute{trPlural}</Button>
         <Button className="pull-right" onClick={this.use.bind(this, 'Options')}>Options</Button>
         <Button className='pull-right' onClick={this.cancel}>Cancel</Button>

@@ -29,7 +29,7 @@ module.exports = createReactClass({
                   Passes
                 </Col>
                 <Col md={8}>
-                  <FormControl type='text' inputRef={(ref) => {this.queries = ref}} defaultValue={this.props.options.queries} style={{width: '3em'}} />
+                  <FormControl type='text' inputRef={(ref) => {this.queries = ref}} defaultValue={this.props.options.queries} style={{width: '4.2em'}} />
                   <div class="help-text">The number of times each router on the route to the destination is probed</div>
                 </Col>
               </Row>
@@ -38,7 +38,7 @@ module.exports = createReactClass({
                   Timeout (milliseconds)
                 </Col>
                 <Col md={8}>
-                  <FormControl type='text' inputRef={(ref) => {this.timeout = ref}} defaultValue={this.props.options.timeout} style={{width: '3em'}} />
+                  <FormControl type='text' inputRef={(ref) => {this.timeout = ref}} defaultValue={this.props.options.timeout} style={{width: '4.2em'}} />
                   <div class="help-text">The maximum time the traceroute generator will wait for a response from a particular router</div>
                 </Col>
               </Row>
@@ -47,7 +47,7 @@ module.exports = createReactClass({
                   Maximum hops
                 </Col>
                 <Col md={8}>
-                  <FormControl type='text' inputRef={(ref) => {this.maxhops = ref}} defaultValue={this.props.options.maxhops} style={{width: '3em'}} />
+                  <FormControl type='text' inputRef={(ref) => {this.maxhops = ref}} defaultValue={this.props.options.maxhops} style={{width: '4.2em'}} />
                   <div class="help-text">Limit to number of router hops - i.e. maximum time to live (TTL) of a probe</div>
                 </Col>
               </Row>
@@ -56,7 +56,7 @@ module.exports = createReactClass({
                   Maximum sequential errors
                 </Col>
                 <Col md={8}>
-                  <FormControl type='text' inputRef={(ref) => {this.max_sequential_errors = ref}} defaultValue={this.props.options.max_sequential_errors} style={{width: '3em'}} />
+                  <FormControl type='text' inputRef={(ref) => {this.max_sequential_errors = ref}} defaultValue={this.props.options.max_sequential_errors} style={{width: '4.2em'}} />
                   <div class="help-text">Number of timeouts or errors in a row (i.e. successive TTLs) before stopping trace</div>
                 </Col>
               </Row>
@@ -76,8 +76,8 @@ module.exports = createReactClass({
         <Panel>
           <Form horizontal>
             <FormGroup controlId="formOptions">
-              <Row>
-                <Col md={8}>
+              <Row style={{marginTop: '10px'}}>
+                <Col xsOffset={4} md={8}>
                   <Checkbox inputRef={(ref) => this.include_platform_traceroute = ref} inline>Include platform traceroute</Checkbox>
                   <div class="help-text">Include output of the platform's native traceroute program</div>
                 </Col>
@@ -98,8 +98,7 @@ module.exports = createReactClass({
                   Platform overall timeout (seconds)
                 </Col>
                 <Col md={8}>
-                  <FormControl type='text' inputRef={(ref) => {this.platform_limit_ms = ref}} defaultValue={this.props.options.platform_limit_ms / 1000} style={{width: '3em'}} />
-                  <div class="help-text"></div>
+                  <FormControl type='text' inputRef={(ref) => {this.platform_limit_ms = ref}} defaultValue={this.props.options.platform_limit_ms / 1000} style={{width: '4.2em'}} />
                 </Col>
               </Row>
             </FormGroup>

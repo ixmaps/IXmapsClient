@@ -14,14 +14,15 @@ var open = require('open');
 var mygeoip = require('./lib/mygeoip.js');
 
 var mode = process.env.NODE_ENV,
-  isWin = /^win/.test(process.platform),
-  isPublic = mode === 'public' || mode === 'publicdev',
-  development = mode === 'development' || mode === 'publicdev', trsets = require('./lib/trset.js');
+    isWin = /^win/.test(process.platform),
+    isPublic = mode === 'public' || mode === 'publicdev',
+    development = mode === 'development' || mode === 'publicdev', trsets = require('./lib/trset.js');
 
 var processor = require('./lib/processor.js');
 
 app.use(express.static(path.join(__dirname, 'web')));
-app.use('/fonts/', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/fonts')));
+// Upgraded bootstrap does not have this file
+// app.use('/fonts/', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/fonts')));
 
 // proxy webpack for frontend script
 if (development) {
@@ -85,21 +86,21 @@ server.on('listening', function() {
 
 function start() {
   // open the user's preferred browser to the interface
-  // if (!isPublic) {
-  //   try {
-  //     process.setuid(process.env.USER);
-  //     open('http://localhost:2040');
-  //     process.setuid(0);
-  //   } catch (e) {
-  //     console.log('\nUnable to open a browser window to this application automatically. Please access it at http://localhost:2040. Thanks.\n');
-  //   }
-  // }
+  if (!isPublic) {
+    try {
+      process.setuid(process.env.USER);
+      open('http://localhost:2040');
+      process.setuid(0);
+    } catch (e) {
+      console.log('\nUnable to open a browser window to this application automatically. Please access it at http://localhost:2040. Thanks.\n');
+    }
+  }
 
   io.on('connection', function(socket) {
     console.log('Connection');
     trsets.getTrsets(function(err, sets) {
       if (err) {
-        console.error('cannot get trsets', err);
+        console.error('Cannot get trsets...', err);
         return;
       }
       console.log('trsets', sets.length);
@@ -108,26 +109,45 @@ function start() {
     socket.on('submitTrace', submitTrace);
     socket.on('savePreferences', savePreferences);
     socket.on('cancelTrace', cancelTrace);
+
+    try {
+      var prefs = require(process.cwd() + '/IXmaps.preferences.json');
+      console.log('Sending prefs...', prefs);
+      socket.emit('preferences', prefs);
+    } catch (err) {
+      console.log('no IXmaps.preferences.json found', err);
+    }
+    try {
+      mygeoip.get(function(err, geoip) {
+        console.log('Sending geoip...', geoip);
+        socket.emit('geoip', geoip);
+      });
+    } catch(err) {
+      console.error('Could not get geoip...', err);
+    }
+
     // initiate client version and presence check
     socket.on('ping', function(g, ack) {
       lastResponse = new Date();
       if (!gen || !ack) {
         gen = g;
-        try {
-          var prefs = require(process.cwd() + '/IXmaps.preferences.json');
-          console.log('sending prefs', prefs);
-          socket.emit('preferences', prefs);
-        } catch (err) {
-          console.log('no IXmaps.preferences.json found', err);
-        }
-        try {
-          mygeoip.get(function(err, geoip) {
-            console.log('sending geoip', geoip);
-            socket.emit('geoip', geoip);
-          });
-        } catch(err) {
-          console.error('could not get geoip', err);
-        }
+
+        // NB - moving this out of the ping check for now. Could be sketchy tho
+        // try {
+        //   var prefs = require(process.cwd() + '/IXmaps.preferences.json');
+        //   console.log('Sending prefs...', prefs);
+        //   socket.emit('preferences', prefs);
+        // } catch (err) {
+        //   console.log('no IXmaps.preferences.json found', err);
+        // }
+        // try {
+        //   mygeoip.get(function(err, geoip) {
+        //     console.log('Sending geoip...', geoip);
+        //     socket.emit('geoip', geoip);
+        //   });
+        // } catch(err) {
+        //   console.error('Could not get geoip...', err);
+        // }
         /*if (!isPublic) {
           pingCheck = setInterval(function() {
             var passed = new Date().getTime() - lastResponse.getTime();
@@ -167,7 +187,7 @@ function start() {
       try {
         require('fs').writeFileSync(process.cwd() + '/IXmaps.preferences.json', JSON.stringify(prefs));
       } catch (e) {
-        console.error('could not save preferences', e);
+        console.error('Could not save preferences...', e);
       }
     }
 

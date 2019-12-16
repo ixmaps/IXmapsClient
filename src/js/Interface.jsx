@@ -29,7 +29,7 @@ module.exports = createReactClass({
     clearInterval(this.state.ackInterval);
   },
   preferences: function(prefs) {
-    let options = _.assign({}, this.state.options, {submitter: prefs.submitter, postal_code: prefs.postal_code});
+    let options = _.assign({}, this.state.options, {submitter: prefs.submitter, city: prefs.city, postal_code: prefs.postal_code});
     this.setState({options});
   },
   geoip: function(geoip) {
@@ -114,7 +114,7 @@ module.exports = createReactClass({
         <Alert bsStyle='danger'>
           <h1>Server disconnected</h1>
           <p>The server is not responding to ping requests. It may be necessary to restart it.</p>
-       </Alert>
+        </Alert>
       );
     }
     let step;

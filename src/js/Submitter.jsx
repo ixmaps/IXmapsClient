@@ -57,9 +57,9 @@ module.exports = createReactClass({
     let geoip = options.geoip || {};
     return {
       submitter: options.submitter,
-      city: options.city || geoip.city,
-      postal_code: options.postal_code || geoip.postal_code,
-      isp: options.isp || geoip.isp
+      city: options.city || geoip.myCity,
+      postal_code: options.postal_code || geoip.myPostalCode,
+      isp: options.isp || geoip.myIsp
     }
   }
 });

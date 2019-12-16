@@ -85,7 +85,7 @@ module.exports = createReactClass({
     });
     return (
       <div>
-        <Panel>
+        <Panel style={{padding: '1em', height: '15em'}}>
           <h1>Generating Traceroutes</h1>
           <div className='generating-submitter'>
             Submitted by <b>{options.submitter || '[noname]'}</b> from <b>{options.city || '[no city]'}</b>,&nbsp;
@@ -98,14 +98,14 @@ module.exports = createReactClass({
           <div className='col-md-4'>{action}</div>
         </Panel>
 
-        <Panel>
-          <Row>
+        <Panel style={{padding: '1em'}}>
+          <Row style={{marginBottom: '1em'}}>
             <div className='col-md-8'>
               <h2>Output</h2>
             </div>
             <div className='col-md-3 text-right'>
               <br />
-              <Checkbox id="debug" type="checkbox" onChange={this.toggleDebug}>Detailed output</Checkbox>
+              <Checkbox id="debug" type="checkbox" onChange={this.toggleDebug}>View all</Checkbox>
             </div>
           </Row>
           {output}
