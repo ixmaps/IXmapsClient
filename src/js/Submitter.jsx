@@ -1,9 +1,9 @@
 /* jslint node: true, esnext: true */
 
-var React = require('react'), {Input, Button, Panel} = require('react-bootstrap');
+var React = require('react'), {Checkbox, Button, Panel} = require('react-bootstrap'),
+    createReactClass = require('create-react-class');
 
-
-module.exports = React.createClass({
+module.exports = createReactClass({
   fields : ['submitter', 'city', 'postal_code', 'isp'],
   render: function() {
     var {caller} = this.props, {submitter, city, postal_code, isp, geoip} = this.state;
@@ -16,12 +16,13 @@ module.exports = React.createClass({
         <input type='text' placeholder='Name or pseudonym (25 chars max)' onChange={this.change.bind(null, 'submitter')} value={submitter} className='input submitter' /></p>
         <p>You appear to be near
         <input type='text' placeholder='city' onChange={this.change.bind(null, 'city')} value={city} className='input city' />
-        <input type='text' placeholder='postal_code' onChange={this.change.bind(null, 'postal_code')} value={postal_code} className='input postal_code'  /> <br />
+        <input type='text' placeholder='postal_code' onChange={this.change.bind(null, 'postal_code')} value={postal_code} className='input postal_code' /> <br />
         with
         <input type='text' placeholder='Internet Service Provider' onChange={this.change.bind(null, 'isp')} value={isp} className='input isp' />
         as your internet service provider (ISP).</p>
         <p>Please correct these if appropriate. This too is optional, but will assist in more accurately positioning the origin of the traceroutes you contribute.</p>
-        <Input ref='savePrefs' className='text-right' defaultChecked={true} type='checkbox' label='Store this information on your computer' />
+        
+        <Checkbox inputRef={(ref) => this.savePrefs = ref} className='text-right' defaultChecked inline>Store this information on your computer</Checkbox>
         <Button bsStyle='primary' className='pull-right' onClick={this.use}>Continue</Button>
         <Button className='pull-right' onClick={this.cancel}>Cancel</Button>
       </div>
@@ -42,7 +43,8 @@ module.exports = React.createClass({
       options[i] = this.state[i];
     });
 
-    if (this.refs.savePrefs.getChecked()) {
+    // if (this.refs.savePrefs.getChecked()) {
+    if (this.savePrefs.checked) {
       this.props.caller.savePrefs(options);
     }
 
@@ -55,9 +57,9 @@ module.exports = React.createClass({
     let geoip = options.geoip || {};
     return {
       submitter: options.submitter,
-      city: options.city || geoip.city,
-      postal_code: options.postal_code || geoip.postal_code,
-      isp: options.isp || geoip.isp
+      city: options.city || geoip.myCity,
+      postal_code: options.postal_code || geoip.myPostalCode,
+      isp: options.isp || geoip.myIsp
     }
   }
 });

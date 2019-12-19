@@ -3,7 +3,7 @@
 "use strict";
 
 var React = require('react');
-
+var ReactDOM = require('react-dom');
 var Interface = require('./Interface.jsx');
 
-React.render(<Interface />, document.getElementById('main'));
+ReactDOM.render(<Interface />, document.getElementById('main'));

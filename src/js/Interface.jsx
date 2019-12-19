@@ -1,19 +1,19 @@
 /* jslint node: true, esnext: true, browser: true */
 'use strict';
 
-var React = require('react'), { Row, Alert } = require('react-bootstrap'), io = require('socket.io-client'), _ = require('lodash');
-import '@babel/polyfill';
+require('@babel/polyfill');
+var React = require('react'), { Row, Alert } = require('react-bootstrap'), io = require('socket.io-client'), _ = require('lodash'), createReactClass = require('create-react-class');
 
 var Submitter = require('./Submitter.jsx'),
-  Destination = require('./Destination.jsx'),
-  Options = require('./Options.jsx'),
-  Trace = require('./Trace.jsx'),
-  Finished = require('./Finished.jsx'),
-  DefaultOptions = require('../../lib/default-options.js');
+    Destination = require('./Destination.jsx'),
+    Options = require('./Options.jsx'),
+    Trace = require('./Trace.jsx'),
+    Finished = require('./Finished.jsx'),
+    DefaultOptions = require('../../lib/default-options.js');
 
 var socket = io();
 
-module.exports = React.createClass({
+module.exports = createReactClass({
   connected: function() {
     console.log('connected');
     this.setState({disconnected: false});
@@ -29,7 +29,7 @@ module.exports = React.createClass({
     clearInterval(this.state.ackInterval);
   },
   preferences: function(prefs) {
-    let options = _.assign({}, this.state.options, {submitter: prefs.submitter, postal_code: prefs.postal_code});
+    let options = _.assign({}, this.state.options, {submitter: prefs.submitter, city: prefs.city, postal_code: prefs.postal_code});
     this.setState({options});
   },
   geoip: function(geoip) {
@@ -37,7 +37,8 @@ module.exports = React.createClass({
     this.setState({options});
   },
   trsets: function(trsets) {
-    this.setState(...this.state, {trsets});
+    // this.setState(...this.state, {trsets});
+    this.setState({trsets: trsets});
   },
   disconnected: function() {
     console.log('disconnect');
@@ -56,7 +57,8 @@ module.exports = React.createClass({
       }
     }
     messages.push({ date: new Date(), type, message, content });
-    this.setState(...this.state, {messages});
+    // this.setState(...this.state, {messages});
+    this.setState({messages: messages});
   },
   submitTrace: function(options) {
     this.state.currentStatus = null;
@@ -112,7 +114,7 @@ module.exports = React.createClass({
         <Alert bsStyle='danger'>
           <h1>Server disconnected</h1>
           <p>The server is not responding to ping requests. It may be necessary to restart it.</p>
-       </Alert>
+        </Alert>
       );
     }
     let step;

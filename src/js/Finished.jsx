@@ -1,9 +1,11 @@
 /* jslint node: true, esnext: true, browser: true */
 'use strict';
 
-var React = require('react'), {Panel, Button} = require('react-bootstrap');
+var React = require('react'), {Panel, Button} = require('react-bootstrap'),
+    createReactClass = require('create-react-class');
 
-var Finished = React.createClass({
+// var Finished = createReactClass({
+module.exports = createReactClass({
   render: function() {
     let {submitted} = this.props, message;
     if (submitted > 0) {
@@ -17,9 +19,7 @@ var Finished = React.createClass({
 
           <p>To see the last 20 routes contributed, select <b>Quick</b>, then <b>Last Contributed</b>.</p>
 
-          <p>To see the routes you have contributed, select <b>Advanced</b>, adjust the filter options to look like this example,
-          enter your name / pseudonym in the space provided,
-          and then <b>Search</b>.</p>
+          <p>To see the routes you have contributed, select <b>Advanced</b>, adjust the filter options to look like this example, enter your name / pseudonym in the space provided, and then <b>Search</b>.</p>
 
           <Panel>
             <img src='/custom_filters.png' alt='custom filters filter example' className='custom-filters-img' />
@@ -45,4 +45,4 @@ var Finished = React.createClass({
   }
 });
 
-module.exports = Finished;
+// module.exports = Finished;

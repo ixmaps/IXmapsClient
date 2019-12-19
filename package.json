@@ -1,7 +1,7 @@
 {
   "name": "IXmapsClient",
   "productName": "IXmapsClient",
-  "version": "1.7.0",
+  "version": "1.1.1",
   "description": "IXmaps client",
   "license": "AGPL-3.0-only",
   "main": "main.js",
@@ -21,7 +21,8 @@
     "publicdev": "NODE_ENV=publicdev node server.js",
     "start": "node server.js",
     "test": "node test/*/*",
-    "build-macos": "pkg -t node10-macos-x64 server.js -o dist/macos/app --config package.json"
+    "build-macos": "pkg -t node10-macos-x64 server.js -o dist/macos/app --config package.json",
+    "build-win": "pkg -t node10-win-x64 server.js -o dist/win/app --config package.json"
   },
   "pkg": {
     "scripts": "lib/*.js",
@@ -38,6 +39,7 @@
     "babel-preset-react": "^6.24.1",
     "bootstrap": "^4.4.1",
     "cheerio": "^0.22.0",
+    "create-react-class": "^15.6.3",
     "express": "^4.17.1",
     "lodash": "^4.17.15",
     "lodash.template": "^4.5.0",

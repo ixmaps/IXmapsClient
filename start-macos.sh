@@ -1,7 +1,7 @@
 #!/bin/sh
 echo
 echo "***************************************************************************"
-echo "* IXmapsClient local server                                               *"
+echo "* IXmapsClient local server (v1.1.1)                                      *"
 echo "*                                                                         *"
 echo "* A new browser window should appear momentarily. If the browser window   *"
 echo "* doesn't open, please point your browser to http://localhost:2040        *"
