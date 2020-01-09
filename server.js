@@ -20,7 +20,7 @@ var mode = process.env.NODE_ENV,
 
 var processor = require('./lib/processor.js');
 
-app.use(express.static(path.join(__dirname, 'web')));
+app.use(express.static(path.join(process.cwd(), 'web')));
 // Upgraded bootstrap does not have this file
 // app.use('/fonts/', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/fonts')));
 
@@ -54,7 +54,7 @@ if (hasRoot) {
 }
 
 app.get('/', function(req, res) {
-  res.sendFile(__dirname + '/web/index.html');
+  res.sendFile(process.cwd() + '/web/index.html');
 });
 
 // respond to requests to exit the server

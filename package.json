@@ -21,8 +21,9 @@
     "publicdev": "NODE_ENV=publicdev node server.js",
     "start": "node server.js",
     "test": "node test/*/*",
-    "build-macos": "pkg -t node10-macos-x64 server.js -o dist/macos/app --config package.json",
-    "build-win": "pkg -t node10-win-x64 server.js -o dist/win/app --config package.json"
+    "build-macos": "pkg -t node10-macos-x64 server.js -o dist/macos/IXmapsClient --config package.json",
+    "build-win": "pkg -t node10-win-x64 server.js -o dist/win/IXmapsClient --config package.json",
+    "build-linux": "pkg -t node10-linux-x64 server.js -o dist/linux/IXmapsClient --config package.json"
   },
   "pkg": {
     "scripts": "lib/*.js",
@@ -46,6 +47,7 @@
     "moment": "^2.24.0",
     "node-libs-browser": "^2.2.1",
     "open": "^7.0.0",
+    "pkg": "^4.4.0",
     "raw-socket": "^1.7.0",
     "react": "^16.12.0",
     "react-bootstrap": "^0.33.1",

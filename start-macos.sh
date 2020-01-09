@@ -14,9 +14,7 @@ echo "* something has gone wrong. Please visit                                  
 echo "* http://www.ixmaps.ca/contribute.php for assistance                      *"
 echo "*                                                                         *"
 echo "* To terminate IXmapsClient press: control+C, then close this Terminal    *"
-echo "* window and the browser window.                                          *" 
-echo "*                                                                         *"
-echo "* To remove IXmapsClient from your device, delete IXmapsClient.app folder.*"
+echo "* window and the browser window.                                          *"
 echo "*                                                                         *"
 echo "* Please note that this minimal server requires root access to initiate   *"
 echo "* traceroute requests. We invite you to inspect the code to verify its    *"
@@ -29,4 +27,4 @@ echo "*                                                                         
 echo "***************************************************************************"
 echo
 DIR=`dirname "$0"`
-sudo ./node server.js
+sudo ./app

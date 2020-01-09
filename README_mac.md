@@ -9,8 +9,6 @@ The current version of the client can be downloaded from [www.ixmaps.ca/contribu
 
 ### Installation
 This version of the software has been tested and runs on Mac OS X:
-* 10.8
-* 10.9
 * 10.10
 * 10.11
 * 10.12
@@ -19,7 +17,7 @@ This version of the software has been tested and runs on Mac OS X:
 
 Note: If you have previously installed a version of the **IXmapsClient**, you must remove it before proceeding (see below for uninstall instructions).
 
-1. Download the IXmapsClient installer **IXmapsClient_v.1.1.1.macos.dmg**
+1. Download the IXmapsClient installer **IXmapsClient.1.1.1.macos.dmg**
 2. Double click on the **IXmapsClient.1.1.1.macos.dmg** to open it
 3. Drag the **IXmapsClient.app** application to your **Applications** folder
 4. Double click on **IXmapsClient.app** to launch
@@ -41,8 +39,6 @@ Click ok to proceed, and a new terminal window will be opened. You will then be 
 Move the **IXmapsClient.app** application from your **Applications** folder to the Trash. This will completely remove the **IXmapsClient** from your computer.
 
 
-
-
 ## Contributors
 * David H. Mason - independent software developer
 * Andrew Clement - Faculty of Information, University of Toronto
@@ -52,7 +48,7 @@ Move the **IXmapsClient.app** application from your **Applications** folder to t
 
 
 ## License
-Copyright (C) 2019 IXmaps.
+Copyright (C) 2020 IXmaps.
 **IXmapsClient** and the repository [github.com/ixmaps/IXmapsClient](https://github.com/ixmaps/IXmapsClient) are licensed under a GNU AGPL v3.0 license. This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, version 3 of the License.
 
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
