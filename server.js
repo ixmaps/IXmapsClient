@@ -9,7 +9,8 @@ var express = require('express'), app = express();
 var http = require('http');
 var server = http.Server(app);
 var io = require('socket.io')(server);
-var open = require('open');
+// var open = require('open');
+const pkgOpen = require('opn-pkg');
 
 var mygeoip = require('./lib/mygeoip.js');
 
@@ -43,7 +44,7 @@ try {
   process.setuid(0);
   hasRoot = true;
 } catch (e) {
-  open('http://localhost:2040/requires-root.html');
+  pkgOpen('http://localhost:2040/requires-root.html');
   setTimeout(function() {
     process.exit(0);
   }, 2000);
@@ -54,7 +55,7 @@ if (hasRoot) {
 }
 
 app.get('/', function(req, res) {
-  res.sendFile(process.cwd() + '/web/index.html');
+  res.sendFile(__dirname + '/web/index.html');
 });
 
 // respond to requests to exit the server
@@ -89,7 +90,7 @@ function start() {
   if (!isPublic) {
     try {
       process.setuid(process.env.USER);
-      open('http://localhost:2040');
+      pkgOpen('http://localhost:2040');
       process.setuid(0);
     } catch (e) {
       console.log('\nUnable to open a browser window to this application automatically. Please access it at http://localhost:2040. Thanks.\n');

@@ -46,6 +46,7 @@
     "lodash.template": "^4.5.0",
     "moment": "^2.24.0",
     "node-libs-browser": "^2.2.1",
+    "opn-pkg": "~1.0",
     "open": "^7.0.0",
     "pkg": "^4.4.0",
     "raw-socket": "^1.7.0",
