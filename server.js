@@ -32,7 +32,7 @@ if (development) {
 
   app.all('/assets/frontend.js', function(req, res) {
     proxy.web(req, res, {
-      target: 'http://127.0.0.1:2050'
+      target: 'http://localhost:2040'
     });
   });
 }

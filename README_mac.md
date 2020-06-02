@@ -1,5 +1,5 @@
 # IXmaps Client
-Version 1.1.1 released Dec 16, 2019
+Version 1.1.1 released June 2, 2020
 
 **IXmapsClient** is an internet mapping tool that allows you to see how your personal data travels across the internet. It works by generating traceroutes to determine the paths your data packets take. These contributions are submitted to the ixmaps.ca server, where they are visualized geographically for public display and analysis.
 
@@ -14,6 +14,7 @@ This version of the software has been tested and runs on Mac OS X:
 * 10.12
 * 10.13
 * 10.14
+* 10.15
 
 Note: If you have previously installed a version of the **IXmapsClient**, you must remove it before proceeding (see below for uninstall instructions).
 
@@ -22,7 +23,7 @@ Note: If you have previously installed a version of the **IXmapsClient**, you mu
 3. Drag the **IXmapsClient.app** application to your **Applications** folder
 4. Double click on **IXmapsClient.app** to launch
 
-IXmapsClient for macOS is not signed with an Apple Developer ID and macOS [Gatekeeper](https://support.apple.com/HT202491) security settings will not allow it to be started. To bypass Gatekeeper one time for IXmapsClient, control-click or right-click on the **IXmapsClient.app** icon and choose **Open** from the context menu. This will display the following dialog: 
+IXmapsClient for macOS is not signed with an Apple Developer ID and macOS [Gatekeeper](https://support.apple.com/HT202491) security settings will not allow it to be started. To bypass Gatekeeper one time for IXmapsClient, control-click or right-click on the **IXmapsClient.app** icon and choose **Open** from the context menu. This will display the following dialog:
 
 ![Gatekeeper dialog](ixmaps_gatekeeper.png "Gatekeeper dialog")
 
@@ -53,4 +54,4 @@ Copyright (C) 2020 IXmaps.
 
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
-You should have received a copy of the GNU General Public License along with this program.  If not, see [gnu.org/licenses](https://gnu.org/licenses/agpl.html).
+You should have received a copy of the GNU General Public License along with this program. If not, see [gnu.org/licenses](https://gnu.org/licenses/agpl.html).

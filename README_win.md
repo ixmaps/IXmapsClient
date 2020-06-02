@@ -24,8 +24,8 @@ The current version of the client can be downloaded from [www.ixmaps.ca/contribu
 
 1. Download the **IXmapsClient** installer **IXmapsClient.1.1.1.win64.exe**
 2. Double click on **IXmapsClient.1.1.1.win64.exe** and install the application in the directory **C:\IXmapsClient**
-3. Copy the **IXmapsClient-Shortcut** to your Desktop
-4. In order to allow the **IXmapsClient** to run properly, you may need to authorize **Windows Firewall** to allow inbound connections. For a detailed guide on how to change these settings, see section **Changing Windows Firewall Settings**
+3. Copy the **IXmapsClient-Shortcut** to your Desktop (optional)
+4. In order to allow the **IXmapsClient** to run properly, you may need to authorize **Windows Defender Firewall** to allow inbound connections (or temporarily turn the firewall off). For a detailed guide on how to change these settings, see section **Changing Windows Firewall Settings**
 5. Double click on **IXmapsClient-Shortcut** to launch
 
 **IXmapsClient** needs to be executed in a terminal with administrator's privileges. For this reason, when double clicking **IXmapsClient-Shortcut**, a new terminal window will be opened asking permission to run the application as an administrator; enter your admin password to proceed. The **IXmapsClient** interface should then appear in your browser, or use your browser to go to [http://localhost:2040/](http://localhost:2040/).

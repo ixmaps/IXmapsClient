@@ -10,7 +10,7 @@ var buildPath = path.resolve('web/assets');
 
 var config = {
   devtool: 'eval',
-  
+
   entry: {
     frontend: ['./src/js/frontend.js', 'webpack/hot/dev-server']
   },
@@ -32,7 +32,7 @@ var config = {
         exclude: /node_modules/,
         use: [
           { loader: 'react-hot-loader/webpack' },
-          { 
+          {
             loader: 'babel-loader',
             options: {
               babelrc: false,

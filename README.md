@@ -1,5 +1,5 @@
 # IXmaps Client
-Version 1.1.1 released Dec 16, 2019
+Version 1.1.1 released June 2, 2020
 
 **IXmapsClient** is an internet mapping tool that allows you to see how your personal data travels across the internet. It works by generating traceroutes to determine the paths your data packets take. These contributions are submitted to the ixmaps.ca server, where they are visualized geographically for public display and analysis.
 
@@ -26,11 +26,11 @@ The current version of the client can be downloaded from [www.ixmaps.ca/contribu
 
 1. Download the **IXmapsClient** installer **IXmapsClient.1.1.1.win64.exe**
 2. Double click on **IXmapsClient.1.1.1.win64.exe** and install the application in the directory **C:\IXmapsClient**
-3. Copy the **IXmapsClient-Shortcut** to your Desktop
+3. Copy the **IXmapsClient-Shortcut** to your Desktop (optional)
 4. In order to allow the **IXmapsClient** to run properly, you may need to authorize **Windows Firewall** to allow inbound connections. For a detailed guide on how to change these settings, see section **Changing Windows Firewall Settings**
 5. Double click on **IXmapsClient-Shortcut** to launch
 
-**IXmapsClient** needs to be executed in a terminal with administrator's privileges. For this reason, when double clicking **IXmapsClient-Shortcut**, a new terminal window will be opened asking permission to run the application as an administrator; enter your admin password to proceed. The **IXmapsClient** interface should then appear in your browser, or use your browser to go to [http://localhost:2040/](http://localhost:2040/).
+**IXmapsClient** may need to be executed in a terminal with administrator's privileges. For this reason, when double clicking **IXmapsClient-Shortcut**, a new terminal window will be opened which may ask permission to run the application as an administrator; enter your admin password to proceed. The **IXmapsClient** interface should then appear in your browser, or use your browser to go to [http://localhost:2040/](http://localhost:2040/).
 
 #### Changing Windows Firewall Settings
 
@@ -74,7 +74,7 @@ The current version of the client can be downloaded from [www.ixmaps.ca/contribu
 3. Drag the **IXmapsClient.app** application to your **Applications** folder
 4. Double click on **IXmapsClient.app** to launch
 
-IXmapsClient for macOS is not signed with an Apple Developer ID and macOS [Gatekeeper](https://support.apple.com/HT202491) security settings will not allow it to be started. To bypass Gatekeeper one time for IXmapsClient, control-click or right-click on the **IXmapsClient.app** icon and choose **Open** from the context menu. This will display the following dialog: 
+IXmapsClient for macOS is not signed with an Apple Developer ID and macOS [Gatekeeper](https://support.apple.com/HT202491) security settings will not allow it to be started. To bypass Gatekeeper one time for IXmapsClient, control-click or right-click on the **IXmapsClient.app** icon and choose **Open** from the context menu. This will display the following dialog:
 
 ![Gatekeeper dialog](ixmaps_gatekeeper.png "Gatekeeper dialog")
 
