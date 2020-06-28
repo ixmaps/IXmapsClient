@@ -85,7 +85,7 @@ module.exports = createReactClass({
         }
       }
       socket.emit('ping', gen, this.state.ack > 0);
-    }, 500);
+    }, 2000);
   },
   getInitialState: function() {
     return {

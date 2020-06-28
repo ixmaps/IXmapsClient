@@ -89,6 +89,10 @@ function start() {
   if (!isPublic) {
     try {
       process.setuid(process.env.USER);
+      // TODO - test this or delete it
+      // if (production) {
+      //   open('http://localhost:2040');
+      // }
       open('http://localhost:2040');
       process.setuid(0);
     } catch (e) {

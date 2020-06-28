@@ -19,10 +19,10 @@ module.exports = createReactClass({
             </Col>
             <Col md={5}>
               <FormControl componentClass="select" placeholder="Use a predefined set of destinations" disabled={!!this.state.dest} onChange={this.changeDest} defaultValue={this.props.options.trset} inputRef={(ref) => this.trset = ref} label='TR Set' labelClassName='col-md-4' wrapperClassName='col-md-6'>
-                <option value="">Enter below</option>
+                <option value="">Select...</option>
                 {tropts}
               </FormControl>
-              <div class="help-text">Use a predefined set of destinations</div>
+              <div>Learn what URLs are in these lists at our <a href='https://www.ixmaps.ca/trsets.php' target='_blank'>TRset page</a></div>
             </Col>
           </Row>
           <div style={{ 'textAlign': 'center', padding: '2.5em' }}><i>Or</i></div>
@@ -36,7 +36,7 @@ module.exports = createReactClass({
       <div>
         <h1>Destination</h1>
         <Panel style={{padding: '2em'}} disabled>
-          
+
           {seltr}
 
           <Row>
