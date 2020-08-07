@@ -112,9 +112,17 @@ Install:
 ### Executing
 #### Run the server
 Since you're accessing raw sockets, you must run as root (i.e. sudo). Make sure your root user has node available:
-`$ npm start`
-This should also launch your web browser pointing to the local **IXmapsClient** interface. If the interface can't be opened, you can manually navigate to http://localhost:2040.
-Remember that you may also need to launch the webpack server to see your dev changes!
+`$ sudo npm run dev`
+`$ gulp watch` (this seems a bit buggy atm)
+`$ npm run webpack`
+
+To build assets for production:
+`$ npm run webpack-production`
+(NB: the hotload is still iffy)
+
+You can adjust the target for submissions in lib/processor.js with the SUBMIT_URI (eg change to http://localhost:8000/application/controller/gather_tr.php)
+
+You can stop a new browser window from opening each time in server.js, commenting out open('http://localhost:2040');
 
 
 ### Packaging
