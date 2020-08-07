@@ -5,69 +5,25 @@ Version 1.1.1 released June 2, 2020
 
 **IXmapsClient** sets up a local web server that only answers queries from your device, then opens a browser page to access the interface via port 2040.
 
-As of October 2016, **IXmapsClient** replaces the former traceroute generator, **TRgen**, for collecting routing information. Running **TRgen** will produce an error message. To contribute new traceroutes to the IXmaps database, **TRgen** should be removed and the new **IXmapsClient**  specific to your operating system should be installed.
-
 
 ## Installation and Running
 The current version of the client can be downloaded from [www.ixmaps.ca/contribute](https://www.ixmaps.ca/contribute.php).
 
-**IXmapsClient** works on **Mac OS X**, **Linux**, and **Windows**.
-
-
-### Windows
-This version of the software runs on Windows 64 bit architecture, and has been tested and runs on the following versions of the Windows OS:
-* Windows 7
-* Windows 8
-* Windows 10
-
-Note: If you have previously installed a version of the **IXmapsClient**, you must remove it before proceeding (see below for uninstall instructions).
-
-The current version of the client can be downloaded from [www.ixmaps.ca/contribute](https://www.ixmaps.ca/contribute.php).
-
-1. Download the **IXmapsClient** installer **IXmapsClient.1.1.1.win64.exe**
-2. Double click on **IXmapsClient.1.1.1.win64.exe** and install the application in the directory **C:\IXmapsClient**
-3. Copy the **IXmapsClient-Shortcut** to your Desktop (optional)
-4. In order to allow the **IXmapsClient** to run properly, you may need to authorize **Windows Firewall** to allow inbound connections. For a detailed guide on how to change these settings, see section **Changing Windows Firewall Settings**
-5. Double click on **IXmapsClient-Shortcut** to launch
-
-**IXmapsClient** may need to be executed in a terminal with administrator's privileges. For this reason, when double clicking **IXmapsClient-Shortcut**, a new terminal window will be opened which may ask permission to run the application as an administrator; enter your admin password to proceed. The **IXmapsClient** interface should then appear in your browser, or use your browser to go to [http://localhost:2040/](http://localhost:2040/).
-
-#### Changing Windows Firewall Settings
-
-In order to allow the **IXmapsClient** to collect traceroute data, windows users have to change the configuration of the **Windows Firewall**, which by default prevents the PC from receiving inbound connections. To change these default settings follow these steps:
-
-1. Open the **Windows Firewall** and click on **Advance Settings**
-2. Click on **Windows Firewall Properties**
-3. Click on the tab **Private Profile** and in the section **Inbound Connections**, select the option **Allow** from the dropdown menu
-4. Click on the tab **Public Profile** and in the section **Inbound Connections**, select the option **Allow** from the dropdown menu
-5. Finally, click the button **Apply** and close the **Windows Firewall**
-
-More detailed instructions [are available here](http://www.thewindowsclub.com/how-to-configure-windows-7-firewall)
-
-Note: We advise that you reset your default firewall settings once you have completed traceroute collection.
-
-#### Removing **IXmapsClient**
-1. Delete the **C:\IXmapsClient** directory
-2. Delete the **IXmapsClient-Shortcut** from your **Desktop**
-This will completely remove the IXmaps Client from your computer.
+**IXmapsClient** works on **Mac OS X**, **Windows**, and **Linux**.
 
 
 ### Mac OS X
 This version of the software has been tested and runs on Mac OS X:
-* 10.6
-* 10.7
-* 10.8
-* 10.9
 * 10.10
 * 10.11
 * 10.12
 * 10.13
 * 10.14
+* 10.15
 
 Note: If you have previously installed a version of the **IXmapsClient**, you must remove it before proceeding (see below for uninstall instructions).
 
 The current version of the client can be downloaded from [www.ixmaps.ca/contribute](https://www.ixmaps.ca/contribute.php).
-
 
 1. Download the IXmapsClient installer **IXmapsClient_v.1.1.1.macos.dmg**
 2. Double click on the **IXmapsClient.1.1.1.macos.dmg** to open it
@@ -82,14 +38,44 @@ Click the **Open** button to run launch the **IXmapsClient.app** application.
 
 **IXmapsClient** needs to be executed in a terminal with administrator's privileges. When double clicking **IXmapsClient.app**, a new terminal window will be opened asking for the administrator's password; enter your admin password to proceed. The **IXmapsClient** interface should appear in your browser, or use your browser to go to [http://localhost:2040/](http://localhost:2040/).
 
-
 #### Removing **IXmapsClient**
 Move the **IXmapsClient.app** application from your **Applications** folder to the Trash. This will completely remove the **IXmapsClient** from your computer.
 
 
+### Windows
+This version of the software runs on Windows 64 bit architecture, and has been tested and runs on the following versions of the Windows OS:
+* Windows 10
+
+Note: If you have previously installed a version of the **IXmapsClient**, you must remove it before proceeding (see below for uninstall instructions).
+
+The current version of the client can be downloaded from [www.ixmaps.ca/contribute](https://www.ixmaps.ca/contribute.php).
+
+1. Download the **IXmapsClient** installer **IXmapsClient.1.1.1.win64.exe**
+2. Double click on **IXmapsClient.1.1.1.win64.exe** and install the application in the directory **C:\IXmapsClient**
+3. In order to allow the **IXmapsClient** to run properly, you may need to authorize **Windows Defender Firewall** to allow inbound connections (or temporarily turn the firewall off). If **IXmapsClient** is consistently returning a message of **Insufficient Traceroute responses**, there is likely an issue with the firewall. For a detailed guide on how to change these settings, see section **Changing Windows Firewall Settings**
+4. Double click on **IXmapsClient-Shortcut** to launch
+5. The **IXmapsClient** interface should then appear in your browser, or use your browser to go to [http://localhost:2040/](http://localhost:2040/).
+
+#### Changing Windows Firewall Settings
+
+In order to allow the **IXmapsClient** to collect traceroute data, windows users have to change the configuration of the **Windows Firewall**, which by default prevents the PC from receiving inbound connections. To change these default settings follow these steps:
+
+1. In Control Panel > System and Security, open the **Windows Defender Firewall**
+2. Click on **Turn Windows Defender Firewall on or off**
+3. Select the **Turn off Windows Defender Firewall** option for the network that you are connected to
+5. Finally, click the button **Apply** and close the **Windows Firewall**
+
+More detailed instructions [are available here](https://support.microsoft.com/en-ca/help/4028544/windows-10-turn-microsoft-defender-firewall-on-or-off)
+
+Note: We advise that you reset your default firewall settings once you have completed traceroute collection.
+
+#### Removing **IXmapsClient**
+1. Run **C:\unins000** to completely remove **IXmapsClient** from your machine
+
+
 ### Linux
 This version of the software has been tested and runs on:
-* Ubuntu 16.04.2 LTS
+* Ubuntu 20.04.2 LTS
 
 Note: If you have previously installed a version of the **IXmapsClient**, you must remove it before proceeding (see below for uninstall instructions).
 
@@ -111,19 +97,16 @@ This will completely remove the **IXmapsClient** from your computer.
 
 **IXmapsClient** sets up a local web server that only answers queries from your device, then opens a browser page to access the interface. **IXmapsClient** runs on port 2040.
 
-Source code is available at: https://www.github.com/ixmaps/IXmapsClient. Contributions to improve the IXmaps Client are welcome!
+Source code is available at: https://www.github.com/ixmaps/IXmapsClient. Contributions to improve the **IXmapsClient** are welcome!
 
 Pre-compiled packages of **IXmapsClient** are available at: https://www.ixmaps.ca/contribute
 
-As of December 7, 2015 IXmaps began using **IXmapsClient** to generate routing application, replacing the older traceroute generator, TRgen. As of October 2016 the Windows, Mac OS X and Linux versions of TRgen are deprecated, and no longer work.
 
 ### Install and build packages
-CDMTODO - update me?
 **IXmapsClient** is based on node.js version 10. Node version manager (nvm) is often helpful for installation and tracking different versions of node - see https://github.com/nvm-sh/nvm/blob/master/README.md.
 
-You will also need appropriate build tools for your OS installed (e.g. build-essentials on Linux, XCode on Mac OS, and on Windows Visual Studio 2015, C++ compilers).
-
-Then:
+Install:
+`git clone https://github.com/ixmaps/IXmapsClient.git`
 `$ npm install -g gulp && npm install && gulp build && npm run-script webpack-production`
 
 ### Executing
@@ -131,17 +114,45 @@ Then:
 Since you're accessing raw sockets, you must run as root (i.e. sudo). Make sure your root user has node available:
 `$ npm start`
 This should also launch your web browser pointing to the local **IXmapsClient** interface. If the interface can't be opened, you can manually navigate to http://localhost:2040.
+Remember that you may also need to launch the webpack server to see your dev changes!
 
-CDMTODO:
-- detail how to do local dev
-
-CDMTODO - explain this
-**IXmapsClient** can also be run as a public service; this should be used with caution:
-`$ npm run-script public`
 
 ### Packaging
-#### Command line execution
-`$ node trace-raw`
+We never quite got there on the second round (2020) of packaging. The mac one compiled ok with node pkg, the Windows and Linux ones were too finicky re: versioning etc. Instead, for those what we did was simply extract the previous (working) version from the Contribute page, update the internal files as necessary and then repackage them as per below:
+
+#### Mac build steps
+1. update version number (including the start scripts)
+2. update readme with correct release date
+3. 'npm run build-macos' to run the node pkg library
+4. copy the generated app file into a prebuilt OSX application structure (you can use the one from a previous version). It needs to be placed in Contents/Resources/ixmaps-darwin/
+5. copy 'node_modules/raw-socket/build' into the same place (Colin was never able to get pkg to build that, but this may change with future builds of pkg. See the warning generated when running 'npm run build-macos'). You can clear out some of the unnecessary pieces from the raw-socket lib, eg the Makefile etc. I believe all you need to keep is the .raw file and the .o file
+6. copy 'start-macos.sh' and IXmaps.preferences.json to Contents/Resources/ixmaps-darwin/
+7. set the attributes in the prefs file to blank strings
+8. generate README.pdf (I used 'md-to-pdf', eg 'md-to-pdf README_mac.md')
+9. create a new dmg file with Disk Utility (use File-New Image-Blank Image). 150 MB is enough
+10. add the IXmapsClient, /Application shortcut and README.pdf file to the dmg
+11. clean up, resize and set to readonly the dmg (in terminal)
+`hdiutil resize -size 75m IXmapsClient.1.1.1.macos.dmg`
+12. modify the dmg so that it opens in a New Window
+`hdiutil attach IXmapsClient.1.1.1.macos.dmg`
+`bless --openfolder /Volumes/IXmapsClient.1.1.1.macos`
+`hdiutil detach /Volumes/IXmapsClient.1.1.1.macos/`
+13. make the dmg read only (and then rename it)
+`hdiutil convert IXmapsClient.1.1.1.macos.dmg -format UDRO -o IXmapsClient.1.1.1.macos.readonly.dmg`
+Note - hdiutil attach and detach if you get a 'resource unavailable' error
+
+#### Windows build steps
+We used [Inno Setup](https://jrsoftware.org/isdl.php) to create the Windows installer. The wizard is very straight forward. To use the correct icons, add the following to the script (assuming the ico files are on the desktop):
+`
+[Icons]
+Name: "{autoprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; IconFilename: "{app}\ixmaps.ico"
+Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon; IconFilename: "{app}\ixmaps.ico"
+`
+
+#### Linux build steps
+Linux users don't need fancy installers! We just tar/gzip it up:
+`tar --disable-copyfile -cvzf IXmapsClient.1.1.1.linux.tar.gz IXmapsClient --exclude ".DS_Store"--exclude='.*'`
+(note the above was done on a Mac, hence the --excludes. You may need to exclude other things, depending on OSX's current whims)
 
 
 ## Contributors

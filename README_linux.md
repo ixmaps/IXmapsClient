@@ -1,20 +1,13 @@
 # IXmaps Client
-Version 1.1.1 released Dec 16, 2019
+Version 1.1.1 released Jun 2, 2020
 
 **IXmapsClient** is an internet mapping tool that allows you to see how your personal data travels across the internet. It works by generating traceroutes to determine the paths your data packets take. These contributions are submitted to the ixmaps.ca server, where they are visualized geographically for public display and analysis.
 
 **IXmapsClient** sets up a local web server that only answers queries from your device, then opens a browser page to access the interface via port 2040.
 
-As of October 2016, **IXmapsClient** replaces the former traceroute generator, **TRgen**, for collecting routing information. Running **TRgen** will produce an error message. To contribute new traceroutes to the IXmaps database, **TRgen** should be removed and the new **IXmapsClient**  specific to your operating system should be installed.
-
-
-## Installation and Running
 The current version of the client can be downloaded from [www.ixmaps.ca/contribute](https://www.ixmaps.ca/contribute.php).
 
-**IXmapsClient** works on **Mac OS X**, **Linux**, and **Windows**.
-
-
-### Linux
+### Installation
 This version of the software has been tested and runs on:
 * Ubuntu 18.04.3 LTS
 

@@ -1,6 +1,7 @@
 #!/bin/sh
 
 # make distributions for IXmapsClient
+# legacy?
 
 MODS="lodash open async cheerio express open raw-socket request socket.io"
 BASE="start.sh lib README.md server.js trace-platform.js trace-raw.js web"

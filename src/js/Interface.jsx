@@ -80,7 +80,7 @@ module.exports = createReactClass({
     let gen = new Date().getTime();
     this.state.ackInterval = setInterval(() => {
       if (this.state.ack) {
-        if (new Date().getTime() - this.state.ack > 20000) {
+        if (new Date().getTime() - this.state.ack > 40000) {
           this.setState({disconnected: true});
         }
       }
@@ -111,9 +111,9 @@ module.exports = createReactClass({
       );
     } else if (this.state.disconnected) {
       message = (
-        <Alert bsStyle='danger'>
+        <Alert bsStyle='warning'>
           <h1>Server disconnected</h1>
-          <p>The server is not responding to ping requests. It may be necessary to restart it.</p>
+          <p>Reconnecting to the server... this should not cause any interruption in performance.</p>
         </Alert>
       );
     }

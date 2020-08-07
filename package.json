@@ -22,7 +22,7 @@
     "start": "node server.js",
     "test": "node test/*/*",
     "build-macos": "pkg -t node10-macos-x64 server.js -o dist/macos/IXmapsClient --config package.json",
-    "build-win": "pkg -t node10-win-x64 server.js -o dist/win/IXmapsClient --config package.json",
+    "build-win": "pkg -t node6-win-x64 server.js -o dist/win/IXmapsClient --config package.json",
     "build-linux": "pkg -t node10-linux-x64 server.js -o dist/linux/IXmapsClient --config package.json"
   },
   "pkg": {
@@ -44,10 +44,11 @@
     "express": "^4.17.1",
     "lodash": "^4.17.15",
     "lodash.template": "^4.5.0",
+    "md-to-pdf": "^3.1.1",
     "moment": "^2.24.0",
     "node-libs-browser": "^2.2.1",
-    "opn-pkg": "~1.0",
     "open": "^7.0.0",
+    "opn-pkg": "~1.0",
     "pkg": "^4.4.0",
     "raw-socket": "^1.7.0",
     "react": "^16.12.0",
