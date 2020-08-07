@@ -42,7 +42,7 @@
     "cheerio": "^0.22.0",
     "create-react-class": "^15.6.3",
     "express": "^4.17.1",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "lodash.template": "^4.5.0",
     "md-to-pdf": "^3.1.1",
     "moment": "^2.24.0",
@@ -70,13 +70,13 @@
     "gulp-streamify": "1.0.2",
     "gulp-uglify": "^3.0.2",
     "gulp-util": "^3.0.8",
-    "http-proxy": "^1.18.0",
+    "http-proxy": "^1.18.1",
     "mkdirp": "^0.5.1",
     "react-hot-loader": "^4.12.18",
     "tape": "^4.11.0",
     "vinyl-source-stream": "^2.0.0",
     "watchify": "^3.11.1",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.9.0"
+    "webpack-dev-server": "^3.11.0"
   }
 }
