@@ -34,7 +34,7 @@ More detailed instructions [are available here](https://support.microsoft.com/en
 Note: We advise that you reset your default firewall settings once you have completed traceroute collection.
 
 #### Removing **IXmapsClient**
-1. Run **C:\unins000** to completely remove **IXmapsClient** from your machine
+1. Run **C:\IXmapsClient\unins000.exe** to completely remove **IXmapsClient** from your machine
 
 
 ## Contributors
