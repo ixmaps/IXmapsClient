@@ -9,18 +9,18 @@ The current version of the client can be downloaded from [www.ixmaps.ca/contribu
 
 ### Installation
 This version of the software has been tested and runs on:
-* Ubuntu 18.04.3 LTS
+* Ubuntu 20.04.3 LTS
 
 Note: If you have previously installed a version of the **IXmapsClient**, you must remove it before proceeding (see below for uninstall instructions).
 
 The current version of the client can be downloaded from [www.ixmaps.ca/contribute](https://www.ixmaps.ca/contribute.php).
 
 1. Download the IXmapsClient installer **IXmapsClient.1.1.1.linux.tar.gz**
-2. Extract the contents of the file **IXmapsClient.1.1.1.linux.tar.gz**, e.g. by running the following command in a terminal window: `tar xzvf IXmapsClient.1.1.1.linux.tar.gz`
+2. Extract the contents of the file **IXmapsClient.1.1.1.linux.tar.gz** with the Archive Manager or by running the following command in a terminal window: `tar xzvf IXmapsClient.1.1.1.linux.tar.gz`
 3. In the terminal window, navigate to the directory where **IXmapsClient** was extracted (for more details, see e.g. [Ubuntu/Using the Terminal](https://help.ubuntu.com/community/UsingTheTerminal))
-4. Type the following command to launch the application: `start.sh`
+4. Type the following command to launch the application: `./start.sh`
 
-**IXmapsClient** needs to be executed in a terminal with administrator's privileges. For this reason, when running the application you will be asked for the administrator's password; enter your admin password to proceed. The **IXmapsClient** interface should then be shown in a new browser window, or use your browser to go to http://localhost:2040/.
+**IXmapsClient** needs to be executed in a terminal with administrator's privileges. For this reason, when running the application you may be asked for the administrator's password; enter your admin password to proceed. The **IXmapsClient** interface should then be shown in a new browser window, or use your browser to go to http://localhost:2040/.
 
 #### Removing IXmapsClient
 Delete the **IXmapsClient** folder. In a Linux terminal window, navigate to the directory where **IXmapsClient** resides, then you run the following command: `rm -r IXmapsClient`

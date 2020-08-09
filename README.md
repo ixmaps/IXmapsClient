@@ -159,7 +159,7 @@ Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: de
 
 #### Linux build steps
 Linux users don't need fancy installers! We just tar/gzip it up:
-`tar --disable-copyfile -cvzf IXmapsClient.1.1.1.linux.tar.gz IXmapsClient --exclude ".DS_Store"--exclude='.*'`
+`COPYFILE_DISABLE=1 tar -cvzf IXmapsClient.1.1.1.linux.tar.gz IXmapsClient --exclude ".DS_Store"--exclude='.*'`
 (note the above was done on a Mac, hence the --excludes. You may need to exclude other things, depending on OSX's current whims)
 
 
