@@ -42,7 +42,7 @@
     "cheerio": "^0.22.0",
     "create-react-class": "^15.6.3",
     "express": "^4.17.1",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "lodash.template": "^4.5.0",
     "md-to-pdf": "^3.1.1",
     "moment": "^2.24.0",
