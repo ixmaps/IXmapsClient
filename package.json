@@ -45,7 +45,7 @@
     "lodash": "^4.17.19",
     "lodash.template": "^4.5.0",
     "md-to-pdf": "^3.1.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "node-libs-browser": "^2.2.1",
     "open": "^7.0.0",
     "opn-pkg": "~1.0",
