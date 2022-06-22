@@ -34,7 +34,7 @@
   ],
   "dependencies": {
     "@babel/core": "^7.7.5",
-    "async": "^3.1.0",
+    "async": "^3.2.2",
     "babel-core": "^7.0.0-bridge.0",
     "babel-loader": "8.0.6",
     "babel-preset-react": "^6.24.1",
