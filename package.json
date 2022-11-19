@@ -76,7 +76,7 @@
     "tape": "^4.11.0",
     "vinyl-source-stream": "^2.0.0",
     "watchify": "^3.11.1",
-    "webpack-cli": "^3.3.10",
+    "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
   }
 }
